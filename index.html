@@ -1,0 +1,1214 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Apprendre les noms d'Allah : signification, explication, vidéo, invocations et quiz. Site gratuit, réalisé bénévolement.">
+<meta property="og:title" content="Les 99 Noms d'Allah">
+<meta property="og:description" content="Apprendre les noms d'Allah : signification, explication, vidéo, invocations et quiz.">
+<meta name="theme-color" content="#FDF8F9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23A8436A'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='serif'%3E99%3C/text%3E%3C/svg%3E">
+<title>Les 99 Noms d'Allah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&family=Amiri:wght@400;700&display=swap">
+<style>
+/* Layout : galerie de couvertures pastel → fiche du nom (couverture + rubriques + quiz) ; quiz de révision global */
+:root{
+  --bg:#FDF8F9; --surface:#FFFFFF; color-scheme:light; --ink:#3B2030; --muted:#7E5E6C;
+  --accent:#A8436A; --accent-soft:#F1D5DE; --line:#E7CDD5; --gold:#B08752;
+  --ok:#3E8A62; --ok-soft:#DDF1E5; --ko:#B8435A; --ko-soft:#F8DCE2;
+  --shadow:0 10px 30px rgba(84,36,58,.10);
+  --f-display:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --f-body:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-ar:"Amiri","Geeza Pro","Traditional Arabic",serif;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;padding:0 20px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:40px 64px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+header{display:grid;gap:14px;justify-items:center;text-align:center;padding-block:12px 26px}
+.bism{font-family:var(--f-ar);font-size:1.5rem;color:var(--gold);line-height:1.4}
+h1{font-family:var(--f-display);font-weight:600;font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.05;margin:0;text-wrap:balance}
+h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+.hadith{max-width:560px;margin:0;font-family:var(--f-display);font-style:italic;font-size:1.2rem;color:var(--muted);line-height:1.45}
+.hadith cite{display:block;margin-top:6px;font-family:var(--f-body);font-style:normal;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+
+.tools{display:grid;gap:14px;margin-block:4px 28px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.search{flex:1 1 280px;max-width:420px}
+.search input{width:100%;font:inherit;padding:12px 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:500;text-decoration:none;color:var(--surface);background:var(--accent);border:0;padding:11px 20px;border-radius:999px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn svg{width:16px;height:16px;fill:currentColor}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{font-size:.85rem;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.count{text-align:center;font-size:.85rem;color:var(--muted);letter-spacing:.04em;margin:0}
+
+/* Couverture pastel (générée pour chaque nom) */
+.cover{--c-bg:#F6D6DE;--c-ink:#7A2E4A;position:relative;aspect-ratio:4/5;width:100%;max-width:100%;background:var(--c-bg);color:var(--c-ink);
+  border-radius:16px;display:grid;align-content:center;justify-items:center;gap:6px;padding:28px 18px;text-align:center;overflow:hidden}
+.cover::before{content:"";position:absolute;inset:10px;border:1px solid currentColor;border-radius:10px;opacity:.28;pointer-events:none}
+.cover::after{content:"";position:absolute;inset:14px;border:1px solid currentColor;border-radius:8px;opacity:.14;pointer-events:none}
+.cover .c-ar{font-family:var(--f-ar);font-weight:700;font-size:clamp(2.4rem,24cqi,4.8rem);line-height:1.35;direction:rtl}
+.cover .c-fr{font-family:var(--f-display);font-weight:600;font-size:1.55rem;line-height:1.1;letter-spacing:.01em}
+.cover .c-dot{display:flex;align-items:center;gap:8px;opacity:.5;width:60%}
+.cover .c-dot::before,.cover .c-dot::after{content:"";height:1px;background:currentColor;flex:1}
+.cover .c-dot i{width:6px;height:6px;background:currentColor;transform:rotate(45deg)}
+.cover .c-sens{font-family:var(--f-display);font-style:italic;font-size:1.15rem;line-height:1.25;max-width:22ch}
+.cover{container-type:inline-size}
+.dsheet{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:16px;background:rgba(40,16,28,.5)}
+.dpanel{background:var(--surface);color:var(--ink);border-radius:22px;max-width:640px;width:100%;max-height:calc(100% - 16px);overflow:auto;box-shadow:var(--shadow)}
+.dua-in{padding:22px clamp(16px,4vw,28px) 26px;display:grid;gap:16px}
+.dua-head{display:grid;justify-items:center;text-align:center;gap:2px}.dua-head .q-ar{font-size:2.6rem;margin:0}
+.dua-head strong{font-family:var(--f-display);font-size:1.5rem}.dua-head span{color:var(--muted);font-style:italic}
+.dtabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--accent-soft);padding:5px;border-radius:999px}
+.dtabs button{border:0;background:transparent;padding:10px 8px;border-radius:999px;font:inherit;font-size:.9rem;color:var(--accent);cursor:pointer}
+.dtabs button[aria-selected="true"]{background:var(--accent);color:#fff;font-weight:600;box-shadow:0 2px 8px rgba(120,40,70,.25)}
+.dtab-body{display:grid;gap:14px}
+.dua-card{border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;gap:10px;background:#FFFDFB}
+.dua-card h4{margin:0;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.dua-tag{justify-self:start;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.dua-tag.q{background:#E5EEE8;color:#3F5F4A}.dua-tag.s{background:#F3E8D6;color:#7A5A2A}.dua-tag.p{background:var(--accent-soft);color:var(--accent)}
+.dua-ar{font-family:var(--f-ar);font-size:1.65rem;line-height:2.1;text-align:right;margin:0}
+.dua-fr{margin:0;line-height:1.6}.dua-fr.big{font-family:var(--f-display);font-size:1.3rem;line-height:1.45}
+.dua-ctx{margin:0;font-size:.88rem;color:var(--muted);font-style:italic}
+.dua-src{margin:0;font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+mark.hl{background:#F6DDA8;color:inherit;border-radius:6px;padding:0 3px}
+.dua-none{display:grid;gap:12px;justify-items:center;text-align:center;padding:18px;border:1px dashed var(--line);border-radius:16px;color:var(--muted)}
+.dua-btn{justify-self:start}
+.acc{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:13px 16px}
+.acc summary::-webkit-details-marker{display:none}
+.acc-t{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.acc-h{flex:1;font-size:.85rem;color:var(--muted)}
+.acc-i{width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);transition:transform .2s;margin-right:4px}
+.acc[open] .acc-i{transform:rotate(-135deg)}.acc[open] .acc-h{visibility:hidden}
+.acc .expli{padding:0 16px 16px;border-top:1px solid var(--line);padding-top:14px}
+.q-text.q-small{font-size:1.35rem;line-height:1.35}
+.feedback{display:grid;gap:6px;padding:14px 16px;border-radius:14px;line-height:1.5}
+.feedback.good{background:var(--ok-soft);border:1px solid var(--ok)}.feedback.bad{background:#FFF6E5;border:1px solid #E9C77B}
+.feedback strong{font-size:1.05rem}.score-sub{margin:-14px 0 0;color:var(--muted)}
+#fb.feedback{color:var(--ink);font-size:.98rem}#fb.feedback.good{background:var(--ok-soft);border:1px solid var(--ok)}#fb.feedback.bad{background:#FFF6E5;border:1px solid #E9C77B}
+.panel.wide{max-width:1240px}
+.mmap{padding:22px clamp(14px,3vw,30px) 30px;position:relative}
+.mm-hint{color:var(--muted);margin:0 0 16px;font-size:.92rem}
+.mm-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;align-items:start}
+.mm-center{margin:22px auto;width:min(260px,80%);aspect-ratio:1;border-radius:50%;display:grid;place-content:center;justify-items:center;text-align:center;gap:4px;
+  background:radial-gradient(circle,#FFF8EC 0%,#F3E3C6 100%);border:2px solid var(--gold);box-shadow:0 0 0 8px #F7EEDC,var(--shadow);position:relative}
+.mm-center::before,.mm-center::after{content:"";position:absolute;left:50%;width:2px;height:22px;background:var(--gold)}
+.mm-center::before{top:-32px}.mm-center::after{bottom:-32px}
+.mm-center span{font-family:var(--f-ar);font-size:3.2rem;line-height:1.3;color:var(--ink)}
+.mm-center b{font-family:var(--f-display);font-size:1.3rem}.mm-center small{color:var(--muted);font-size:.78rem;max-width:80%}
+.mm-box{border:1.5px solid var(--tc);border-radius:16px;background:color-mix(in srgb,var(--tc) 7%,#fff);overflow:hidden}
+.mm-box h4{margin:0;padding:10px 14px;background:var(--tc);color:#fff;font-family:var(--f-display);font-size:1.15rem;display:flex;justify-content:space-between;align-items:center}
+.mm-box h4 span{font-family:var(--f-body,inherit);font-size:.75rem;background:rgba(255,255,255,.25);border-radius:999px;padding:2px 9px}
+.mm-box ul{list-style:none;margin:0;padding:6px}
+.mm-box button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:26px 1fr auto;grid-template-areas:"n fr ar" "n s ar";column-gap:8px;padding:7px 8px;border-radius:10px}
+.mm-box button:hover,.mm-box button[aria-pressed="true"]{background:color-mix(in srgb,var(--tc) 18%,#fff)}
+.mm-box button:focus-visible{outline:2px solid var(--tc)}
+.mm-n{grid-area:n;font-size:.75rem;color:var(--tc);font-weight:700;align-self:center}
+.mm-fr{grid-area:fr;font-weight:600;font-size:.92rem}.mm-s{grid-area:s;font-size:.8rem;color:var(--muted);font-style:italic}
+.mm-ar{grid-area:ar;font-family:var(--f-ar);font-size:1.35rem;align-self:center;color:var(--tc)}
+.mm-info{position:sticky;bottom:0;margin-top:18px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:16px;padding:16px 18px;box-shadow:0 -8px 30px rgba(60,20,40,.15)}
+.mm-info .close{position:absolute;top:10px;right:10px}
+.mm-info p{margin:4px 0}.mm-info{padding-right:52px}.mm-i-ar{text-align:left}
+@media (max-width:700px){.mmap{display:flex;flex-direction:column;gap:14px}.mmap .q-head{order:-3}.mm-hint{order:-2}.mm-center{order:-1;margin:6px auto 10px;width:200px}.mm-center::before{display:none}.mm-center span{font-size:2.6rem}.mm-row{display:contents}}
+.mm-i-ar{font-family:var(--f-ar);font-size:1.8rem;margin:0!important}.mm-i-s{font-family:var(--f-display);font-style:italic;font-size:1.15rem}
+.mm-i-m{background:var(--accent-soft);border-radius:10px;padding:8px 12px}.mm-info .btn{margin-top:8px}
+.dua{background:var(--accent-soft);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.dua.auth{background:var(--surface);border:1px solid var(--line)}.dua .tr{font-style:italic;color:var(--muted)}
+.book{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--surface)}
+.book strong{display:block}.book small{color:var(--muted)}.book-ic{font-size:1.5rem}
+.foot{margin:48px auto 24px;max-width:640px;text-align:center;font-size:.85rem;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:20px}
+.foot p{margin:0 0 8px}
+.sec .expli p{margin:0 0 .9em;line-height:1.65}.sec .expli p:last-child{margin-bottom:0}.sec .expli .saw{font-family:var(--f-ar);font-size:1.15em}
+.v-ar{font-family:var(--f-ar);font-size:1.5rem;line-height:2.2;text-align:right;margin:0 0 .4em;padding-top:.5em}.v-fr{font-style:italic}.v-ref{font-size:.85rem;opacity:.7;margin-top:.2em}
+
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px}
+.card{display:grid;text-align:left;background:none;border:0;padding:0;cursor:pointer;border-radius:16px;position:relative;transition:transform .2s ease}
+.card:hover{transform:translateY(-3px)}
+.card:hover .cover{box-shadow:var(--shadow)}
+.done{position:absolute;top:18px;right:18px;z-index:1;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;background:var(--surface);color:var(--ok);padding:3px 9px;border-radius:999px}
+
+/* Fiche + quiz */
+.sheet{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:20px;background:rgba(40,16,28,.45)}
+.panel{background:var(--surface);color:var(--ink);border-radius:22px;max-width:940px;width:100%;max-height:calc(100% - 20px);overflow:auto;box-shadow:var(--shadow)}
+.fiche{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr)}
+.side{background:var(--accent-soft);padding:20px;display:grid;gap:16px;align-content:start}
+.side figure{margin:0;display:grid;gap:6px}
+.side figure img{border-radius:12px;width:100%;display:block}
+.side figcaption{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center}
+.body{padding:28px 30px 30px;display:grid;gap:22px;align-content:start;min-width:0}
+.top{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.close{border:1px solid var(--line);background:transparent;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.05rem;flex:none}
+.names{display:grid;gap:0}
+.names .ar-l{font-family:var(--f-ar);font-size:2.4rem;color:var(--accent);line-height:1.5}
+.names h2{font-family:var(--f-display);font-weight:600;font-size:2.4rem;line-height:1.05;margin:0}
+.sec{display:grid;gap:6px}
+.sec h3{margin:0;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.sec p{margin:0;max-width:62ch}
+.sec .big{font-family:var(--f-display);font-size:1.45rem;line-height:1.35}
+.memo{background:var(--accent-soft);border-radius:14px;padding:14px 16px}
+.todo{border:1px dashed var(--line);border-radius:14px;padding:14px 16px;color:var(--muted);font-style:italic}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.nav{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+.nav button{background:none;border:0;color:var(--accent);cursor:pointer;padding:4px 0}
+.nav button:disabled{color:var(--line);cursor:default}
+
+.quiz{padding:28px 30px 30px;display:grid;gap:20px;max-width:680px;margin:0 auto}
+.q-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.q-kicker{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.progress{height:6px;border-radius:99px;background:var(--accent-soft);overflow:hidden}
+.progress span{display:block;height:100%;background:var(--accent);transition:width .3s ease}
+.q-text{font-family:var(--f-display);font-size:1.7rem;line-height:1.25;margin:0;text-wrap:balance}
+.q-ar{font-family:var(--f-ar);font-size:3rem;color:var(--accent);text-align:center;line-height:1.5;margin:0}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt.good{background:var(--ok-soft);border-color:var(--ok);color:var(--ink)}
+.opt.bad{background:var(--ko-soft);border-color:var(--ko);color:var(--ink)}
+.feedback{margin:0;font-weight:500}
+.feedback.good{color:var(--ok)} .feedback.bad{color:var(--ko)}
+.score{font-family:var(--f-display);font-size:3.4rem;line-height:1;margin:0;color:var(--accent)}
+.recap{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.recap li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--ko-soft)}
+.recap li button{background:none;border:0;color:var(--accent);cursor:pointer;text-decoration:underline}
+.choice{display:grid;gap:10px}
+
+@media (max-width:720px){
+  .fiche{grid-template-columns:1fr}
+  .side{padding:14px;justify-items:center}
+  .side .cover,.side figure{max-width:280px;width:100%}
+  .body,.quiz{padding:22px 20px 24px}
+  .names h2{font-size:2rem}
+}
+@media (max-width:460px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.cover{padding:20px 10px}.cover .c-fr{font-size:1.1rem}.cover .c-sens{font-size:.95rem}}
+@media (prefers-reduced-motion:reduce){.card,.progress span{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="bism" lang="ar">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+    <h1>Les 99 Noms <em>d'Allah</em></h1>
+    <p class="hadith">« Allah a quatre-vingt-dix-neuf noms, cent moins un : celui qui les dénombre entre au paradis. »<cite>Boukhari n°2736 · Mouslim n°2677</cite></p>
+  </header>
+
+  <section class="general" aria-labelledby="gen-t">
+    <h2 id="gen-t">Vidéos générales</h2>
+    <div class="vids" id="general"></div>
+  </section>
+
+  <div class="tools">
+    <div class="bar">
+      <div class="search"><input id="q" type="search" placeholder="Rechercher un nom ou une signification" aria-label="Rechercher un nom"></div>
+      <button class="btn ghost" type="button" id="mapbtn">Carte mentale</button>
+      <button class="btn" type="button" id="revise">Quiz de révision</button>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrer par thème"></div>
+    <p class="count" id="count"></p>
+  </div>
+
+  <main class="grid" id="grid"></main>
+  <footer class="foot">
+    <p><strong>Site gratuit, réalisé bénévolement</strong> pour nous aider à apprendre les noms d'Allah. Il ne doit pas être vendu.</p>
+    <p>© Soumaya. Les explications appartiennent à leur autrice, les vidéos à leurs chaînes et le livre recommandé à son éditeur. Merci de ne pas reproduire ce contenu à des fins commerciales.</p>
+  </footer>
+</div>
+
+<div class="dsheet" id="dsheet" hidden>
+  <article class="dpanel" role="dialog" aria-modal="true" aria-label="Invoquer avec ce Nom" id="dpanel"></article>
+</div>
+<div class="sheet" id="sheet" hidden>
+  <article class="panel" role="dialog" aria-modal="true" aria-label="Fiche du nom" id="panel"></article>
+</div>
+
+<style>
+.cover .c-num{position:absolute;top:18px;left:0;right:0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.tagline{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tag{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px}
+.quote{margin:0;padding:16px 18px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 14px 14px 0;font-family:var(--f-display);font-size:1.25rem;line-height:1.45}
+.q-name{display:grid;justify-items:center;gap:0;text-align:center}
+.q-name .q-ar{margin:0}
+.q-name strong{font-family:var(--f-display);font-size:1.8rem;font-weight:600}
+.hint{margin:0;color:var(--muted);font-size:.92rem}
+.reveal{display:grid;gap:8px;padding:16px 18px;border-radius:14px;background:var(--ok-soft)}
+.reveal .big{font-family:var(--f-display);font-size:1.4rem;line-height:1.3;margin:0}
+.reveal p{margin:0}
+.opts.two{grid-template-columns:1fr 1fr}
+select.pick{width:100%;font:inherit;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.choice .opt strong{display:block;font-weight:600}
+.choice .opt span{display:block;color:var(--muted);font-size:.9rem}
+.vids{display:grid;gap:10px}
+.general{max-width:620px;margin:0 auto 26px;display:grid;gap:10px}
+.general h2{margin:0;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;text-align:center}
+.vid{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);background:var(--surface)}
+.vid:hover{border-color:var(--accent)}
+.vid .play{flex:none;width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--surface);display:grid;place-items:center}
+.vid .play svg{width:16px;height:16px;fill:currentColor}
+.vid strong{display:block;font-weight:500;line-height:1.35}
+.vid small{display:block;color:var(--muted);font-size:.82rem}
+.vid .vnote{color:var(--accent);margin-top:2px}
+</style>
+<script>
+/* ── Contenu : un nom par ligne ──
+   [n°, nom, arabe, signification, explication courte, pour t'en souvenir, thème, mots à masquer dans le quiz] */
+const RAW = [
+ [1, "Allah", "اللَّهُ", "Allah", "Allah est le nom propre de notre Créateur. Il désigne Celui que nous adorons, notre Seigneur et Créateur.", "« Allah » est Son nom propre ; Ses autres beaux noms nous enseignent Ses attributs.", "Puissance/Majesté", ["Allah"], true],
+ [2, "al-Ilâh", "الإِلَٰهُ", "le Dieu qu'on adore", "Allah seul mérite toute notre adoration. C'est vers Lui que nous nous tournons dans nos prières et nos invocations.", "On retrouve « ilâh » dans la Shahada : « Lâ ilâha illâ Allah » signifie qu'il n'y a pas de divinité digne d'être adorée en dehors d'Allah.", "Puissance/Majesté", ["ilâh", "ilâha", "Al-Ilâh"], true],
+ [3, "al-Aẖad", "الأَحَدُ", "le Seul", "Allah est Unique. Il n'a aucun égal, aucun semblable et aucun associé. Toute la création est multiple, mais Lui est Un.", "Pense à la sourate Al-Ikhlâs : « Qul huwa Allâhu Ahad », « Dis : Il est Allah, Unique ».", "Puissance/Majesté", ["Ahad", "Al-Ahad"], true],
+ [4, "Al-'Adl", "العَدْل", "Le Juste", "Allah est parfaitement juste dans Ses paroles, Ses jugements et Ses actions. Il ne commet jamais d'injustice et donne à chacun ce qui lui revient.", "Pense à une balance parfaitement équilibrée : Allah est le Juste, Il donne à chacun ce qui lui revient.", "Justice/Droiture", [], false],
+ [5, "al-‘Afuw", "الْعَفُوُّ", "le très Indulgent", "Allah pardonne énormément nos péchés, même quand nous les répétons. Il aime pardonner et Il efface nos fautes lorsque nous nous repentons sincèrement.", "Pense aux traces dans le sable que la vague efface : al-‘Afuw efface les fautes.", "Miséricorde/Amour", ["Al-'Afûw"], true],
+ [6, "al-‘Alîm", "الْعَلِيمُ", "l'Omniscient", "Allah sait absolument tout. Il connaît ce qui est visible et ce qui est caché, nos pensées et tout ce qu'il y a dans cet univers. Rien ne Lui échappe.", "al-‘Alîm est lié au mot « 'ilm » (العلم), qui signifie la connaissance, la science. Allah sait absolument tout.", "Science/Sagesse", ["'ilm", "Al-'Alîm"], true],
+ [7, "al-‘Azîz", "الْعَزِيزُ", "le Tout Puissant", "Allah est parfaitement puissant. Nul ne peut Lui résister, ni Le vaincre.", "Pense à une forteresse impossible à renverser : Allah est al-‘Azîz, le Tout-Puissant, l'Invincible.", "Puissance/Majesté", ["Al-'Azîz"], true],
+ [8, "al-‘Aliyy", "الْعَلِيُّ", "le très Haut", "Allah est le Très-Haut, élevé au-dessus de toute chose.", "Pense à ce qui est très haut, au-dessus de tout : Allah est al-‘Aliyy, le Très-Haut.", "Puissance/Majesté", ["Al-'Aliyy"], true],
+ [9, "al-‘Aẕîm", "الْعَظِيمُ", "l'Immense", "Allah est immense dans Sa grandeur. Sa grandeur dépasse tout ce que l'esprit peut imaginer.", "On le dit pendant le rukû' : « Subhâna Rabbiyal-'Adhîm » (Gloire à mon Seigneur, l'Immense).", "Puissance/Majesté", ["'Adhîm", "Al-'Adhîm"], true],
+ [10, "al-A‘lâ", "الأَعْلَى", "le tout Haut", "Allah est le Plus Élevé, au-dessus de toute Sa création. Il est parfait en élévation, en grandeur et en puissance.", "En sujûd, tu te prosternes devant Allah et tu dis : « Subhâna Rabbiyal-A'lâ » (Gloire à mon Seigneur, le Plus Élevé).", "Puissance/Majesté", ["A'lâ", "Al-A'lâ"], true],
+ [11, "al-Awwal", "الأَوَّلُ", "le Premier", "Allah est le Premier. Rien n'existait avant Lui. Il était là avant toute chose.", "« Awwal » signifie « premier ». Avant toute chose : Allah.", "Création/Origine", ["Awwal", "Al-Awwal"], true],
+ [12, "al-Âkhir", "الآخِرُ", "le Dernier", "Allah est le Dernier. Tout ce qui est créé a une fin, mais Allah demeure.", "al-Âkhir te fait penser à Al-Âkhirah : l'au-delà, ce qui vient après cette vie. Allah est al-Âkhir, le Dernier, Celui qui demeure après toute chose.", "Création/Origine", ["Al-Âkhirah", "Al-Âkhir"], true],
+ [13, "Al-Bâ'ith", "البَاعِث", "Le Résurrecteur", "Allah ressuscitera les morts et les fera sortir de leurs tombes pour le Jour du Jugement.", "Pense au jour où Allah rendra la vie aux morts.", "Création/Origine", [], false],
+ [14, "al-Bâri’", "الْبَارِئُ", "le Novateur", "Celui qui fait exister et donne forme à la création, à partir du néant, sans modèle préalable.", "Pense à ce qui n'existait pas puis existe : Allah fait exister ce qu'Il veut à partir de rien.", "Création/Origine", ["Al-Bâri'"], true],
+ [15, "al-Barr", "الْبَرُّ", "le Bienfaisant", "Celui dont la bonté est immense, qui fait du bien à Ses serviteurs et leur accorde Ses bienfaits.", "Quand tu vois le bien, la douceur et la bonté autour de toi, pense à al-Barr.", "Miséricorde/Amour", ["Al-Barr"], true],
+ [16, "al-Bas̱îr", "الْبَصِيرُ", "le Clairvoyant", "Allah voit absolument toute chose, partout et en même temps : le visible comme le caché, le proche comme le lointain, le grand comme le minuscule. Rien n'échappe à Sa vision.", "Nous ne pouvons regarder qu'un endroit à la fois ; Allah voit toute chose, partout et en même temps.", "Science/Sagesse", ["Al-Basîr"], true],
+ [17, "al-Bâsiṯ", "الْبَاسِطُ", "le Généreux", "Allah étend la subsistance et accorde largement Ses bienfaits à qui Il veut, selon Sa sagesse.", "Pense à un passage étroit qui devient vaste : al-Bâsiṯ, Celui qui étend et élargit.", "Miséricorde/Amour", ["Al-Bâsit"], true],
+ [18, "al-Bâṯin", "الْبَاطِنُ", "le Caché", "Allah échappe à nos regards et à nos sens. Nous ne pouvons pas Le cerner, tandis qu'Il connaît parfaitement tout ce qui est caché et invisible aux créatures.", "Nous ne connaissons pas ce qui est caché dans les cœurs ; Allah, Lui, le connaît parfaitement.", "Science/Sagesse", ["Al-Bâtin"], true],
+ [19, "Al-Badî'", "البَدِيع", "Le Créateur sans précédent", "Allah crée sans modèle ni précédent. Il fait exister une création incomparable, parfaite et pleine de sagesse.", "Pense aux merveilles de la création : Allah est Al-Badî', Celui qui crée sans modèle ni précédent.", "Création/Origine", [], false],
+ [20, "Al-Bâqî", "البَاقِي", "Celui qui demeure", "Tout ce qui existe finit par disparaître : les humains meurent, les plantes se fanent, les animaux aussi. Mais Allah, Lui, demeure éternellement.", "Pense à tout ce qui passe et disparaît : Allah seul demeure.", "Création/Origine", [], false],
+ [21, "Ad-Dârr", "الضَّارّ", "Celui qui éprouve", "Aucune épreuve ni aucun mal ne peut atteindre une créature sans la permission d'Allah, et tout cela se fait selon Sa sagesse.", "Quand une épreuve me touche, je me rappelle qu'elle ne m'atteint que par la permission d'Allah et selon Sa sagesse.", "Justice/Droiture", [], false],
+ [22, "al-Ẕâhir", "الظَّاهِرُ", "l'Apparent", "Allah est al-Ẕâhir : Il est au-dessus de toute chose, et Ses signes sont apparents partout dans la création.", "Regarde autour de toi : tout peut te rappeler les signes d'Allah.", "Puissance/Majesté", ["Adh-Dhâhir"], true],
+ [23, "al-Dayyân", "الدَّيَّانُ", "le Rétributeur", "Allah juge avec une justice parfaite et rétribue chacun selon ses actes. Aucun droit n'est oublié auprès de Lui.", "Pense au Jour où chacun devra rendre compte de ses actes : aucun droit, aucune bonne action et aucune injustice ne seront oubliés.", "Justice/Droiture", ["Ad-Dayyân"], true],
+ [24, "Dhû al-Jalâl wa al-Ikram", "ذُو الْجَلَالِ وَالإِكْرَامِ", "le Détenteur de la majesté et de la générosité", "Allah possède toute la majesté et toute la noblesse. Il est digne d'être glorifié et Il honore Ses serviteurs par Sa générosité.", "Pense à une grandeur qui inspire le respect et à une générosité qui honore : Allah est Dhû al-Jalâl wa al-Ikram.", "Puissance/Majesté", ["Dhoul-Jalâli wa-l-Ikrâm"], true],
+ [25, "al-Fattâẖ", "الْفَتَّاحُ", "le Grand Juge", "Allah ouvre les portes du bien, des solutions, de la subsistance et de la miséricorde. Rien ne s'ouvre sans Sa permission.", "Pense à une porte qui s'ouvre.", "Protection/Sécurité", ["Al-Fattâh"], true],
+ [26, "al-Ghaffâr", "الْغَفَّارُ", "le très Pardonnant", "Allah pardonne encore et encore à Son serviteur lorsqu'il revient à Lui sincèrement, même si les fautes se répètent.", "Pense à des traces sombres qui s'effacent encore et encore : Allah pardonne de nombreuses fois.", "Miséricorde/Amour", ["Al-Ghaffâr"], true],
+ [27, "al-Ghafûr", "الْغَفُورُ", "le Pardonnant", "Le pardon d'Allah est immense : Il peut pardonner même des fautes qui nous paraissent très grandes, si l'on revient sincèrement à Lui.", "Pense à une grande tache sombre recouverte par une lumière plus vaste : le pardon d'Allah est immense.", "Miséricorde/Amour", ["Al-Ghafoûr"], true],
+ [28, "al-Ghaniyy", "الْغَنِيُّ", "le Suffisant par Soi", "Toute la création a des besoins et dépend d'Allah, alors qu'Allah, Lui, se suffit parfaitement à Lui-même et n'a besoin de personne.", "Pense aux créatures qui ont besoin de manger et de boire.", "Puissance/Majesté", ["Al-Ghaniyy"], true],
+ [29, "al-Hâdî", "الْهَادِي", "le Guide", "Allah guide vers la vérité, le bien et le droit chemin.", "Pense à un chemin clair au milieu de plusieurs voies : Allah guide vers la bonne direction.", "Science/Sagesse", ["Al-Hâdî"], true],
+ [30, "al-H̱afîẕ", "الْحَفِيظُ", "le très Bienveillant", "Allah protège, préserve et veille sur toute chose parfaitement.", "Pense à ce qui est fragile gardé sous une protection : Allah préserve et protège.", "Protection/Sécurité", ["Al-Hafîdh"], true],
+ [31, "al-H̱akam", "الْحَكَمُ", "le Juge Équitable", "Allah juge et tranche avec vérité, et Son jugement est parfait.", "Pense à une décision parfaite qui tranche entre deux côtés : Allah est al-H̱akam.", "Justice/Droiture", ["Al-Hakam"], true],
+ [32, "al-H̱akîm", "الْحَكِيمُ", "l'Infiniment Sage", "Celui dont la sagesse est parfaite.", "", "Science/Sagesse", ["Al-Hakîm", "Al-Hakim"], true],
+ [33, "al-H̱alîm", "الْحَلِيمُ", "le très Doux", "L'Indulgent, Celui qui ne se hâte pas de châtier malgré Sa capacité à le faire.", "", "Miséricorde/Amour", ["Al-Halîm", "Al-Halim"], true],
+ [34, "al-H̱amîd", "الْحَمِيدُ", "le Loué", "Le Digne de louange, Celui à qui revient toute louange.", "", "Puissance/Majesté", ["Al-Hamîd", "Al-Hamid"], true],
+ [35, "al-H̱aqq", "الْحَقُّ", "la Vérité", "Le Vrai, Celui dont l'existence et la vérité sont absolues.", "", "Puissance/Majesté", ["Al-Haqq", "Al-Haq"], true],
+ [36, "al-H̱asîb", "الْحَسِيبُ", "Celui qui consigne toutes les œuvres", "Celui qui suffit à Ses serviteurs et qui tient compte de toutes leurs œuvres.", "", "Justice/Droiture", ["Al-Hasîb", "Al-Hasib", "Al-Hassib"], true],
+ [37, "al-H̱ayy", "الْحَيُّ", "le Vivant", "Celui dont la vie est parfaite, éternelle et sans aucun commencement ni fin.", "", "Puissance/Majesté", ["Al-Hayy", "Al-Hay"], true],
+];
+/* Ajouts plus tard : explication longue et lien vidéo, par numéro */
+/* Vidéos : 1 ou 2 par nom, Ficra Synergie Musulmane en premier quand elle existe */
+const V = (id, titre, chaine, debut=0, note="") => ({ url:"https://youtu.be/"+id+(debut?"?t="+debut:""), titre, chaine, note });
+/* Versets : traduction reprise des explications (ou du livre). proche:true = le nom n'y figure pas tel quel */
+const VERSETS = {
+  1: {ar:"ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ …", fr:"« Allah ! Il n'y a de divinité que Lui, le Vivant, Celui qui subsiste par Lui-même… »", ref:"Sourate Al-Baqarah (2), verset 255 – Ayat al-Koursiy"},
+  25: {ar:"إِنَّا فَتَحْنَا لَكَ فَتْحًۭا مُّبِينًۭا", fr:"« En vérité, Nous t'avons accordé une victoire éclatante. »", ref:"Sourate Al-Fath (48), verset 1", proche:true},
+  37: {ar:"ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ …", fr:"« Allah ! Il n'y a de divinité que Lui, le Vivant, Celui qui subsiste par Lui-même… »", ref:"Sourate Al-Baqarah (2), verset 255 – Ayat al-Koursiy"},
+  5: {ar:"… أَوْ تَعْفُوا۟ عَن سُوٓءٍۢ فَإِنَّ ٱللَّهَ كَانَ عَفُوًّۭا قَدِيرًا", fr:"« … et si vous pardonnez un mal, alors certes Allah est ‘Afuw, Omnipotent. »", ref:"Sourate An-Nissa (4), verset 149"},
+  7: {ar:"… وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ", fr:"« Et c'est Lui le Puissant, le Sage. »", ref:"Sourate Al-Hashr (59), verset 24"},
+  8: {ar:"… وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ", fr:"« … et Il est le Très-Haut, le Très-Grand. »", ref:"Sourate Al-Baqarah (2), verset 255 – Ayat al-Koursiy"},
+  9: {ar:"… وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ", fr:"« … et Il est le Très-Haut, le Très-Grand. »", ref:"Sourate Al-Baqarah (2), verset 255 – Ayat al-Koursiy"},
+  10: {ar:"سَبِّحِ ٱسْمَ رَبِّكَ ٱلْأَعْلَى", fr:"« Glorifie le nom de ton Seigneur, le Plus Haut. »", ref:"Sourate Al-A‘lâ (87), verset 1"},
+  11: {ar:"هُوَ ٱلْأَوَّلُ وَٱلْءَاخِرُ وَٱلظَّٰهِرُ وَٱلْبَاطِنُ ۖ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ", fr:"« Il est le Premier et le Dernier, l'Apparent et le Caché, et Il est Omniscient. »", ref:"Sourate Al-Hadîd (57), verset 3"},
+  12: {ar:"هُوَ ٱلْأَوَّلُ وَٱلْءَاخِرُ وَٱلظَّٰهِرُ وَٱلْبَاطِنُ ۖ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ", fr:"« Il est le Premier et le Dernier, l'Apparent et le Caché, et Il est Omniscient. »", ref:"Sourate Al-Hadîd (57), verset 3"},
+  13: {ar:"وَأَنَّ ٱلسَّاعَةَ ءَاتِيَةٌۭ لَّا رَيْبَ فِيهَا وَأَنَّ ٱللَّهَ يَبْعَثُ مَن فِى ٱلْقُبُورِ", fr:"« Et que l'Heure arrivera, pas de doute à son sujet, et qu'Allah ressuscitera ceux qui sont dans les tombes. »", ref:"Sourate Al-Hajj (22), verset 7", proche:true},
+  14: {ar:"هُوَ ٱللَّهُ ٱلْخَٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ …", fr:"« C'est Lui Allah, le Créateur, Celui qui donne un commencement à toute chose, le Formateur. À Lui les plus beaux noms… »", ref:"Sourate Al-Hashr (59), verset 24"},
+  15: {ar:"إِنَّهُۥ هُوَ ٱلْبَرُّ ٱلرَّحِيمُ", fr:"« En vérité, c'est Lui le Bienfaisant, le Miséricordieux. »", ref:"Sourate At-Tûr (52), verset 28"},
+  16: {ar:"… وَٱللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ", fr:"« Et Allah est parfaitement Voyant de ce que vous faites. »", ref:"Sourate Al-Baqarah (2), verset 265"},
+  17: {ar:"… وَٱللَّهُ يَقْبِضُ وَيَبْصُۜطُ وَإِلَيْهِ تُرْجَعُونَ", fr:"« … Et Allah restreint ou étend (Ses faveurs). Et c'est à Lui que vous retournerez. »", ref:"Sourate Al-Baqarah (2), verset 245", proche:true},
+  18: {ar:"هُوَ ٱلْأَوَّلُ وَٱلْءَاخِرُ وَٱلظَّٰهِرُ وَٱلْبَاطِنُ ۖ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ", fr:"« C'est Lui le Premier et le Dernier, l'Apparent et le Caché, et Il est Omniscient de toute chose. »", ref:"Sourate Al-Hadîd (57), verset 3"},
+  19: {ar:"بَدِيعُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ وَإِذَا قَضَىٰٓ أَمْرًۭا فَإِنَّمَا يَقُولُ لَهُۥ كُن فَيَكُونُ", fr:"« Créateur des cieux et de la Terre à partir du néant ! Et lorsqu'Il décide une chose, Il dit seulement : \"Sois !\" et elle est aussitôt. »", ref:"Sourate Al-Baqarah (2), verset 117"},
+  20: {ar:"كُلُّ مَنْ عَلَيْهَا فَانٍۢ ۝ وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو ٱلْجَلَٰلِ وَٱلْإِكْرَامِ", fr:"« Tout ce qui est sur terre disparaîtra. Seule subsistera la Face de ton Seigneur, pleine de majesté et de noblesse. »", ref:"Sourate Ar-Rahmân (55), versets 26-27", proche:true},
+  21: {ar:"وَإِن يَمْسَسْكَ ٱللَّهُ بِضُرٍّۢ فَلَا كَاشِفَ لَهُۥٓ إِلَّا هُوَ …", fr:"« Et si Allah fait qu'un mal te touche, nul ne peut l'écarter en dehors de Lui… »", ref:"Sourate Younous (10), verset 107", proche:true},
+  22: {ar:"هُوَ ٱلْأَوَّلُ وَٱلْءَاخِرُ وَٱلظَّٰهِرُ وَٱلْبَاطِنُ ۖ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ", fr:"« C'est Lui le Premier et le Dernier, l'Apparent et le Caché, et Il est Omniscient de toute chose. »", ref:"Sourate Al-Hadîd (57), verset 3"},
+  24: {ar:"تَبَٰرَكَ ٱسْمُ رَبِّكَ ذِى ٱلْجَلَٰلِ وَٱلْإِكْرَامِ", fr:"« Béni soit le nom de ton Seigneur, Détenteur de la Majesté et de la Générosité. »", ref:"Sourate Ar-Rahmân (55), verset 78"},
+  26: {ar:"وَإِنِّى لَغَفَّارٌۭ لِّمَن تَابَ وَءَامَنَ وَعَمِلَ صَٰلِحًۭا ثُمَّ ٱهْتَدَىٰ", fr:"« Et Je suis certes Grand Pardonneur envers celui qui se repent, croit, accomplit de bonnes œuvres, puis se maintient dans la bonne voie. »", ref:"Sourate Tâ-Hâ (20), verset 82"},
+  3: {ar:"قُلْ هُوَ ٱللَّهُ أَحَدٌ", fr:"« Dis : Il est Allah, Al-Ahad. »", ref:"Sourate Al-Ikhlas (112), verset 1"},
+  4: {ar:"… وَلَا يَظْلِمُ رَبُّكَ أَحَدًۭا", fr:"« Ton Seigneur ne fait du tort à personne. »", ref:"Sourate Al-Kahf (18), verset 49", proche:true},
+  6: {ar:"وَعِندَهُۥ مَفَاتِحُ ٱلْغَيْبِ لَا يَعْلَمُهَآ إِلَّا هُوَ ۚ وَيَعْلَمُ مَا فِى ٱلْبَرِّ وَٱلْبَحْرِ ۚ وَمَا تَسْقُطُ مِن وَرَقَةٍ إِلَّا يَعْلَمُهَا …", fr:"« Il détient les clefs de l'Invisible, nul autre que Lui ne les connaît. Et Il sait ce qui est sur la terre et dans la mer. Pas une feuille ne tombe sans qu'Il ne le sache… »", ref:"Sourate Al-An‘am (6), verset 59"},
+};
+
+const VIDEOS = {
+  1: [V("AZLCHgqRms4","01- Apprendre les Noms d'Allah : Allah et Al-Ilah","An-Nassiha")],
+  2: [V("AZLCHgqRms4","01- Apprendre les Noms d'Allah : Allah et Al-Ilah","An-Nassiha")],
+  3: [V("BVHYNY446GE","Jour 27. Vivre l'unicité de mon Créateur - Al-Ahad","Ficra Synergie Musulmane")],
+  5: [V("3O3KpECYIhM","Ô Allah – Le Pardonneur Indulgent | Al 'Afouw – Cheikh Nabil Al Awadhi","Muzflix")],
+  4: [V("_m6IcVt48Ew","17- Explication du nom : Le Juste (Al-'Adl)","Pr. Rachid Eljay")],
+  6: [V("XrtbZTRC2tY","Jour 6. Ya Allah, éclaire ma vie par Ton savoir - Al-'Alim","Ficra Synergie Musulmane")],
+  7: [V("-Tcecf0PtCs","Jour 12. Aie confiance dans Ses décisions - Al-Aziz","Ficra Synergie Musulmane")],
+  8: [V("Pnf15QhOcNc","Jour 5. Comment m'élever spirituellement ? - Al-'Aliyy","Ficra Synergie Musulmane")],
+  9: [V("-g3c2RIdGdM","16- Explication du nom : L'Immense (Al-'Adhim)","Pr. Rachid Eljay")],
+  11: [V("scjZJ_0pFZs","04- Apprendre les Noms d'Allah : Al-Awwal, Al-Akhir, Adh-Dhahir et Al Batine","An-Nassiha",132,"La vidéo démarre à 2:12. Passages sur al-Awwal et al-Âkhir : de 2:12 à 2:47, puis de 4:39 à 6:51.")],
+  12: [V("scjZJ_0pFZs","04- Apprendre les Noms d'Allah : Al-Awwal, Al-Akhir, Adh-Dhahir et Al Batine","An-Nassiha",132,"La vidéo démarre à 2:12. Passages sur al-Awwal et al-Âkhir : de 2:12 à 2:47, puis de 4:39 à 6:51.")],
+  13: [V("59vVJa5-0TQ","Explication du nom Al-Ba'ith","",30,"La vidéo démarre à 0:30, au passage sur Al-Bâ'ith.")],
+  17: [V("yfy_v6rAUHs","Explication du nom Al-Basit","",32,"La vidéo démarre à 0:32. Passage sur al-Bâsiṯ : de 0:32 à 1:27.")],
+  18: [V("kwn7FA8sspY","Al Baatin : ce qu'il faut savoir","Le Dictionnaire du Musulman")],
+  19: [V("xTkD7cABV-I","Les plus beaux noms d'Allah - Al-Hadi, Al-Badi', épisode 49","",229,"La vidéo démarre à 3:49, au passage sur Al-Badî'.")],
+  21: [V("ou_Ssekn98I","Explication du nom Ad-Darr","",36,"La vidéo démarre à 0:36, au passage sur Ad-Dârr.")],
+  28: [V("ObT59bLFZz0","Al Ghaniy - Les noms d'Allah #29","SounnaAction")],
+  14: [V("m9nbE5v3iyU","Les noms d'Allah - Épisode 11 - Al-Bari (l'Initiateur)","Islam Smile")],
+  15: [V("H0RF8UQGHkw","08- Apprendre les Noms d'Allah : Al-Barr","An-Nassiha")],
+  16: [V("XeN7PrON8R4","Jour 23. Parle à Allah, Il t'entend et te voit - Al-Sami' & Al-Bassir","Ficra Synergie Musulmane")],
+  29: [V("wUjYgV0l6v0","Jour 18. Être guidé par Allah au quotidien - Al-Hady & Al-Rachid","Ficra Synergie Musulmane")],
+  25: [V("bF6zkHtBqKo","Jour 17. Réussir tout ce que j'entreprends - Al-Fattah","Ficra Synergie Musulmane")],
+  26: [V("JVatBUF9qms","Effacer tous mes péchés - Al-Ghafour","Ficra Synergie Musulmane")],
+  27: [V("JVatBUF9qms","Effacer tous mes péchés - Al-Ghafour","Ficra Synergie Musulmane")],
+  30: [V("U0xeN2dHBWI","Jour 24. Avoir une protection contre tout mal - Al-Hafidh","Ficra Synergie Musulmane")],
+  32: [V("gz5o4jds3cg","Jour 7. La sagesse divine derrière tout ce qui m'arrive - Al-Hakim","Ficra Synergie Musulmane")],
+  33: [V("5aS5EwdTW4w","17- Apprendre les Noms d'Allah : Al-Halim","An-Nassiha")],
+  34: [V("9OAyO9S3O5Q","Explication du nom Al-Hamid","",186,"La vidéo démarre à 3:06, au passage sur al-H̱amîd.")],
+  10: [V("w2JghiMbeMU","Explication du nom Al-A‘lâ (vidéo courte)","")],
+  20: [V("2wWAkUt-4OI","Explication du nom Al-Bâqî","")],
+  22: [V("1VgOUuQJRm0","Explication du nom Al-Ẕâhir","",33,"La vidéo démarre à 0:33, au passage sur al-Ẕâhir.")],
+  23: [{url:"https://vm.tiktok.com/ZN8SFJqph/", titre:"Al-Dayyân – Cheikh Khaled Larbi", chaine:"Grande Mosquée de Paris", src:"TikTok", note:""}],
+  35: [V("vMNDyqxBkpQ","15- Apprendre les Noms d'Allah : Al-Haqq et Al-Moubine","An-Nassiha")],
+  36: [V("7VtnV4yzcEI","Les Noms et Attributs d'Allah (n°20) : Al-Hassib","GMP TV – Grande Mosquée de Paris")],
+  37: [V("WfmCgm4mlho","Jour 2. Redonnons vie à nos cœurs - Al-Hay","Ficra Synergie Musulmane")],
+  31: [V("sZTkGqU9j3k","Jour 16. Qui décidera de ton sort le jour du jugement ? - Al-Hakam","Ficra Synergie Musulmane")],
+};
+/* Vidéos générales (page d'accueil) */
+const GENERAL = [
+  V("f1c7TvxfmDY","ALLAH dans ma vie – poème – Noms d'Allah","Ficra Synergie Musulmane"),
+  V("EvoTVx1PPaw","La compréhension des Noms et Attributs sublimes d'Allah","Mosquée Mirail-Toulouse"),
+];
+/* Invocations : texte de la sœur (repris de la fin des explications) + invocations authentiques validées par Soum */
+const DUAS = {
+  2: {soeur:"Qu'Allah nous pardonne et purifie nos cœurs.", auth:[]},
+  5: {soeur:"اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي\n« Ô Allah, Tu es Al-‘Afuw, Tu aimes pardonner, alors pardonne-moi. »", auth:[]},
+  6: {soeur:"وَقُلْ رَبِّ زِدْنِي عِلْمًا\n« Et dis : Seigneur, augmente-moi en science ! » (Sourate Ṭâ-Hâ)", auth:[]},
+  7: {soeur:"Qu'Allah nous permette de connaître Al-‘Azîz, de nous attacher à Lui et de trouver auprès de Lui notre véritable force.", auth:[]},
+  8: {soeur:"Ô Allah, Al-‘Aliyy, élève-nous par notre foi, notre humilité et notre obéissance. Ne laisse pas nos cœurs rechercher l'élévation auprès des créatures, mais fais-nous rechercher auprès de Toi la véritable élévation.", auth:[]},
+  9: {soeur:"Ô Allah, Al-‘Azîm, fais grandir Ta grandeur dans nos cœurs, fais-nous T'aimer, Te vénérer et Te glorifier comme il se doit, et aide-nous à respecter et à suivre Tes commandements comme il se doit.", auth:[]},
+  11: {soeur:"Ô Allah, Al-Awwal et Al-Âkhir, fais que Tu sois notre priorité avant toute chose, et que Ta satisfaction soit notre finalité après toute chose. Ne laisse pas nos cœurs s'attacher à ce qui est voué à disparaître, mais attache nos cœurs à Toi, Toi qui es Al-Awwal et Al-Âkhir.", auth:[]},
+  12: {soeur:"Ô Allah, Al-Awwal et Al-Âkhir, fais que Tu sois notre priorité avant toute chose, et que Ta satisfaction soit notre finalité après toute chose. Ne laisse pas nos cœurs s'attacher à ce qui est voué à disparaître, mais attache nos cœurs à Toi, Toi qui es Al-Awwal et Al-Âkhir.", auth:[]},
+  13: {soeur:"Ya Allah, Al-Bâ‘ith, aide-nous à profiter de notre vie avant notre mort, à multiplier les bonnes œuvres, à nous repentir avant qu'il ne soit trop tard et à nous préparer au jour où Tu nous ressusciteras.", auth:[]},
+  15: {soeur:"Ya Allah, Toi qui es Al-Barr, fais-nous reconnaître Tes bienfaits, aide-nous à Te remercier et fais de nous des personnes bienfaisantes. Accorde-nous Ton agrément et Ton Paradis.", auth:[]},
+  16: {soeur:"Ya Allah, Al-Basîr, aide-nous à vivre avec la conscience que Tu nous vois, à multiplier les bonnes œuvres, même lorsqu'elles sont discrètes, et à délaisser ce qui Te déplaît, même lorsque personne ne nous voit. Fais que notre cœur se suffise de Ton regard.", auth:[]},
+  17: {soeur:"Alhamdoulillah pour tout ce que Tu nous accordes, Ya Allah.", auth:[]},
+  18: {soeur:"Ya Allah, Al-Bâtin, Toi qui connais ce qui est apparent et ce qui est caché, purifie nos cœurs, rends nos intentions sincères, et fais que ce qui est caché dans nos cœurs soit meilleur que ce que nous montrons aux créatures.", auth:[]},
+  19: {soeur:"Ya Allah, Al-Badî‘, apprends-nous à contempler Ta création, à reconnaître Ta grandeur à travers ce que Tu as créé, et à ne jamais nous lasser de nous émerveiller devant Tes signes.\n\nSoubhânallah, Al-Badî‘.", auth:[]},
+  21: {soeur:"Ô Allah, lorsque Tu nous éprouves, donne-nous la patience. Lorsque nous sommes dans la difficulté, rapproche-nous de Toi. Lorsque nous avons mal, ne nous laisse pas nous éloigner de Toi. Et lorsque nous ne comprenons pas ce que Tu as décrété, accorde-nous la confiance en Ta sagesse. Fais de nos épreuves une cause de rapprochement, d'expiation et d'élévation auprès de Toi.", auth:[]},
+  22: {soeur:"Ya Allah, Adh-Dhâhir, éveille nos cœurs et fais-nous reconnaître Tes signes partout autour de nous.", auth:[]},
+  23: {soeur:"Ya Allah, Ad-Dayyân, fais-nous vivre et mourir avec un cœur apaisé, patient et confiant en Ta justice. Et fais de nous des personnes justes, même lorsque nous sommes nous-mêmes victimes d'une injustice.", auth:[]},
+  24: {soeur:"Ya Allah, Ya Dhal-Jalâli wal-Ikrâm, fais-nous reconnaître Tes bienfaits, aide-nous à Te remercier pour ce que Tu nous accordes, et fais-nous entrer, par Ta générosité et Ta miséricorde, dans Ton vaste Paradis. Accorde-nous de goûter à Tes bienfaits éternels et de contempler Ta Face.", auth:[]},
+  25: {soeur:"Ya Allah, Al-Fattâh, ouvre-nous les portes du bien, facilite-nous ce qui nous rapproche de Toi, accorde-nous la réussite dans cette vie et dans l'au-delà, et préserve nos cœurs de l'orgueil lorsque Tu nous accordes Tes bienfaits. Ouvre-nous les portes de Ton Paradis par Ta grande miséricorde.", auth:[]},
+  26: {soeur:"Ya Allah, Al-Ghaffâr, pardonne nos péchés, ceux que nous connaissons et ceux que nous avons oubliés. Ne laisse pas nos fautes nous éloigner de Toi. Et fais que nous Te rencontrions avec nos péchés pardonnés et nos cœurs sincèrement repentants.", auth:[]},
+};
+const LIVRE = {titre:"Comprendre les noms d'Allah", auteur:"Abd ar-Razzâq al-Badr", url:"https://www.amazon.fr/dp/287545269X"};
+const para = t => t.split(/\n\s*\n/).map(p=>`<p dir="auto">${esc(p).replace(/\n/g,"<br>").replace(/ﷺ/g,'<span class="saw">ﷺ</span>')}</p>`).join("");
+const EXTRA = {
+  // explications longues (paragraphes séparés par une ligne vide)
+  5: {"explication": "Celui qui pardonne et efface.\n\nAl-‘Afuw vient de « ‘afw », qui porte notamment le sens d'effacer, de faire disparaître.\n\nC'est donc plus qu'un simple pardon. Des savants ont expliqué que le pardon (maghfirah) évoque le fait de couvrir la faute, tandis que le ‘afw évoque son effacement.\n\nLe Prophète ﷺ a enseigné à ‘Aïcha رضي الله عنها cette invocation :\n\nاللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي\n« Ô Allah, Tu es Al-‘Afuw, Tu aimes pardonner, alors pardonne-moi. »\n\nQuelle immense bonté d'Allah ! Il ne se contente pas de nous pardonner : Il aime le pardon. Alors demandons-Lui.\n\nEt si nous espérons qu'Allah efface nos fautes sans en laisser aucune trace, qu'en est-il de nous avec les autres ?\n\nAllah nous encourage à pardonner aux autres en nous rappelant qu'Il est Lui-même Al-‘Afuw :\n\n« … et si vous pardonnez un mal, alors certes Allah est ‘Afuw, Omnipotent. » (Sourate An-Nissa)\n\nPardonner ne signifie pas nier la blessure. Parfois, nous n'arrivons pas à effacer ce que nous avons ressenti, mais nous pouvons demander à Allah de nous aider à pardonner, à arrêter de ruminer et à avancer malgré la blessure.\n\nCombien de fautes aimerions-nous voir disparaître de notre passé ? Combien de choses regrettons-nous encore ?\n\nAujourd'hui, faisons de cette invocation une habitude : dans nos prosternations, après nos fautes, dans nos invocations quotidiennes.\n\nاللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي\n« Ô Allah, Tu es Al-‘Afuw, Tu aimes pardonner, alors pardonne-moi. »"},
+  7: {"explication": "Le Tout-Puissant, l'Invincible.\n\nAl-‘Azîz vient de « al-‘izzah » : la puissance, la domination, mais aussi l'inaccessibilité et ce qui est précieux.\n\nAllah, Al-‘Azîz, possède toutes les formes de puissance dans leur perfection.\n\n« À Allah appartient toute la puissance. » (Sourate Fâtir)\n\nAllah, Al-‘Azîz, est Celui dont la puissance est parfaite. Celui qui ne peut être vaincu ni soumis, Celui qui est invincible et dont la grandeur est absolue. Rien ne peut s'opposer à Sa volonté lorsqu'Il décrète une chose.\n\nEt parce qu'Allah est Al-‘Azîz, le croyant peut trouver auprès de Lui une force qu'il ne trouve nulle part ailleurs.\n\nCela nous rappelle une chose essentielle : Allah n'a besoin de personne. Nous, en revanche, avons besoin de Lui à chaque instant.\n\nAl-‘Azîz est souvent associé dans le Qoran à d'autres noms magnifiques :\n\nAl-‘Azîz Al-Hakîm, le Tout-Puissant, le Sage :\n« Et c'est Lui le Puissant, le Sage. »\nوَهُوَ الْعَزِيزُ الْحَكِيمُ (Sourate Al-Hashr)\n\nAl-‘Azîz Al-‘Alîm, le Tout-Puissant, Celui qui sait absolument tout.\n\nAl-‘Azîz Ar-Rahîm, le Tout-Puissant, le Très Miséricordieux.\n\nQuelle magnifique harmonie dans les noms d'Allah : Sa puissance n'est jamais séparée de Sa sagesse, de Sa connaissance et de Sa miséricorde.\n\nComment vivre ce nom au quotidien ?\n\nLorsque je me sens faible, dépassée ou impuissante, je me rappelle que mon Seigneur est Al-‘Azîz, Celui dont la puissance est parfaite.\n\nCe que je ne peux pas porter seule, Lui peut m'aider à le porter. Ce que je ne peux pas résoudre, Lui peut le résoudre. Ce que je ne peux pas atteindre, Lui peut me l'accorder.\n\nAlors, plutôt que de m'accrocher uniquement à mes propres forces, je me tourne vers Al-‘Azîz.\n\nEt lorsque je cherche ma force ou ma valeur auprès des créatures, je me rappelle ce qu'Allah m'enseigne dans le Qoran :\n\n« Quiconque veut la puissance, qu'il sache que la puissance tout entière appartient à Allah. » (Sourate Fâtir)\n\nJe me tourne vers Lui dans mes invocations, et je développe une confiance réelle en Lui. Allah sait. Allah maîtrise. Allah est Sage. Al-‘Azîz a l'autorité absolue sur toute chose, et je peux Lui faire confiance."},
+  8: {"explication": "Le Très-Haut, l'Élevé.\n\nAl-‘Aliyy renvoie à l'élévation et à la hauteur.\n\nAllah est Al-‘Aliyy : Il est infiniment élevé, au-dessus de toute Sa création, et possède la supériorité absolue dans Sa grandeur, Sa puissance et Sa domination.\n\nOn retrouve ce nom notamment à la fin d'Ayat al-Koursiy :\n\n« … et Il est le Très-Haut, le Très-Grand. » (Sourate Al-Baqarah)\n\nEt Allah dit également :\n\n« … et Allah est le Très-Haut, le Très-Grand. » (Sourate Al-Hajj)\n\nAl-‘Aliyy détient donc la supériorité absolue : rien ne Lui est comparable, Sa puissance est parfaite et Sa grandeur est infinie.\n\nComment vivre ce nom dans notre quotidien ?\n\nEn recherchant auprès d'Al-‘Aliyy notre propre élévation, mais en comprenant que l'élévation auprès d'Allah ne se cherche pas dans l'orgueil. Elle se cherche dans l'humilité.\n\nRegardons notre prière. Chaque jour, nous nous prosternons devant Lui. Notre front touche le sol, notre corps s'abaisse, et pourtant c'est justement dans cette position d'humilité que nous sommes au plus près de notre Seigneur.\n\nPlus je m'abaisse devant Allah, plus je Lui confie mon cœur, et plus je peux espérer être élevée par Lui.\n\nLe Prophète ﷺ nous a enseigné que le serviteur est au plus proche de son Seigneur lorsqu'il est prosterné. Alors profitons de ces moments pour L'invoquer et Lui demander de nous élever.\n\nAvec les créatures également : chercher à s'élever au-dessus des autres, par le contrôle, la domination, l'orgueil ou le mépris, n'est pas l'élévation recherchée auprès d'Allah.\n\nAllah nous dit :\n\n« Cette demeure dernière, Nous la réservons à ceux qui ne recherchent ni domination sur terre ni corruption. » (Sourate Al-Qasas)\n\nAlors, si nous voulons être élevées auprès d'Allah, cherchons plutôt à être humbles, utiles et au service des autres."},
+  9: {"explication": "Le Majestueux, l'Immense.\n\nAl-‘Azîm renvoie à la grandeur immense, à la majesté et à la noblesse.\n\nAllah est Al-‘Azîm. Sa grandeur est absolue, Sa majesté est parfaite, rien ne peut être comparé à Lui. Il est Celui devant qui la grandeur de toute chose créée devient petite.\n\nAllah dit dans Ayat al-Koursiy :\n\n« Et Il est le Très-Haut, le Très-Grand. » (Sourate Al-Baqarah)\n\nLes savants expliquent, à partir de ce verset, que la grandeur d'Allah est immense et que la grandeur des créatures devient insignifiante en comparaison de Sa grandeur.\n\nEt lorsque nous prenons conscience de la grandeur d'Al-‘Azîm, cela ne devrait pas rester une simple connaissance dans notre esprit. Cette connaissance doit toucher notre cœur.\n\nCar lorsque notre Seigneur devient réellement grand dans nos cœurs, nous apprenons à L'aimer, à Le glorifier, à Le vénérer et à chercher à Lui obéir. C'est aussi cela, vivre le nom Al-‘Azîm.\n\nAllah nous dit :\n\n« Et quiconque exalte les injonctions sacrées d'Allah, alors cela fait partie de la piété des cœurs. » (Sourate Al-Hajj)\n\nPrendre au sérieux les ordres d'Allah, respecter ce qu'Il a rendu sacré, chercher à accomplir ce qu'Il nous demande et à délaisser ce qu'Il nous interdit : tout cela doit être immense dans notre cœur.\n\nCe n'est pas seulement une question d'apparence, c'est aussi une affaire de cœur. Et plus nous reconnaissons la grandeur d'Al-‘Azîm, plus nous devons nous efforcer de vivre selon ce qu'Il nous a transmis dans le Qoran et la Sunnah authentique.\n\nPeut-être pouvons-nous alors nous poser ces questions :\n\nQuelle place la grandeur d'Allah occupe-t-elle réellement dans mon cœur ?\n\nEst-ce que je glorifie Allah seulement avec ma langue, ou est-ce que cette glorification se voit aussi dans mes choix, dans mon obéissance et dans ma manière de respecter Ses commandements ?\n\nLa réforme du cœur passe aussi par là : apprendre à connaître la grandeur d'Allah, puis laisser cette connaissance transformer notre manière de L'adorer.\n\nEt chaque fois que nous disons dans notre inclinaison, lors de nos prières quotidiennes, « Soubhâna Rabbiyal-‘Azîm » (Gloire et pureté à mon Seigneur, le Majestueux), essayons de nous rappeler devant Qui nous nous inclinons : notre Seigneur est Al-‘Azîm."},
+  10: {"explication": "Le Plus Haut.\n\nAllah est Al-A‘lâ. Il est le Plus Haut, absolument, Celui qui est au-dessus d'absolument tout.\n\nAllah dit :\n\n« Glorifie le nom de ton Seigneur, le Plus Haut. » (Sourate Al-A‘lâ)\n\nGlorifier Allah, c'est notamment Le déclarer exempt de toute imperfection et reconnaître qu'Il est infiniment au-dessus de toute chose.\n\nLe Prophète ﷺ nous a enseigné que le serviteur est au plus proche de son Seigneur lorsqu'il est prosterné, et il nous a encouragés à multiplier les invocations dans cette position.\n\nNous nous abaissons devant Al-A‘lâ, et c'est justement dans cet abaissement que nous nous rapprochons de Lui. Soubhâna Rabbiyal-A‘lâ.\n\nAlors, lorsque notre front touche le sol dans la prosternation, rappelons-nous : Allah est Al-A‘lâ.\n\nCe nom nous invite aussi à regarder notre intention. Allah parle de celui qui agit « recherchant le Visage de son Seigneur, Al-A‘lâ » (Sourate Al-Layl).\n\nLorsque nous faisons une bonne action, lorsque nous nous efforçons d'obéir à Allah, lorsque personne ne nous voit, rappelons-nous : je le fais pour Al-A‘lâ. C'est Lui que je cherche à satisfaire. C'est Son regard que je dois rechercher avant celui des créatures.\n\nQu'est-ce que ce nom peut changer dans notre quotidien ?\n\nPeut-être nous rappeler auprès de qui nous cherchons réellement à nous élever. Nous pouvons chercher l'approbation des gens, leur regard, leur reconnaissance. Nous pouvons vouloir paraître importantes, fortes, respectées ou supérieures. Mais toute élévation auprès des créatures reste une élévation limitée. Allah, Lui, est Al-A‘lâ.\n\nVivre ce nom, c'est aussi apprendre à remettre chaque chose à sa juste place. Allah est Al-A‘lâ, le Plus Haut, il n'y a rien au-dessus de Lui. Alors veillons à ce que rien dans nos cœurs ne prenne la place qui revient à Allah.\n\nEst-ce que mon intention est réellement tournée vers Al-A‘lâ ? Notre intention de plaire devrait être tournée avant tout vers Celui qui est le Plus Haut.\n\nLes créatures peuvent nous voir, nous apprécier, nous oublier, nous critiquer… mais elles ne sont pas Al-A‘lâ. C'est Allah que nous cherchons à satisfaire, Celui qui est au-dessus de tout."},
+  11: {"explication": "Al-Awwal, le Premier : Celui qui n'a été précédé par rien.\nAl-Âkhir, le Dernier : Celui qui n'est suivi par rien.\n\nAllah dit :\n\n« Il est le Premier et le Dernier, l'Apparent et le Caché, et Il est Omniscient. » (Sourate Al-Hadîd)\n\nEt le Prophète ﷺ invoquait Allah en disant :\n\n« Ô Allah ! Tu es le Premier, rien ne Te précède, et Tu es le Dernier, rien ne vient après Toi… » (Rapporté par Muslim)\n\nAl-Awwal\n\nRien ne L'a précédé. Allah n'a pas de commencement, Il était avant toute chose.\n\nCelui qui est Al-Awwal mérite aussi d'être le premier dans nos vies. Pas simplement une priorité parmi d'autres, mais Celui que nous plaçons en premier : avant nos envies, avant le regard des créatures, avant nos propres intérêts. Allah en premier.\n\nEt lorsque nous comprenons qu'Il est Al-Awwal, nous comprenons aussi que tout ce que nous possédons et tout ce que nous pouvons accomplir vient après Lui.\n\nMême les causes que nous mettons en œuvre pour atteindre un objectif ne sont pas à l'origine de ce que nous obtenons. Avant nos efforts, il y a Sa grâce. Avant nos causes, il y a Celui qui nous a donné les moyens de les accomplir. Avant notre capacité à agir, c'est Lui qui nous a donné cette capacité.\n\nAlors faisons les causes, mais gardons notre cœur attaché à Al-Awwal.\n\nAl-Âkhir\n\nIl est Celui qui n'est suivi par rien. Tout ce qui existe est voué à disparaître.\n\nAllah dit :\n\n« Tout ce qui est sur elle [la terre] est appelé à disparaître. Et seul subsistera le Visage de ton Seigneur, plein de majesté et de noblesse. » (Sourate Ar-Rahmân)\n\nLes situations changent. Les créatures disparaissent. Mais Allah est Al-Âkhir : Celui qui ne disparaît pas, Celui qui n'a pas de fin.\n\nSi nous cherchons la satisfaction des créatures, leur regard, leur reconnaissance, tout cela est limité et passager. Mais rechercher la satisfaction d'Allah, c'est rechercher Celui qui est Al-Âkhir.\n\nCes deux noms peuvent alors changer quelque chose dans notre manière de vivre : Al-Awwal nous rappelle qu'Allah doit passer avant tout, et Al-Âkhir nous rappelle qu'Allah doit rester notre finalité."},
+  12: {"explication": "Al-Awwal, le Premier : Celui qui n'a été précédé par rien.\nAl-Âkhir, le Dernier : Celui qui n'est suivi par rien.\n\nAllah dit :\n\n« Il est le Premier et le Dernier, l'Apparent et le Caché, et Il est Omniscient. » (Sourate Al-Hadîd)\n\nEt le Prophète ﷺ invoquait Allah en disant :\n\n« Ô Allah ! Tu es le Premier, rien ne Te précède, et Tu es le Dernier, rien ne vient après Toi… » (Rapporté par Muslim)\n\nAl-Awwal\n\nRien ne L'a précédé. Allah n'a pas de commencement, Il était avant toute chose.\n\nCelui qui est Al-Awwal mérite aussi d'être le premier dans nos vies. Pas simplement une priorité parmi d'autres, mais Celui que nous plaçons en premier : avant nos envies, avant le regard des créatures, avant nos propres intérêts. Allah en premier.\n\nEt lorsque nous comprenons qu'Il est Al-Awwal, nous comprenons aussi que tout ce que nous possédons et tout ce que nous pouvons accomplir vient après Lui.\n\nMême les causes que nous mettons en œuvre pour atteindre un objectif ne sont pas à l'origine de ce que nous obtenons. Avant nos efforts, il y a Sa grâce. Avant nos causes, il y a Celui qui nous a donné les moyens de les accomplir. Avant notre capacité à agir, c'est Lui qui nous a donné cette capacité.\n\nAlors faisons les causes, mais gardons notre cœur attaché à Al-Awwal.\n\nAl-Âkhir\n\nIl est Celui qui n'est suivi par rien. Tout ce qui existe est voué à disparaître.\n\nAllah dit :\n\n« Tout ce qui est sur elle [la terre] est appelé à disparaître. Et seul subsistera le Visage de ton Seigneur, plein de majesté et de noblesse. » (Sourate Ar-Rahmân)\n\nLes situations changent. Les créatures disparaissent. Mais Allah est Al-Âkhir : Celui qui ne disparaît pas, Celui qui n'a pas de fin.\n\nSi nous cherchons la satisfaction des créatures, leur regard, leur reconnaissance, tout cela est limité et passager. Mais rechercher la satisfaction d'Allah, c'est rechercher Celui qui est Al-Âkhir.\n\nCes deux noms peuvent alors changer quelque chose dans notre manière de vivre : Al-Awwal nous rappelle qu'Allah doit passer avant tout, et Al-Âkhir nous rappelle qu'Allah doit rester notre finalité."},
+  13: {"explication": "Le Résurrecteur, Celui qui ressuscite.\n\nAllah est Al-Bâ‘ith : Celui qui ressuscitera les morts.\n\nTous les êtres humains sont voués à mourir. C'est une réalité que nous connaissons, mais que nous évitons parfois de regarder en face. Pourtant, pour le croyant, la mort n'est pas la fin.\n\nAllah nous rappelle :\n\n« Et que l'Heure arrivera, pas de doute à son sujet, et qu'Allah ressuscitera ceux qui sont dans les tombes. » (Sourate Al-Hajj)\n\nUn jour, nous nous relèverons. Nous quitterons nos tombes et nous retournerons vers Allah. Celui qui nous a créés une première fois est parfaitement capable de nous ressusciter.\n\nAllah nous rappelle d'ailleurs :\n\n« Comment pouvez-vous renier Allah alors que vous étiez morts et qu'Il vous a donné la vie ? Puis Il vous fera mourir, puis Il vous fera revivre, puis c'est vers Lui que vous serez ramenés. » (Sourate Al-Baqarah)\n\nCette certitude n'est pas simplement une information à connaître. Elle devrait aussi changer quelque chose dans notre manière de vivre.\n\nConnaître Al-Bâ‘ith, c'est se rappeler que cette vie n'est pas éternelle. Nous sommes ici pour un temps, puis nous retournerons vers Celui qui nous a créées.\n\nInnâ liLlâhi wa innâ ilayhi râji‘ûn : certes nous appartenons à Allah, et certes c'est vers Lui que nous retournerons.\n\nLorsque nous prenons réellement conscience de cela, une question devrait naturellement se poser : est-ce que je vis aujourd'hui comme quelqu'un qui sait qu'il devra un jour se relever devant son Seigneur ?\n\nCela ne veut pas dire vivre dans la peur permanente, mais vivre avec la conscience du retour.\n\nSi je sais que je serai ressuscitée, est-ce que je regarde ma vie de la même manière ? Est-ce que je me rappelle que ce que je fais aujourd'hui compte pour l'au-delà ?\n\nConnaître Al-Bâ‘ith peut nous aider à regarder notre vie autrement : ne pas attendre « plus tard » pour nous rapprocher de Lui, ne pas vivre comme si nous avions tout notre temps, parce que nous ne savons pas quand notre vie s'arrêtera.\n\nRappelons-nous Al-Bâ‘ith en toutes circonstances, car c'est certainement le meilleur des rappels : Celui qui redonne vie, Celui qui ressuscite, Celui vers qui nous retournerons tous."},
+  14: {"explication": "Le Créateur, Celui qui fait exister à partir du néant.\n\nAllah est Al-Bâri' : Celui qui fait exister ce qui n'existait pas.\n\nAllah dit :\n\n« C'est Lui Allah, le Créateur, Celui qui donne un commencement à toute chose, le Formateur. À Lui les plus beaux noms… » (Sourate Al-Hashr)\n\nRegardons autour de nous : les plantes, les oiseaux, les insectes, nous-mêmes. Tout ce qui existe aujourd'hui n'existait pas avant qu'Allah ne le fasse exister.\n\nAl-Bâri' nous rappelle donc une chose extraordinaire : Allah crée à partir de rien.\n\nL'être humain, lui, peut fabriquer, transformer, assembler, mais il travaille toujours à partir de choses qu'Allah a déjà créées et avec les capacités qu'Allah lui a données. Nous pouvons construire des choses extraordinaires, mais nous ne faisons pas apparaître la matière à partir du néant. Allah, Lui, est Al-Bâri', Celui qui crée à partir de rien.\n\nLorsque nous sommes émerveillées par quelque chose que nous avons nous-mêmes réalisé, est-ce que je me rappelle Celui qui m'a donné la capacité de le faire ?\n\nC'est là qu'Al-Bâri' nous apprend l'humilité. Car mon intelligence, mes talents, mes mains, mes capacités : tout cela vient d'Allah.\n\nNous sommes des créatures qui utilisent les bienfaits de leur Créateur. Nous faisons les choses avec les moyens qu'Allah nous a donnés. Alors toutes les louanges Lui reviennent. Alhamdoulillah.\n\nChaque fois que nous contemplerons une création autour de nous, prenons quelques secondes pour nous rappeler : Al-Bâri', Celui qui crée à partir de rien, Celui qui fait exister ce qui n'existait pas, Celui qui dit « Sois ! » et la chose est."},
+  15: {"explication": "Le Bienfaisant, Celui dont la bonté est immense et abondante.\n\nAl-Barr est Celui qui fait abondamment le bien envers Ses serviteurs.\n\nAllah dit :\n\n« En vérité, c'est Lui le Bienfaisant, le Miséricordieux. » (Sourate At-Tûr)\n\nSa bonté envers nous est immense. C'est par Sa bonté qu'Il nous a donné la vie, notre subsistance, nos facultés de voir, d'entendre, de parler, de comprendre. Par Sa bonté, Il nous a guidés vers l'islam.\n\nEt même lorsque nous désobéissons, Sa bonté se manifeste lorsqu'Il nous permet de revenir à Lui, de nous repentir et d'obtenir Son pardon.\n\nNous ne pouvons nous passer de la bonté d'Allah, ne serait-ce qu'un seul instant. Par Sa bonté, je respire sans même avoir à y penser.\n\nEt par Sa bonté et Sa miséricorde, Il accordera aux pieux Son agrément dans l'au-delà et les fera entrer au Paradis. Qu'Allah nous place parmi les gens du Paradis.\n\nAlors, comment le nom Al-Barr peut-il avoir un impact sur ma vie ?\n\nPrendre conscience de tous Ses bienfaits doit remplir mon cœur d'amour et de reconnaissance envers mon Seigneur.\n\nMa reconnaissance ne se limite pas aux paroles : j'utilise les bienfaits qu'Il m'a donnés dans ce qui Lui plaît. Mon corps dans Son adoration, mes biens dans l'aumône, mes capacités physiques dans le bien, mon temps dans ce qui rapproche de Lui.\n\nEt puisqu'Allah est Al-Barr, Celui qui aime le bien, je dois moi aussi chercher à être bienfaisante : aider, donner, pardonner, faciliter, faire le bien autour de moi.\n\nConnaître Al-Barr, c'est reconnaître Sa bonté envers moi, et chercher à mon tour à faire le bien.\n\nChaque fois que je reçois un bienfait, je me rappelle qu'il vient d'Al-Barr. Et chaque fois que j'ai l'occasion de faire du bien, je me rappelle que j'ai été créée pour L'adorer, et que le bien que je fais est lui aussi un bienfait qu'Allah m'a permis d'accomplir. Alhamdoulillah."},
+  16: {"explication": "Le Clairvoyant.\n\nAllah est Al-Basîr : Celui qui voit absolument tout.\n\nRien ne Lui échappe : ce qui est grand comme ce qui est infime, ce qui est visible comme ce que nous faisons lorsque personne ne nous voit.\n\nAllah dit :\n\n« Et Allah est parfaitement Voyant de ce que vous faites. » (Sourate Al-Baqarah)\n\nLorsque nous prenons conscience qu'Allah nous voit en permanence, cela devrait changer notre manière de vivre.\n\nQuelle personne suis-je lorsque personne ne me voit ? Est-ce que je me rappelle qu'Allah voit aussi mes actes les plus discrets ?\n\nCar parfois, une bonne action peut sembler minuscule à nos yeux : un sourire, une parole gentille, une aumône donnée discrètement, une larme versée dans une invocation, un péché auquel nous renonçons alors que personne ne pourrait nous en empêcher.\n\nAl-Basîr voit tout. Et rien de ce que nous faisons pour Lui n'est perdu.\n\nCe nom peut aussi nous aider lorsque nous avons l'impression que personne ne voit nos efforts. Personne ne voit ce que nous faisons, personne ne comprend toujours nos intentions, personne ne remarque forcément nos sacrifices.\n\nAl-Basîr, Lui, voit. Il voit nos œuvres, nos efforts, nos cœurs.\n\nAlors peut-être n'avons-nous pas besoin que les créatures voient tout ce que nous faisons. Si Al-Basîr le voit, cela suffit.\n\nC'est justement ce que nous enseigne notre cher Prophète ﷺ lorsqu'il nous parle de l'ihsân (l'excellence) :\n\n« Adore Allah comme si tu Le voyais, car si tu ne Le vois pas, certes, Lui te voit. » (Sahîh Muslim)\n\nVoilà peut-être une belle manière de vivre Al-Basîr. Lorsque nous sommes seules, lorsque personne ne regarde, lorsque nous hésitons entre faire le bien ou le mal, rappelons-nous : Al-Basîr nous voit. Et faisons alors le choix de ce qui Lui plaît."},
+  17: {"explication": "Celui qui étend Sa générosité, Celui qui accorde avec largesse.\n\nAllah est Al-Bâsit : Celui qui étend et qui élargit Ses bienfaits.\n\nAllah dit :\n\n« Quiconque prête à Allah de bonne grâce, Il le lui rendra multiplié plusieurs fois. Et Allah restreint ou étend (Ses faveurs). Et c'est à Lui que vous retournerez. » (Sourate Al-Baqarah)\n\nAl-Bâsit nous rappelle que l'abondance est entre les mains d'Allah. Il peut étendre notre subsistance, nos bienfaits, nos possibilités, mais aussi ouvrir pour nous des portes que nous pensions fermées.\n\nAllah dit également :\n\n« En vérité, ton Seigneur étend Ses dons largement à qui Il veut ou les accorde avec parcimonie. Il est, sur Ses serviteurs, Parfaitement Informé et Clairvoyant. » (Sourate Al-Isrâ', 17:30)\n\nParfois, nous regardons ce qui nous manque, alors qu'Al-Bâsit nous invite aussi à regarder tout ce qu'Allah a déjà étendu devant nous : notre subsistance, notre temps, nos capacités, nos proches, les occasions de faire le bien, les portes qu'Il nous ouvre.\n\nEst-ce que je remarque suffisamment les bienfaits qu'Allah a étendus dans ma vie ?\n\nLorsque quelque chose m'est restreint, est-ce que je me rappelle que Celui qui restreint est aussi Al-Bâsit, Celui qui peut étendre ?\n\nNous ne savons pas toujours pourquoi Allah ouvre une porte ou en ferme une autre, mais nous savons qu'Il est parfaitement informé de Ses serviteurs.\n\nAlors, lorsque les choses semblent étroites, tournons-nous vers Celui qui peut les élargir.\n\nEt lorsque nous recevons largement, revenons vers Celui qui nous a donné, Al-Bâsit, en étant reconnaissantes pour tous Ses bienfaits, et multiplions la louange pour toute Sa bonté, Sa largesse et Sa générosité."},
+  18: {"explication": "Le Caché, Celui à qui rien n'échappe.\n\nAllah est Al-Bâtin.\n\nAllah dit :\n\n« C'est Lui le Premier et le Dernier, l'Apparent et le Caché, et Il est Omniscient de toute chose. » (Sourate Al-Hadîd)\n\nAl-Bâtin nous rappelle que rien n'échappe à Allah : rien n'échappe à Son savoir, à Sa vue ni à Son ouïe. Ce que nous montrons aux autres, mais aussi ce que nous cachons : nos paroles, nos actes, nos intentions et même ce qui se trouve au fond de nos poitrines.\n\nAllah dit :\n\n« Que vous cachiez votre parole ou que vous la divulguiez, Il connaît parfaitement ce que renferment les poitrines. » (Sourate Al-Mulk)\n\nAlors, que devrait changer la connaissance d'Al-Bâtin dans ma vie ?\n\nLorsque je m'apprête à faire un acte, je me rappelle qu'Allah sait et voit.\n\nLorsque je m'apprête à prononcer une parole, je me rappelle qu'Allah entend.\n\nEt lorsque personne ne connaît mon intention, je me rappelle qu'Allah, Lui, la connaît parfaitement.\n\nConnaître Al-Bâtin, c'est donc apprendre à prendre soin de ce qui est caché en nous : purifier nos intentions, surveiller nos pensées, chercher la satisfaction d'Allah même lorsque personne ne nous regarde.\n\nCar nous pouvons cacher certaines choses aux créatures, mais rien n'est caché à Allah.\n\nCette conscience doit aussi nous pousser à Le craindre, pas seulement lorsque nous sommes entourées de personnes, mais également lorsque nous sommes seules.\n\nAlors faisons en sorte que, même dans le secret, Allah ne trouve de nous que ce qu'Il aime."},
+  19: {"explication": "Le Créateur sans précédent.\n\nAllah est Al-Badî‘ : Celui qui nous surprend chaque jour par la perfection de ce qu'Il a créé.\n\nAllah dit :\n\n« Créateur des cieux et de la Terre à partir du néant ! Et lorsqu'Il décide une chose, Il dit seulement : \"Sois !\" et elle est aussitôt. » (Sourate Al-Baqarah, 2:117)\n\nAl-Badî‘ est Celui qui crée sans modèle ni précédent.\n\nLorsque rien n'existait encore, ni univers, ni galaxies, ni planètes, ni êtres humains, Allah a créé les cieux et la Terre sans modèle à reproduire. Par Son ordre, Sa volonté et Sa sagesse, la création est apparue avec toute sa diversité et son harmonie.\n\nAllah dit également :\n\n« Créateur des cieux et de la Terre… C'est Lui qui a tout créé et Il est Omniscient. » (Sourate Al-An‘âm)\n\nRegardons simplement autour de nous : le ciel, les étoiles, les plantes, les animaux, notre propre corps. Tout ce qui nous entoure est une création d'Allah.\n\nEt pourtant, chaque jour, quelque chose peut encore nous émerveiller : une beauté que nous n'avions jamais remarquée, un détail que nous découvrons, une harmonie qui nous surprend.\n\nAl-Badî‘ nous invite alors à ne pas simplement regarder la création, mais à regarder, à travers elle, Celui qui l'a créée.\n\nEst-ce que je prends le temps de dire « Soubhânallah » et de reconnaître Sa grandeur ?\n\nLorsque quelque chose m'émerveille, est-ce que je pense à Celui qui l'a créé ?\n\nC'est peut-être aussi cela, connaître Al-Badî‘ : apprendre à regarder différemment ce qui nous entoure, à nous émerveiller encore et encore. Parce que derrière chaque merveille de la création, il y a Al-Badî‘."},
+  20: {"explication": "Le Permanent, Celui qui demeure à tout jamais.\n\nAllah est Al-Bâqî : Celui qui demeure éternellement.\n\nTout ce qui existe ici-bas est appelé à disparaître. Allah nous rappelle :\n\n« Tout ce qui est sur terre disparaîtra. Seule subsistera la Face de ton Seigneur, pleine de majesté et de noblesse. » (Sourate Ar-Rahmân)\n\nLes hommes naissent, vivent un certain temps, puis meurent. Les plantes poussent puis se fanent. Les animaux vivent puis meurent. Même les œuvres humaines finissent par disparaître ou ne laisser derrière elles que des vestiges.\n\nDe grandes civilisations ont existé avant nous. Aujourd'hui, il ne reste parfois d'elles que quelques ruines. Et même l'univers que nous connaissons n'est pas éternel.\n\nTout ce que nous voyons autour de nous nous rappelle donc une même réalité : ce monde ne restera pas, mais Allah, Lui, demeure. Al-Bâqî.\n\nCela devrait aussi changer notre manière de regarder notre vie. Allah dit :\n\n« Tout ce qui vous a été donné n'est que jouissance éphémère et parure de la vie d'ici-bas. Mais ce qui est auprès d'Allah est meilleur et plus durable. Ne raisonnez-vous donc pas ? » (Sourate Al-Qasas)\n\nAlors, à quoi est-ce que je consacre mon temps ? À des choses qui vont disparaître, ou à des œuvres dont je pourrai retrouver la récompense auprès d'Allah ?\n\nNos maisons, nos vêtements, notre argent, notre travail, nos projets, notre apparence : tout cela est précieux à sa place, mais rien de tout cela ne nous accompagnera éternellement. Ce qui restera réellement, ce sont nos œuvres et ce que nous aurons préparé pour notre rencontre avec Allah.\n\nConnaître Al-Bâqî, c'est donc apprendre à ne pas s'attacher à ce monde comme s'il devait durer toujours. Profiter de ce qu'Allah nous donne, tout en gardant dans notre cœur la certitude que nous allons repartir.\n\nQu'est-ce que je fais aujourd'hui qui restera auprès d'Allah ?\n\nSi ma vie s'arrêtait demain, qu'aimerais-je avoir davantage accompli ?\n\nAl-Bâqî nous apprend peut-être simplement à remettre les choses à leur juste place : à profiter du présent sans oublier l'éternité, à aimer les bienfaits de cette vie sans oublier Celui qui nous les a donnés, et surtout à investir dans ce qui demeure.\n\nAl-Bâqî : Celui qui ne disparaîtra jamais, Celui auprès de qui se trouve ce qui est meilleur et plus durable."},
+  21: {"explication": "Celui qui afflige, Celui qui peut faire parvenir le mal.\n\nAd-Dârr est un nom qui nous rappelle une réalité parfois difficile à accepter : rien ne nous atteint en dehors de la permission d'Allah.\n\nAllah dit :\n\n« Et si Allah fait qu'un mal te touche, nul ne peut l'écarter en dehors de Lui. Et s'Il te veut un bien, nul ne peut repousser Sa grâce. » (Sourate Younous)\n\nNous connaîtrons tous des épreuves : la peur, la maladie, la perte, la tristesse, les difficultés.\n\nAllah nous dit :\n\n« Nous vous éprouverons certainement par un peu de peur, de faim et de diminution de biens, de personnes et de fruits. Et fais la bonne annonce aux endurants. » (Sourate Al-Baqarah)\n\nMais l'épreuve n'est pas nécessairement un signe qu'Allah nous délaisse. Pour le croyant, elle peut devenir une cause d'expiation des péchés et de rapprochement vers Allah.\n\nLe Prophète ﷺ nous a enseigné qu'aucune fatigue, maladie, tristesse ou souffrance n'atteint le croyant sans qu'Allah n'en fasse une cause d'expiation de certains de ses péchés.\n\nAlors, lorsque l'épreuve arrive, vers qui est-ce que je me tourne ? Vers Allah. Car Lui seul peut faire disparaître ce qui nous atteint.\n\nEt lorsque nous comprenons cela, quelque chose peut changer dans notre cœur. Nous faisons les causes, nous cherchons les solutions, nous demandons de l'aide aux créatures lorsque cela est nécessaire, mais notre cœur sait que le soulagement vient d'Allah.\n\nAd-Dârr nous apprend aussi l'humilité : nous ne contrôlons pas tout ce qui nous arrive. Nous ne pouvons pas empêcher toutes les pertes, toutes les maladies, toutes les séparations, toutes les épreuves. Mais nous pouvons choisir comment nous allons les traverser : avec patience, avec confiance, avec des invocations, avec l'espoir de la récompense d'Allah.\n\nAu milieu d'une épreuve, une question peut nous aider : est-ce que cette épreuve est en train de m'éloigner d'Allah, ou de me ramener vers Lui ?\n\nCar parfois, ce que nous considérons uniquement comme une douleur peut devenir, par la sagesse d'Allah, une porte vers Lui.\n\nAd-Dârr nous rappelle alors que même ce qui nous fait mal n'échappe pas au décret d'Allah. Nous ne connaissons pas toujours la sagesse derrière une épreuve, mais nous pouvons avoir confiance en la sagesse de Celui qui la décrète."},
+  22: {"explication": "L'Apparent, Celui qui est au-dessus de toute chose.\n\nAdh-Dhâhir est au-dessus de toute Sa création ; rien n'est plus haut ni plus grand que Lui.\n\nLe Prophète ﷺ a dit :\n\n« Tu es Adh-Dhâhir, rien n'est au-dessus de Toi… » (Muslim)\n\nNous ne pouvons pas voir Allah dans Son Essence ici-bas, mais Ses signes sont partout. Autour de nous, tout témoigne de Son existence, de Sa puissance, de Sa sagesse, de Sa beauté et de Sa parfaite volonté : le ciel, la terre, la nature, et même notre propre être.\n\nAllah nous invite sans cesse à regarder et à méditer :\n\n« Dis : Regardez ce qui est dans les cieux et sur la terre. » (Sourate Younous)\n\nAllah dit :\n\n« Et sur la terre, il y a des signes pour ceux qui ont la certitude, ainsi qu'en vous-mêmes. N'observez-vous donc pas ? » (Sourate Adh-Dhâriyât)\n\nDeux personnes peuvent regarder le même ciel. L'une voit simplement des nuages. L'autre y voit les signes de son Créateur.\n\nPlus le cœur est sincère, plus il reconnaît les signes d'Allah autour de lui. Et plus le cœur est éveillé, plus les signes d'Allah deviennent apparents et évidents.\n\nC'est peut-être là que l'on comprend mieux l'ihsân :\n\n« Adore Allah comme si tu Le voyais. Et si tu ne Le vois pas, Lui te voit. » (Muslim)\n\nNous ne voyons pas Allah, mais le croyant vit avec la certitude qu'Allah le voit. Alors il agit, même lorsqu'aucun être humain ne le regarde. Il prie avec la présence du cœur. Il obéit avec sincérité. Il fait le bien sans attendre d'être vu.\n\nPetit exercice aujourd'hui : prenons quelques instants pour regarder autour de nous.\n\nEst-ce que je regarde simplement la création, ou est-ce que je reconnais à travers elle les signes de son Créateur ?\n\nEst-ce que mon cœur est suffisamment éveillé pour voir ce que mes yeux seuls ne peuvent pas voir ?"},
+  23: {"explication": "Celui qui rétribue, Celui qui règle les comptes.\n\nAd-Dayyân est Celui qui juge et rétribue chacun selon ses actes.\n\nDans notre quotidien, nous pouvons parfois faire face à des injustices : une injustice qui n'est pas reconnue, une parole qui nous a blessées, un droit qui ne nous a pas été rendu. Et parfois, la justice humaine est lente, imparfaite, ou n'arrive même jamais.\n\nMais la véritable croyante ne désespère pas, car elle s'en remet totalement à Allah, Ad-Dayyân. Il connaît ce que les cœurs cachent. Il connaît les intentions. Il connaît nos efforts. Il connaît nos épreuves. Et aucune injustice ne Lui échappe.\n\nAd-Dayyân nous rappelle alors deux choses.\n\nLa responsabilité : aucun acte n'est sans conséquence. Même ce que personne n'a vu est connu d'Allah.\n\nLa confiance : face à l'injustice, nous n'avons pas besoin de rendre le mal par le mal. Nous pouvons choisir de ne pas répondre à l'injustice par une autre injustice, et remettre notre affaire entre les mains d'Allah, Ad-Dayyân.\n\nCar si la justice tarde ici-bas, elle ne sera pas oubliée auprès d'Allah. Chaque droit sera rendu, et Allah jugera avec une justice et une équité parfaites.\n\nAlors, lorsque notre cœur se serre face à une injustice, rappelons-nous qu'Ad-Dayyân voit chaque trace, connaît chaque injustice, et n'oublie rien.\n\nEt moi, aujourd'hui : est-ce que je fais confiance à la justice d'Allah lorsque la justice des hommes me déçoit ? Et suis-je moi-même attentive aux droits que je dois aux autres ?"},
+  24: {"explication": "Le Détenteur de la Majesté et de la Générosité.\n\nAllah est Dhû al-Jalâl wa al-Ikrâm. Ce nom réunit deux grandes qualités : Al-Jalâl, Sa majesté, Sa grandeur, Sa puissance ; et Al-Ikrâm, Sa générosité, Ses bienfaits, Sa noblesse envers Ses serviteurs.\n\nAllah dit :\n\n« Béni soit le nom de ton Seigneur, Détenteur de la Majesté et de la Générosité. » (Sourate Ar-Rahmân)\n\nLorsque nous regardons autour de nous, Allah nous a déjà comblées de tellement de bienfaits : la nourriture, l'eau, la santé, la famille, la beauté de la création, les petits plaisirs du quotidien. Tout cela fait partie de Ses bienfaits.\n\nMais ce que nous recevons ici-bas n'est qu'une petite partie de ce qu'Allah réserve à Ses serviteurs dans l'au-delà.\n\nAu Paradis, Allah nous décrit des délices que nous ne pouvons même pas pleinement imaginer :\n\n« Il y aura là tout ce que les âmes désirent et ce qui réjouit les yeux ; et vous y demeurerez éternellement. » (Sourate Az-Zoukhrouf)\n\nEt Allah dit également :\n\n« Tu y verras des délices et un immense royaume. » (Sourate Al-Insân)\n\nCe que nous connaissons de la générosité d'Allah ici-bas n'est donc qu'un aperçu de ce qu'Il peut donner. Et parmi Ses plus grands dons, il y a surtout le Paradis et la rencontre avec Lui.\n\nLorsque je pense à tous les bienfaits qu'Allah m'accorde déjà ici-bas, est-ce que je prends réellement le temps de Lui être reconnaissante ?\n\nEst-ce que je réalise que derrière chaque bienfait se trouve la générosité d'Allah ?\n\nConnaître Dhû al-Jalâl wa al-Ikrâm, c'est apprendre à reconnaître Sa grandeur, mais aussi à ne jamais désespérer de Sa générosité, même lorsque nous avons l'impression de ne pas avoir beaucoup.\n\nAlors prenons le temps de regarder les bienfaits qui nous entourent, et disons simplement : Alhamdoulillah. Pour ce que nous avons, pour ce que nous ne remarquons même plus, et pour tout ce qu'Allah nous réserve encore.\n\nDhû al-Jalâl wa al-Ikrâm : Celui dont la majesté nous impressionne, et dont la générosité nous émerveille."},
+  26: {"explication": "Le Grand Pardonneur, Celui qui pardonne encore et encore.\n\nAllah est Al-Ghaffâr : Celui qui pardonne abondamment à Ses serviteurs lorsqu'ils reviennent sincèrement vers Lui.\n\nCe nom porte une particularité qui mérite que l'on s'y arrête. En arabe, Al-Ghaffâr vient de la racine غ ف ر (gh-f-r), qui évoque notamment l'idée de couvrir et de protéger.\n\nMais la forme « ghaffâr » exprime aussi l'intensité et l'abondance : elle nous fait penser à Celui qui pardonne abondamment, encore et encore.\n\nC'est là que ce nom vient toucher nos cœurs. Nous pouvons tomber plusieurs fois, commettre des erreurs, regretter sincèrement et revenir vers Allah.\n\nNous avons besoin de Son pardon à chaque étape de notre vie, et nous ne devons jamais désespérer de Sa miséricorde.\n\nAl-Ghaffâr est Celui vers qui nous revenons, encore et encore, pour Lui demander pardon.\n\nAllah nous dit :\n\n« Et Je suis certes Grand Pardonneur envers celui qui se repent, croit, accomplit de bonnes œuvres, puis se maintient dans la bonne voie. » (Sourate Tâ-Hâ)\n\nRegardons bien ce verset : Allah nous montre le chemin du retour vers Lui. Le repentir, la foi, les bonnes œuvres et la persévérance dans la bonne voie.\n\nConnaître Al-Ghaffâr, ce n'est pas banaliser nos péchés. C'est comprendre que, lorsque nous fautons, nous ne devons pas nous éloigner d'Allah par honte ou par découragement. Au contraire, nous reconnaissons nos erreurs, nous les regrettons et nous revenons vers Lui avec sincérité.\n\nLorsque nous tombons, nous nous relevons. Lorsque nous nous éloignons, nous revenons.\n\nCar espérer le pardon d'Allah, c'est aussi faire les efforts nécessaires pour nous améliorer.\n\nDans notre quotidien, ce nom nous invite à nous interroger : combien de fois avons-nous remis notre repentir à plus tard ?\n\nAujourd'hui, posons-nous cette question : lorsque je commets une faute, est-ce que je me rapproche d'Allah en Lui demandant pardon, ou est-ce que je m'éloigne de Lui parce que j'ai honte de revenir ?\n\nNe remettons pas notre repentir à demain. Multiplions les demandes de pardon, réparons nos torts lorsque cela est nécessaire et continuons à avancer vers Allah, même si notre chemin est parfois difficile."},
+  25: {"explication": "Le Grand Ouvreur, Celui qui ouvre les portes et accorde la victoire.\n\nAl-Fattâh vient de la racine arabe « fa-ta-ha », qui signifie notamment ouvrir.\n\nMais en arabe, le mot « fath » ne désigne pas uniquement l'ouverture d'une porte. Il peut aussi désigner une victoire éclatante, une réussite importante ou une délivrance après une difficulté. Comme si une porte s'ouvrait enfin vers ce que l'on espérait.\n\nParmi les beaux noms d'Allah, Al-Fattâh est Celui qui ouvre les voies du bien, qui accorde la victoire et qui tranche avec vérité et justice.\n\nMais que se passe-t-il réellement lorsqu'une réussite arrive dans notre vie ?\n\nNous voyons nos efforts, nos démarches, nos stratégies, les heures de travail et les décisions que nous avons prises. Et Allah nous demande effectivement de faire les causes, d'agir et de fournir des efforts.\n\nMais il existe aussi des causes que nous ne maîtrisons pas et que nous ne voyons pas : ce qui se passe dans les cœurs, les circonstances qui changent, les occasions qui se présentent ou les obstacles qui disparaissent. Tout cela échappe en partie à notre connaissance.\n\nNous faisons les causes, mais nous ne maîtrisons pas le résultat.\n\nAllah est Celui qui détient les clés de l'invisible et qui sait ce qui nous échappe. Al-Fattâh ouvre parfois une porte là où nous ne voyions aucune issue. Ce qui nous semblait inaccessible peut devenir possible par Sa permission.\n\nEt ce qui nous semblait être un échec peut nous conduire, par Sa sagesse, vers un bien que nous n'avions pas envisagé.\n\nCela ne signifie pas que chaque projet aboutira comme nous le souhaitons, mais que nous pouvons toujours placer notre confiance en Allah, même lorsque nous ne comprenons pas ce qui nous arrive.\n\nAllah nous donne un exemple magnifique dans la sourate Al-Fath :\n\n« En vérité, Nous t'avons accordé une victoire éclatante. » (Sourate Al-Fath)\n\nCe que les hommes ne pouvaient pas prévoir, Allah le savait. Al-Fattâh sait quelles portes ouvrir, quand les ouvrir et ce qui se trouve derrière elles.\n\nEt cette ouverture ne concerne pas uniquement notre vie ici-bas. Allah nous décrit l'arrivée des pieux au Paradis :\n\n« Et ceux qui avaient craint leur Seigneur seront conduits par groupes au Paradis. Puis, quand ils y parviendront et que ses portes s'ouvriront, ses gardiens leur diront : \"Salut à vous ! Vous avez été bons : entrez donc, pour y demeurer éternellement.\" » (Sourate Az-Zoumar)\n\nQuelle immense espérance !\n\nNous pouvons demander à Allah de nous ouvrir les portes du bien dans cette vie, mais aussi de nous accorder, par Sa grande miséricorde, l'entrée au Paradis.\n\nComment vivre avec le nom Al-Fattâh ?\n\n1. Garder espoir.\nCe qui te semble irréalisable aujourd'hui ne l'est pas pour Allah. Ne laisse pas tes difficultés te faire oublier Sa puissance.\n\n2. Faire les causes et placer sa confiance en Allah.\nTravaille, avance, apprends, corrige tes erreurs et invoque Allah. Fais ce qui est en ton pouvoir, puis remets-Lui ce qui t'échappe.\n\n3. Être reconnaissante lorsque la réussite arrive.\nQuand Allah t'accorde une ouverture, ne regarde pas uniquement tes efforts, ton intelligence ou ta stratégie. Dis Alhamdoulillah. Tes efforts ont leur place, mais c'est Allah qui t'a permis de les accomplir et qui t'a accordé le résultat.\n\n4. Préserver son cœur de l'orgueil.\nSur le chemin de la réussite, nous avons parfois commis des erreurs, manqué de patience ou oublié de nous en remettre pleinement à Allah. Alors, remercions-Le pour le bien qu'Il nous accorde et demandons-Lui pardon pour nos manquements.\n\n5. Devenir une source de motivation pour les autres.\nSi Allah t'a accordé une ouverture, encourage les autres à leur tour. Aide-les à avancer, soutiens-les et rappelle-leur de ne pas désespérer de la bonté d'Allah.\n\nAl-Fattâh nous apprend à avancer sans désespérer, à réussir sans nous enorgueillir et à patienter sans perdre confiance.\n\nNous faisons ce que nous avons à faire, et nous remettons le résultat à Allah.\n\nCe qui te semble fermé aujourd'hui ne le restera pas nécessairement demain. Car Allah est Al-Fattâh."},
+  1: {"explication": "C'est le nom propre de notre Créateur, celui que nous retrouvons constamment dans notre adoration et nos invocations.\n\nNous commençons très souvent nos dou‘ās par : Allahoumma…\n\nEt dans de nombreuses formules de dhikr, c'est encore ce nom que nous prononçons : Alhamdouli-Llah, Soubhana-Llah, Astaghfirou-Llah…\n\nAllah est mentionné plus de 2000 fois dans le Qoran, et Il se présente à nous par ce nom dans Ayat al-Koursiy (le verset du Trône) :\n\n« Allah ! Il n'y a de divinité que Lui, le Vivant, Celui qui subsiste par Lui-même… » (Sourate Al-Baqarah, 2:255)\n\nNous récitons ce verset à différents moments de la journée, notamment après chaque prière ou dans les adhkars du matin et du soir.\n\nLors de nos prières, nous commençons aussi par le Takbir, qui commence par Allah. Nous le répétons ensuite tout au long de la prière, lors des inclinaisons et des prosternations.\n\nUn nom que nous prononçons donc très souvent. Mais est-ce que nous le prononçons avec conscience ?"},
+  2: {"explication": "Une belle définition que nous avait donnée notre chère Johara lors du premier live :\n\nToute entité qui est adorée et qui, lorsque tu l'as auprès de toi, te procure un amour intense, un amour très fort qui crée l'apaisement, le bonheur et la paix. Et lorsque tu t'en écartes, tu ressens de la tristesse et un déchirement.\n\nExercice pratique :\n\nSelon cette définition, quel est notre « ilâh » du moment ? Nos enfants, nos maris, nos parents, nos amies, notre argent ?\n\nPremière chose à travailler : tout en dehors d'Allah doit être aimé avec détachement."},
+  3: {"explication": "L'Unique, Celui qui est Un et sans égal.\n\nMais ce nom porte une idée d'unicité encore plus forte : une unicité absolue, qui ne se partage pas, qui n'a ni égal ni semblable.\n\nMême dans la langue arabe, une petite particularité nous fait réfléchir. Dans la langue courante, le mot « ahad » a toujours besoin d'être accompagné d'un autre élément, d'un contexte ou d'une construction, pour prendre pleinement son sens. Mais lorsqu'il s'agit d'Allah, le mot Ahad se suffit à lui-même. À lui seul, il porte tout son sens : l'Unique, Celui qui n'a absolument aucun égal.\n\nUne autre particularité nous invite à méditer ce nom : Al-Ahad n'est mentionné qu'une seule fois dans tout le Qoran. Il apparaît dans la sourate Al-Ikhlas :\n\n« Dis : Il est Allah, Al-Ahad. »\n« قُلْ هُوَ اللهُ أَحَد »\n\nNous récitons très souvent cette sourate, notamment dans les adhkars du matin et du soir, avec les sourates Al-Falaq et An-Nas.\n\nLorsque nous prononçons Al-Ahad, difficile de ne pas penser à Bilal رضي الله عنه. Alors qu'il était torturé pour avoir cru en Allah, rien ne pouvait le faire renoncer à cette vérité. Sous la souffrance, il répétait : « Ahad… Ahad… » Un seul… L'Unique !\n\nCe n'était pas simplement un mot qu'il répétait. C'était une conviction qu'il portait dans son cœur et qu'il refusait d'abandonner.\n\nPosons-nous maintenant ces questions :\n\nSi Allah est réellement Al-Ahad, l'Unique, Celui qui n'a aucun égal, qu'est-ce que cela devrait changer concrètement dans ma vie ? Dans mes attachements, mes priorités, mes peurs, mes préoccupations ?\n\nY a-t-il des choses ou des personnes qui prennent une place démesurée dans mon cœur ? Mon travail, ma famille, le regard des autres, mes projets, mes peurs ?\n\nCertaines de ces choses occupent-elles mon cœur, me préoccupent-elles ou m'angoissent-elles au point de prendre une place qui devrait revenir à Allah ?\n\nReconnaître Allah comme Al-Ahad, c'est apprendre à remettre chaque chose à sa juste place : j'aime, je prends soin, mais mon cœur ne donne à personne ni à rien la place qui revient à Allah seul."},
+  4: {"explication": "Le Parfaitement Juste, l'Équitable.\n\nSa justice est parfaite. Il ne commet aucune injustice, et aucune de Ses décisions n'est injuste.\n\nDans un hadith qudsi, Allah s'est interdit l'injustice. Et dans le Qoran, Allah nous rappelle :\n\n« Ton Seigneur ne fait du tort à personne. » (Sourate Al-Kahf)\n\nÊtre juste ne signifie pas que tout le monde reçoit la même chose, au même moment ou dans les mêmes proportions. Allah connaît parfaitement chacune de nous : nos capacités, nos situations, nos intentions et ce que nous sommes capables de porter. Et surtout, Allah ne nous demande pas de comptes sur ce qui ne dépend pas de nous.\n\n« Allah n'impose à aucune âme une charge supérieure à sa capacité. » (Sourate Al-Baqarah)\n\nNotre injustice peut commencer envers nous-mêmes, lorsque nous désobéissons à Allah. Car les ordres d'Allah ne sont pas là pour nous nuire. Ce qu'Il nous ordonne contient un bien, et ce qu'Il nous interdit nous protège d'un mal, même lorsque nous n'en percevons pas immédiatement la sagesse.\n\nIci-bas, certaines injustices peuvent rester sans réparation. Des droits peuvent être pris, des blessures peuvent rester sans réponse, et certains oppresseurs peuvent ne jamais être confrontés aux conséquences de leurs actes.\n\nMais rien n'échappe à Al-‘Adl. Au Jour du Jugement, Allah établira les balances de la justice. Le Prophète ﷺ nous a même informés que les droits seront rendus à leurs ayants droit, jusqu'à ce que justice soit faite entre les animaux : même la brebis sans cornes obtiendra réparation face à celle qui l'a encornée.\n\nAllahou akbar. Quel soulagement : aucune injustice ne sera oubliée.\n\nSa justice nous apprend aussi à être justes à notre tour, même lorsque cela va contre nous-mêmes :\n\n« Ô vous qui croyez ! Soyez fermes dans la justice, témoins pour Allah, même si cela est contre vous-mêmes… » (Sourate An-Nisa)\n\nSi Allah est Al-‘Adl :\n\nEst-ce que je cherche moi aussi à être juste, même lorsque personne ne me voit ?\n\nDans mes paroles, est-ce que je rapporte les faits avec honnêteté, sans exagérer ni déformer ce qui s'est passé ?\n\nDans mes jugements, est-ce que je laisse une place au doute et à la compréhension, ou est-ce que je condamne trop vite ?\n\nDans mes relations, est-ce que j'accorde aux autres la même indulgence que celle que j'espère recevoir pour moi-même ?\n\nLorsque je me compare aux autres et que je me sens moins privilégiée, est-ce que je me rappelle qu'Allah est Juste et qu'Il connaît ce que j'ignore : leurs épreuves, leurs efforts, leurs intentions et leur chemin ?\n\nEst-ce que je confonds parfois justice et égalité, en oubliant que chacun porte une histoire et des responsabilités différentes ?\n\nEt enfin, envers moi-même, suis-je juste ? Est-ce que je me condamne pour mes erreurs sans me laisser la possibilité d'apprendre, de me repentir et de grandir ?"},
+  6: {"explication": "Celui qui sait absolument tout.\n\nCe nom revient plus de 150 fois dans le Qoran, comme si Allah nous rappelait sans cesse une réalité essentielle : Allah sait.\n\nEt quelle consolation dans ce nom.\n\nLorsque notre cœur est touché par une parole, une injustice, une humiliation ou une blessure que personne n'a vue, Allah, Lui, sait.\n\nLorsque nous n'arrivons pas à expliquer ce que nous ressentons, lorsque nous-mêmes ne comprenons pas toujours ce qui se passe en nous, Al-‘Alîm sait.\n\nLorsque nous vivons une expérience que nous ne comprenons pas et que notre logique humaine limitée n'arrive pas à expliquer, Al-‘Alîm, Lui, sait. Car Il connaît le visible mais aussi l'invisible.\n\nAl-‘Alîm sait tout ce qui se passe dans Sa création, à chaque instant. Rien ne Lui échappe, ni dans les cieux, ni sur terre, ni dans ce qui est visible ou invisible.\n\n« Il détient les clefs de l'Invisible, nul autre que Lui ne les connaît. Et Il sait ce qui est sur la terre et dans la mer. Pas une feuille ne tombe sans qu'Il ne le sache… » (Sourate Al-An‘am)\n\nIl connaît l'infiniment grand comme l'infiniment petit.\n\nAl-‘Alîm sait même ce que nous cachons aux autres, car rien ne Lui est caché.\n\n« Il connaît la traîtrise des regards et ce que cachent les poitrines. » (Sourate Ghafir)\n\nLorsque nous hésitons devant une décision, nous pouvons nous tourner vers Celui qui sait ce que nous ignorons. Al-‘Alîm connaît notre passé, notre présent et ce qui nous attend. C'est le sens profond de l'istikhara, la prière de consultation : « Ô Allah, je Te consulte par Ton savoir… Tu sais et je ne sais pas. »\n\nEt nous, quelle place accordons-nous au savoir ?\n\nLe savoir est un immense bienfait, mais aussi une responsabilité. Plus nous apprenons, plus nous devrions prendre conscience de l'immensité de ce que nous ignorons. Notre savoir restera toujours limité. Alors apprenons, mais restons toujours humbles.\n\nUne magnifique invocation qu'Allah nous a enseignée dans le Qoran :\n\nوَقُلْ رَبِّ زِدْنِي عِلْمًا\n« Et dis : Seigneur, augmente-moi en science ! » (Sourate Ṭâ-Hâ)\n\nDemandons à Allah un savoir utile, qui nous rapproche de Lui, augmente notre foi et nous permet d'agir."},
+};
+const NAMES = RAW.map(([n,fr,ar,sens,detail,memo,theme,mask=[],livre=false]) => ({
+  id:"nom-"+n, n, fr, ar, sens, detail, memo, theme, livre, mask:[fr,...mask],
+  img: n<=31 ? `images/${String(n).padStart(2,"0")}.jpg` : "",
+  explication:(EXTRA[n]||{}).explication||"", videos:VIDEOS[n]||[] }));
+const THEMES = ["Miséricorde/Amour","Puissance/Majesté","Science/Sagesse","Protection/Sécurité","Justice/Droiture","Création/Origine"];
+const PASTELS = [["#F6D6DE","#7A2E4A"],["#DCD3F2","#4B3683"],["#CFE3F3","#244E72"],["#D3EDDF","#2B6248"],["#FBE0CB","#8A4720"],
+  ["#F8EDBF","#76601A"],["#E3D4EC","#5E3470"],["#CDEBEA","#215E5C"],["#F7D3CC","#8B3427"],["#E2EBCF","#4C5F24"]];
+
+const STORE = "noms-quiz-faits";
+let doneSet = new Set();
+try { doneSet = new Set(JSON.parse(localStorage.getItem(STORE) || "[]")); } catch(e) {}
+const saveDone = () => { try { localStorage.setItem(STORE, JSON.stringify([...doneSet])); } catch(e) {} };
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[\x27\u2019]/g,"").toLowerCase();
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const masked = (txt, n) => n.mask.reduce((t,w) => t.replace(new RegExp(reEsc(w)+"(?![\\p{L}])","giu"), "…"), txt);
+const STAR = `<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1l2.6 4.7L19.8 4.2 18.3 9.4 23 12l-4.7 2.6 1.5 5.2-5.2-1.5L12 23l-2.6-4.7-5.2 1.5 1.5-5.2L1 12l4.7-2.6L4.2 4.2l5.2 1.5z"/></svg>`;
+
+const PALETTE = ["#E3B8A0", "#C49491", "#CBBCAE", "#8B3A44", "#B0875A", "#D9B08F", "#75744E", "#9FB1A6", "#CFD8DC", "#6E7E92", "#D8B66A", "#B5654A", "#D3A9A2", "#CDB089", "#5A2E40", "#A5938A", "#F2DCCB", "#7F8C77", "#C4C09A", "#34505C", "#8B9AAB", "#F0E2B8", "#8A4632", "#B97F7C", "#EDE3D3", "#C3AAB4", "#E8C0A6", "#85705F", "#97A38C", "#B4C2C8", "#3D4A35", "#B8934C", "#A9B6C4", "#C2876B", "#E9CFC7", "#6A3F52", "#B3A193", "#E4D3BB", "#5E5F3F", "#CF9670", "#DCE1D3", "#67808C", "#E1C78E", "#56677D", "#D49A7E", "#E0BDB3", "#4E2A35", "#9C8879", "#E8D9C5", "#C68A63", "#B9C6BC", "#2F3D2E", "#98AAB3", "#E8D49C", "#283648", "#C9785C", "#D9C2A1", "#CFA5A0", "#DDAA8A", "#7E5F6E", "#6E857A", "#DCC07D", "#4A3529", "#8E8B62", "#F0D3C0", "#7F939E", "#C5CDBB", "#43546A", "#B5706D", "#9C5B43", "#73343D", "#C9A27A", "#E6B48F", "#A9A57C", "#AEB8A3", "#6E5848", "#CDA960", "#52707C", "#1F2B3B", "#977583", "#7A3E2C", "#A97C4F", "#A35E5D", "#3E2B22", "#A88342", "#6F7A5A", "#263F4A", "#A88A98", "#5B6B78", "#BF9B6E", "#A0533D", "#8F5754", "#D4A080", "#5C4636", "#4C5A3F", "#869C91", "#3F5F6C", "#C7A35A", "#34445A"];
+
+/* couleur du texte calculée selon la clarté du fond (même teinte, contraste garanti) */
+function hexToHsl(hex){ let r=parseInt(hex.slice(1,3),16)/255,g=parseInt(hex.slice(3,5),16)/255,b=parseInt(hex.slice(5,7),16)/255;
+  const mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2,d=mx-mn; let h=0,s=0;
+  if(d){ s=d/(1-Math.abs(2*l-1)); h=mx===r?((g-b)/d)%6:mx===g?(b-r)/d+2:(r-g)/d+4; h*=60; if(h<0)h+=360; }
+  return [h,s,l]; }
+function relLum(hex){ return [1,3,5].map(i=>{const x=parseInt(hex.slice(i,i+2),16)/255; return x<=.03928?x/12.92:((x+.055)/1.055)**2.4;})
+  .reduce((a,x,i)=>a+x*[.2126,.7152,.0722][i],0); }
+function inkFor(bg){ const [h,s]=hexToHsl(bg), L=relLum(bg);
+  const hsl2hex=(h,s,l)=>{ const k=n=>(n+h/30)%12, a=s*Math.min(l,1-l), f=n=>l-a*Math.max(-1,Math.min(k(n)-3,9-k(n),1));
+    return "#"+[f(0),f(8),f(4)].map(x=>Math.round(x*255).toString(16).padStart(2,"0")).join(""); };
+  const cr=(a,b)=>(Math.max(a,b)+.05)/(Math.min(a,b)+.05);
+  const dark=hsl2hex(h,Math.min(s,.40),L>.4?.20:.10), light=hsl2hex(h,Math.min(s,.30),.96);
+  return cr(L,relLum(dark))>=cr(L,relLum(light)) ? dark : light; }
+
+function cover(n){
+  const bg = PALETTE[(n.n-1) % PALETTE.length], ink = inkFor(bg);
+  return `<div class="cover" style="--c-bg:${bg};--c-ink:${ink}"><span class="c-num">N° ${n.n}</span>
+    <div class="c-ar" lang="ar" dir="rtl">${n.ar}</div><div class="c-fr">${esc(n.fr)}</div>
+    <div class="c-dot"><i></i></div><div class="c-sens">${esc(n.sens)}</div></div>`;
+}
+
+/* ── Galerie ── */
+let theme = "Tous", visible = NAMES, current = -1, lastFocus = null;
+function chips(){
+  $("#chips").innerHTML = ["Tous",...THEMES].map(t =>
+    `<button class="chip" type="button" aria-pressed="${t===theme}" data-t="${esc(t)}">${esc(t)}</button>`).join("");
+}
+function render(){
+  const q = norm($("#q").value.trim());
+  visible = NAMES.filter(n => (theme==="Tous"||n.theme===theme) && (!q || norm(n.fr+" "+n.sens+" "+n.detail).includes(q)));
+  $("#grid").innerHTML = visible.map((n,i) => `
+    <button class="card" type="button" data-i="${i}" aria-label="${esc(n.fr)}, ${esc(n.sens)}">
+      ${doneSet.has(n.id)?`<span class="done">Quiz fait</span>`:""}${cover(n)}
+    </button>`).join("") || `<p class="count">Aucun nom ne correspond à cette recherche.</p>`;
+  $("#count").textContent = `${NAMES.length} noms sur 99 · ${doneSet.size} quiz fait${doneSet.size>1?"s":""}`;
+}
+
+/* ── Fiche ── */
+const playIcon = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>`;
+function openSheet(){ $("#sheet").hidden = false; $("#panel").scrollTop = 0; }
+function ficheOf(n){ theme="Tous"; $("#q").value=""; chips(); render(); quiz=null; fiche(visible.indexOf(n)); }
+function fiche(i){
+  current = i; const n = visible[i];
+  $("#panel").innerHTML = `<div class="fiche">
+    <div class="side">${cover(n)}
+      ${n.img?`<figure><img src="${n.img}" alt="Visuel de mémorisation de ${esc(n.fr)}"><figcaption>Image de mémorisation</figcaption></figure>`:""}
+    </div>
+    <div class="body">
+      <div class="top">
+        <div class="names"><div class="ar-l" lang="ar" dir="rtl">${n.ar}</div><h2>${esc(n.fr)}</h2></div>
+        <button class="close" type="button" aria-label="Fermer" data-close>✕</button>
+      </div>
+      <div class="tagline"><span class="tag">N° ${n.n}</span><span class="tag">${esc(n.theme)}</span></div>
+      <section class="sec"><h3>Signification</h3><p class="big">${esc(n.sens)}</p><p>${esc(n.detail)}</p></section>
+      <section class="sec"><h3>Vidéo</h3>${n.videos.length?`<div class="vids">${n.videos.map(v=>`<a class="vid" href="${esc(v.url)}" target="_blank" rel="noopener"><span class="play">${playIcon}</span><span><strong>${esc(v.titre)}</strong><small>${v.chaine?esc(v.chaine)+" · ":""}${esc(v.src||"YouTube")}</small>${v.note?`<small class="vnote">${esc(v.note)}</small>`:""}</span></a>`).join("")}</div>`:`<p class="todo">La vidéo de ce nom sera ajoutée ici.</p>`}</section>
+      <section class="sec">${n.explication?`<details class="acc"><summary><span class="acc-t">Explication</span><span class="acc-h">Appuie pour lire</span><span class="acc-i" aria-hidden="true"></span></summary><div class="expli">${para(n.explication)}</div></details>`:`<h3>Explication</h3><p class="todo">L'explication détaillée de ce nom sera ajoutée ici.</p>`}</section>
+      <section class="sec"><h3>Invoquer avec ce nom</h3><button class="btn dua-btn" type="button" data-dua>🤲 Invoquer avec ce Nom</button></section>
+      <section class="sec"><h3>Livre recommandé</h3><a class="book" href="${LIVRE.url}" target="_blank" rel="noopener"><span class="book-ic">📖</span><span><strong>${esc(LIVRE.titre)}</strong><small>${esc(LIVRE.auteur)} · Amazon</small></span></a></section>
+      <section class="sec"><h3>Quiz</h3>
+        <div class="actions"><button class="btn" type="button" data-quiz>${doneSet.has(n.id)?"Refaire le quiz":"Faire le quiz de ce nom"}</button></div></section>
+      <div class="nav">
+        <button type="button" data-step="-1" ${i===0?"disabled":""}>← Nom précédent</button>
+        <button type="button" data-step="1" ${i===visible.length-1?"disabled":""}>Nom suivant →</button>
+      </div>
+    </div></div>`;
+  openSheet(); $("#panel [data-close]").focus();
+}
+function closeSheet(){ $("#panel").classList.remove("wide"); $("#sheet").hidden = true; current = -1; quiz = null; render(); lastFocus && lastFocus.focus(); }
+
+/* ── Invocations authentiques (texte vérifié sur Sunnah.com / texte coranique) ──
+   Aucune phonétique. hl = mot(s) à mettre en évidence sur la fiche concernée. */
+const DUA_SRC = {
+  muslim2721: {
+    ar:"اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى",
+    fr:"« Ô Allah, je Te demande la guidée, la piété, la chasteté et la suffisance (ne dépendre de personne d'autre que Toi). »",
+    src:"Sahîh Muslim, n° 2721", grade:"Authentique (sahîh)",
+    ctx:"Le Prophète ﷺ disait cette invocation." },
+  bukhari6306: {
+    ar:"اللَّهُمَّ أَنْتَ رَبِّي، لاَ إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَىَّ وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ",
+    fr:"« Ô Allah, Tu es mon Seigneur, il n'y a de divinité que Toi. Tu m'as créé(e) et je suis Ton serviteur ; je reste fidèle à Ton pacte et à Ta promesse autant que je le peux. Je cherche refuge auprès de Toi contre le mal de ce que j'ai fait. Je reconnais Ton bienfait envers moi et je reconnais mon péché : pardonne-moi donc, car nul ne pardonne les péchés en dehors de Toi. »",
+    src:"Sahîh al-Bukhârî, n° 6306", grade:"Authentique (sahîh)",
+    ctx:"Le Prophète ﷺ l'appelle « sayyid al-istighfâr », la meilleure des demandes de pardon." },
+  abudawud1493: {
+    ar:"اللَّهُمَّ إِنِّي أَسْأَلُكَ أَنِّي أَشْهَدُ أَنَّكَ أَنْتَ اللَّهُ لاَ إِلَهَ إِلاَّ أَنْتَ الأَحَدُ الصَّمَدُ الَّذِي لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ",
+    fr:"« Ô Allah, je Te demande, en témoignant que Tu es Allah, il n'y a de divinité que Toi, l'Unique, l'Absolu (as-Samad), qui n'a pas engendré et n'a pas été engendré, et nul n'est égal à Lui. »",
+    src:"Sunan Abî Dâwûd, n° 1493", grade:"Authentifié sahîh par al-Albânî",
+    ctx:"Le Prophète ﷺ a entendu un homme invoquer ainsi et a dit qu'il avait invoqué Allah par Son nom le plus grand." },
+  nasai1301: {
+    ar:"اللَّهُمَّ إِنِّي أَسْأَلُكَ يَا اللَّهُ بِأَنَّكَ الْوَاحِدُ الأَحَدُ الصَّمَدُ الَّذِي لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ أَنْ تَغْفِرَ لِي ذُنُوبِي إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ",
+    fr:"« Ô Allah, je Te demande, ô Allah, par le fait que Tu es l'Un, l'Unique, l'Absolu, qui n'a pas engendré et n'a pas été engendré, et nul n'est égal à Lui : pardonne-moi mes péchés. C'est Toi le Pardonneur, le Très Miséricordieux. »",
+    src:"Sunan an-Nasâ'î, n° 1301", grade:"Chaîne authentifiée (sahîh) par al-Albânî",
+    ctx:"Un homme l'a dite dans le tashahhud de sa prière ; le Prophète ﷺ a dit qu'il avait été pardonné." },
+  tirmidhi3513: {
+    ar:"اللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+    fr:"« Ô Allah, Tu es Celui qui efface les fautes, le Généreux ; Tu aimes effacer les fautes, alors efface les miennes. »",
+    src:"Jâmi‘ at-Tirmidhî, n° 3513", grade:"Authentique (sahîh)",
+    ctx:"Enseignée par le Prophète ﷺ à ‘Aïcha, qui lui demandait quoi dire si elle savait quelle nuit est Laylat al-Qadr." },
+  q2_127: {
+    ar:"رَبَّنَا تَقَبَّلْ مِنَّآ ۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلْعَلِيمُ",
+    fr:"« Notre Seigneur, accepte cela de notre part : c'est Toi l'Audient, l'Omniscient. »",
+    src:"Coran, sourate Al-Baqarah (2), verset 127", grade:"", quran:true,
+    ctx:"Invocation d'Ibrâhîm et d'Ismâ‘îl pendant qu'ils élevaient les fondations de la Ka‘ba." },
+  q60_4: {
+    ar:"رَّبَّنَا عَلَيْكَ تَوَكَّلْنَا وَإِلَيْكَ أَنَبْنَا وَإِلَيْكَ ٱلْمَصِيرُ ۝ رَبَّنَا لَا تَجْعَلْنَا فِتْنَةًۭ لِّلَّذِينَ كَفَرُوا۟ وَٱغْفِرْ لَنَا رَبَّنَآ ۖ إِنَّكَ أَنتَ ٱلْعَزِيزُ ٱلْحَكِيمُ",
+    fr:"« Notre Seigneur, c'est en Toi que nous plaçons notre confiance, c'est vers Toi que nous revenons, et c'est vers Toi que sera le retour. Notre Seigneur, ne fais pas de nous une épreuve pour ceux qui ont mécru, et pardonne-nous, notre Seigneur : c'est Toi le Tout-Puissant, le Sage. »",
+    src:"Coran, sourate Al-Mumtahanah (60), versets 4 et 5", grade:"", quran:true,
+    ctx:"Invocation d'Ibrâhîm et de ceux qui étaient avec lui." },
+  ibnmajah3878: {
+    ar:"لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَىْءٍ قَدِيرٌ سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلاَ إِلَهَ إِلاَّ اللَّهُ وَاللَّهُ أَكْبَرُ وَلاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ الْعَلِيِّ الْعَظِيمِ ثُمَّ دَعَا رَبِّ اغْفِرْ لِي",
+    fr:"« Il n'y a de divinité qu'Allah, Seul, sans associé. À Lui la royauté, à Lui la louange, et Il est capable de toute chose. Gloire à Allah, louange à Allah, il n'y a de divinité qu'Allah, Allah est le plus grand, et il n'y a de force ni de puissance qu'en Allah, le Très-Haut, l'Immense. » Puis il invoque : « Seigneur, pardonne-moi. »",
+    src:"Sunan Ibn Mâjah, n° 3878", grade:"Authentique (sahîh)",
+    ctx:"À dire lorsqu'on se réveille pendant la nuit, puis invoquer. Al-Bukhârî rapporte ce hadith (n° 1154) sans les mots « le Très-Haut, l'Immense »." },
+  abudawud3106: {
+    ar:"أَسْأَلُ اللَّهَ الْعَظِيمَ رَبَّ الْعَرْشِ الْعَظِيمِ أَنْ يَشْفِيَكَ",
+    fr:"« Je demande à Allah, l'Immense, Seigneur du Trône immense, de te guérir. »",
+    src:"Sunan Abî Dâwûd, n° 3106", grade:"Authentifié sahîh par al-Albânî",
+    ctx:"À dire sept fois auprès d'une personne malade." },
+  muslim2713: {
+    ar:"اللَّهُمَّ رَبَّ السَّمَوَاتِ وَرَبَّ الأَرْضِ وَرَبَّ الْعَرْشِ الْعَظِيمِ رَبَّنَا وَرَبَّ كُلِّ شَىْءٍ فَالِقَ الْحَبِّ وَالنَّوَى وَمُنْزِلَ التَّوْرَاةِ وَالإِنْجِيلِ وَالْفُرْقَانِ أَعُوذُ بِكَ مِنْ شَرِّ كُلِّ شَىْءٍ أَنْتَ آخِذٌ بِنَاصِيَتِهِ اللَّهُمَّ أَنْتَ الأَوَّلُ فَلَيْسَ قَبْلَكَ شَىْءٌ وَأَنْتَ الآخِرُ فَلَيْسَ بَعْدَكَ شَىْءٌ وَأَنْتَ الظَّاهِرُ فَلَيْسَ فَوْقَكَ شَىْءٌ وَأَنْتَ الْبَاطِنُ فَلَيْسَ دُونَكَ شَىْءٌ اقْضِ عَنَّا الدَّيْنَ وَأَغْنِنَا مِنَ الْفَقْرِ",
+    fr:"« Ô Allah, Seigneur des cieux, Seigneur de la terre et Seigneur du Trône immense, notre Seigneur et Seigneur de toute chose, Toi qui fends le grain et le noyau, qui as fait descendre la Torah, l'Évangile et le Coran : je cherche refuge auprès de Toi contre le mal de toute chose que Tu tiens par le toupet. Ô Allah, Tu es le Premier, rien n'est avant Toi ; Tu es le Dernier, rien n'est après Toi ; Tu es l'Apparent, rien n'est au-dessus de Toi ; Tu es le Caché, rien n'est en deçà de Toi. Acquitte pour nous nos dettes et préserve-nous de la pauvreté. »",
+    src:"Sahîh Muslim, n° 2713", grade:"Authentique (sahîh)",
+    ctx:"À dire au moment de dormir, allongé(e) sur le côté droit." },
+  abudawud1495: {
+    ar:"اللَّهُمَّ إِنِّي أَسْأَلُكَ بِأَنَّ لَكَ الْحَمْدَ لاَ إِلَهَ إِلاَّ أَنْتَ الْمَنَّانُ بَدِيعُ السَّمَوَاتِ وَالأَرْضِ يَا ذَا الْجَلاَلِ وَالإِكْرَامِ يَا حَىُّ يَا قَيُّومُ",
+    fr:"« Ô Allah, je Te demande, car à Toi revient la louange ; il n'y a de divinité que Toi, le Bienfaiteur, le Créateur sans précédent des cieux et de la terre. Ô Détenteur de la Majesté et de la Générosité, ô Vivant, ô Toi qui subsistes par Toi-même. »",
+    src:"Sunan Abî Dâwûd, n° 1495", grade:"Authentifié sahîh par al-Albânî",
+    ctx:"Un homme a invoqué ainsi après sa prière ; le Prophète ﷺ a dit qu'il avait invoqué Allah par Son nom le plus grand." },
+  bukhari834: {
+    ar:"اللَّهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا، وَلاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ، فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ، وَارْحَمْنِي إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ",
+    fr:"« Ô Allah, je me suis fait beaucoup de tort à moi-même, et nul ne pardonne les péchés en dehors de Toi. Accorde-moi donc un pardon venant de Toi et fais-moi miséricorde : c'est Toi le Pardonneur, le Très Miséricordieux. »",
+    src:"Sahîh al-Bukhârî, n° 834 (et Sahîh Muslim, n° 2705)", grade:"Authentique (sahîh)",
+    ctx:"Enseignée par le Prophète ﷺ à Abû Bakr, qui lui demandait une invocation à dire dans sa prière." },
+  abudawud1173: {
+    ar:"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَنِ الرَّحِيمِ ۝ مَلِكِ يَوْمِ الدِّينِ، لاَ إِلَهَ إِلاَّ اللَّهُ يَفْعَلُ مَا يُرِيدُ، اللَّهُمَّ أَنْتَ اللَّهُ لاَ إِلَهَ إِلاَّ أَنْتَ الْغَنِيُّ وَنَحْنُ الْفُقَرَاءُ، أَنْزِلْ عَلَيْنَا الْغَيْثَ وَاجْعَلْ مَا أَنْزَلْتَ لَنَا قُوَّةً وَبَلاَغًا إِلَى حِينٍ",
+    fr:"« Louange à Allah, Seigneur des mondes, le Tout Miséricordieux, le Très Miséricordieux, Maître du Jour de la rétribution. Il n'y a de divinité qu'Allah, Il fait ce qu'Il veut. Ô Allah, Tu es Allah, il n'y a de divinité que Toi, le Riche qui Se suffit à Lui-même, et nous sommes les pauvres qui avons besoin de Toi. Fais descendre sur nous la pluie, et fais de ce que Tu fais descendre une force pour nous et une subsistance pour un temps. »",
+    src:"Sunan Abî Dâwûd, n° 1173", grade:"Jugé hasan par al-Albânî",
+    ctx:"Invocation du Prophète ﷺ lors de la prière pour demander la pluie, en période de sécheresse." },
+  bukhari3370: {
+    ar:"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ، وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ، وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ",
+    fr:"« Ô Allah, prie sur Muhammad et sur la famille de Muhammad, comme Tu as prié sur Ibrâhîm et sur la famille d'Ibrâhîm : Tu es certes digne de louange et glorieux. Ô Allah, bénis Muhammad et la famille de Muhammad, comme Tu as béni Ibrâhîm et la famille d'Ibrâhîm : Tu es certes digne de louange et glorieux. »",
+    src:"Sahîh al-Bukhârî, n° 3370", grade:"Authentique (sahîh)",
+    ctx:"La prière sur le Prophète ﷺ qu'il a enseignée à ses Compagnons." },
+  bukhari1120: {
+    ar:"اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ قَيِّمُ السَّمَوَاتِ وَالأَرْضِ وَمَنْ فِيهِنَّ وَلَكَ الْحَمْدُ، لَكَ مُلْكُ السَّمَوَاتِ وَالأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ أَنْتَ نُورُ السَّمَوَاتِ وَالأَرْضِ، وَلَكَ الْحَمْدُ أَنْتَ الْحَقُّ، وَوَعْدُكَ الْحَقُّ، وَلِقَاؤُكَ حَقٌّ، وَقَوْلُكَ حَقٌّ، وَالْجَنَّةُ حَقٌّ، وَالنَّارُ حَقٌّ، وَالنَّبِيُّونَ حَقٌّ، وَمُحَمَّدٌ صلى الله عليه وسلم حَقٌّ، وَالسَّاعَةُ حَقٌّ، اللَّهُمَّ لَكَ أَسْلَمْتُ، وَبِكَ آمَنْتُ وَعَلَيْكَ تَوَكَّلْتُ، وَإِلَيْكَ أَنَبْتُ، وَبِكَ خَاصَمْتُ، وَإِلَيْكَ حَاكَمْتُ، فَاغْفِرْ لِي مَا قَدَّمْتُ وَمَا أَخَّرْتُ، وَمَا أَسْرَرْتُ وَمَا أَعْلَنْتُ، أَنْتَ الْمُقَدِّمُ وَأَنْتَ الْمُؤَخِّرُ، لاَ إِلَهَ إِلاَّ أَنْتَ ـ أَوْ لاَ إِلَهَ غَيْرُكَ ـ",
+    fr:"« Ô Allah, à Toi la louange : Tu es Celui qui maintient les cieux, la terre et ceux qui s'y trouvent. À Toi la louange : à Toi la royauté des cieux, de la terre et de ceux qui s'y trouvent. À Toi la louange : Tu es la Lumière des cieux et de la terre. À Toi la louange : Tu es la Vérité, Ta promesse est vérité, Ta rencontre est vérité, Ta parole est vérité, le Paradis est vérité, l'Enfer est vérité, les prophètes sont vérité, Muhammad ﷺ est vérité et l'Heure est vérité. Ô Allah, à Toi je me suis soumis(e), en Toi j'ai cru, en Toi j'ai placé ma confiance, vers Toi je suis revenu(e), par Toi j'ai argumenté et c'est à Toi que j'ai remis le jugement. Pardonne-moi ce que j'ai fait avant et après, ce que j'ai caché et ce que j'ai montré. Tu es Celui qui avance et Celui qui retarde. Il n'y a de divinité que Toi (ou : il n'y a pas de divinité autre que Toi). »",
+    src:"Sahîh al-Bukhârî, n° 1120", grade:"Authentique (sahîh)",
+    ctx:"Le Prophète ﷺ la disait lorsqu'il se levait la nuit pour prier (tahajjud)." },
+  tirmidhi3524: {
+    ar:"يَا حَىُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ",
+    fr:"« Ô Vivant, ô Toi qui subsistes par Toi-même, c'est par Ta miséricorde que je demande secours. »",
+    src:"Jâmi‘ at-Tirmidhî, n° 3524", grade:"Jugé hasan",
+    ctx:"Le Prophète ﷺ la disait lorsqu'une affaire l'accablait." },
+};
+
+/* Invocations par nom : [clé, mot arabe à surligner, mot français à surligner] */
+const DUA_AUTH = {
+  1:[["muslim2721","اللَّهُمَّ","Ô Allah"]],
+  2:[["bukhari6306","إِلَهَ","divinité"]],
+  3:[["abudawud1493","الأَحَدُ","l'Unique"],["nasai1301","الأَحَدُ","l'Unique"]],
+  5:[["tirmidhi3513","عَفُوٌّ","Celui qui efface les fautes"]],
+  6:[["q2_127","ٱلْعَلِيمُ","l'Omniscient"]],
+  7:[["q60_4","ٱلْعَزِيزُ","le Tout-Puissant"]],
+  8:[["ibnmajah3878","الْعَلِيِّ","le Très-Haut"]],
+  9:[["abudawud3106","اللَّهَ الْعَظِيمَ","Allah, l'Immense"],["ibnmajah3878","الْعَظِيمِ","l'Immense"]],
+  11:[["muslim2713","الأَوَّلُ","le Premier"]],
+  12:[["muslim2713","الآخِرُ","le Dernier"]],
+  18:[["muslim2713","الْبَاطِنُ","le Caché"]],
+  19:[["abudawud1495","بَدِيعُ","le Créateur sans précédent"]],
+  22:[["muslim2713","الظَّاهِرُ","l'Apparent"]],
+  24:[["abudawud1495","ذَا الْجَلاَلِ وَالإِكْرَامِ","Détenteur de la Majesté et de la Générosité"]],
+  27:[["bukhari834","الْغَفُورُ","le Pardonneur"],["nasai1301","الْغَفُورُ","le Pardonneur"]],
+  28:[["abudawud1173","الْغَنِيُّ","le Riche qui Se suffit à Lui-même"]],
+  32:[["q60_4","ٱلْحَكِيمُ","le Sage"]],
+  34:[["bukhari3370","حَمِيدٌ","digne de louange"]],
+  35:[["bukhari1120","أَنْتَ الْحَقُّ","Tu es la Vérité"]],
+  37:[["tirmidhi3524","حَىُّ","Vivant"],["abudawud1495","حَىُّ","Vivant"]],
+};
+
+/* Invocations proposées (en français, inspirées du sens de chaque nom — ni verset, ni hadith) */
+const DUA_PROP = {
+  1:"Ô Allah, fais que je prononce Ton nom avec un cœur présent, dans chacune de mes prières et de mes invocations.",
+  2:"Ô Allah, Toi seul mérites d'être adoré : purifie mon cœur de tout attachement qui prendrait Ta place.",
+  3:"Ô Al-Ahad, Toi l'Unique sans égal, fais que mon cœur ne donne à personne ni à rien la place qui Te revient.",
+  4:"Ô Al-‘Adl, Toi le Parfaitement Juste, apaise mon cœur face aux injustices et aide-moi à être juste, même envers moi-même.",
+  5:"Ô Al-‘Afuw, efface mes fautes comme si elles n'avaient jamais existé, et aide-moi à effacer, moi aussi, les fautes des autres.",
+  6:"Ô Al-‘Alîm, Toi qui sais ce que j'ignore, guide mes choix et accorde-moi une science utile qui me rapproche de Toi.",
+  7:"Ô Al-‘Azîz, quand je me sens faible, sois ma force, et fais que je cherche ma valeur auprès de Toi seul.",
+  8:"Ô Al-‘Aliyy, élève-moi auprès de Toi par l'humilité, et préserve mon cœur de vouloir dominer les autres.",
+  9:"Ô Al-‘Aẕîm, fais grandir Ta grandeur dans mon cœur, pour que je respecte Tes commandements comme ils le méritent.",
+  10:"Ô Al-A‘lâ, Toi le Plus Haut, fais que mes actes soient pour Toi seul, et que je recherche Ton regard avant celui des gens.",
+  11:"Ô Al-Awwal, fais que Tu sois toujours le premier dans ma vie, avant mes envies et avant le regard des autres.",
+  12:"Ô Al-Âkhir, fais que Ta satisfaction soit la finalité de tout ce que je fais, et détache mon cœur de ce qui passe.",
+  13:"Ô Al-Bâ‘ith, aide-moi à vivre en préparant le jour où Tu me ressusciteras, et ne me laisse pas remettre mon retour vers Toi à plus tard.",
+  14:"Ô Al-Bâri’, Toi qui fais exister à partir de rien, fais que j'utilise les capacités que Tu m'as données dans ce qui Te plaît, avec humilité.",
+  15:"Ô Al-Barr, fais-moi reconnaître Ta bonté dans chaque bienfait, et fais de moi une personne bienfaisante envers les autres.",
+  16:"Ô Al-Basîr, Toi qui me vois à chaque instant, aide-moi à faire le bien même quand personne ne me voit.",
+  17:"Ô Al-Bâsiṯ, élargis ce qui est étroit dans ma vie, et rends-moi reconnaissante pour tout ce que Tu as déjà étendu devant moi.",
+  18:"Ô Al-Bâṯin, Toi qui connais ce qui est caché en moi, purifie mes intentions et rends mon cœur meilleur que ce que je montre.",
+  19:"Ô Al-Badî‘, ouvre mes yeux sur les merveilles de Ta création, et fais que chaque émerveillement me rapproche de Toi.",
+  20:"Ô Al-Bâqî, Toi qui demeures quand tout disparaît, aide-moi à investir ma vie dans ce qui restera auprès de Toi.",
+  21:"Ô Allah, rien ne m'atteint sans Ta permission : quand Tu m'éprouves, donne-moi la patience, et fais de l'épreuve une porte vers Toi.",
+  22:"Ô Al-Ẕâhir, éveille mon cœur pour que je reconnaisse Tes signes partout autour de moi.",
+  23:"Ô Ad-Dayyân, je Te remets les injustices que j'ai subies ; aide-moi à ne pas répondre au mal par le mal, et à rendre à chacun son droit.",
+  24:"Ô Détenteur de la Majesté et de la Générosité, fais-moi ressentir Ta grandeur et reconnaître Ta générosité dans chacun de Tes bienfaits.",
+  25:"Ô Al-Fattâẖ, ouvre-moi les portes du bien qui me semblent fermées, et préserve mon cœur de l'orgueil quand Tu me les ouvres.",
+  26:"Ô Al-Ghaffâr, pardonne-moi encore et encore, chaque fois que je reviens sincèrement vers Toi.",
+  27:"Ô Al-Ghafûr, couvre de Ton immense pardon mes fautes, même celles qui me paraissent énormes.",
+  28:"Ô Al-Ghaniyy, Toi qui n'as besoin de personne, fais que je ne dépende que de Toi et que mon cœur soit riche de Toi.",
+  29:"Ô Al-Hâdî, guide mon cœur vers la vérité, montre-moi le droit chemin et raffermis-moi dessus.",
+  30:"Ô Al-H̱afîẕ, préserve ma foi, ma famille et tout ce que je T'ai confié.",
+  31:"Ô Al-H̱akam, je Te remets ce qui me dépasse entre moi et les autres : tranche par Ta vérité et apaise mon cœur face à Ta décision.",
+  32:"Ô Al-H̱akîm, aide-moi à faire confiance à Ta sagesse, même quand je ne comprends pas ce que Tu décrètes.",
+  33:"Ô Al-H̱alîm, merci de ne pas Te hâter envers moi : aide-moi à profiter de ce délai pour revenir vers Toi, et rends-moi douce envers les autres.",
+  34:"Ô Al-H̱amîd, Toi à qui revient toute louange, fais de ma langue et de ma vie une louange continue envers Toi.",
+  35:"Ô Al-H̱aqq, fais-moi voir la vérité comme vérité et aide-moi à la suivre, et attache mon cœur à Toi, la Vérité absolue.",
+  36:"Ô Al-H̱asîb, suffis-moi dans mes soucis, et fais que je me souvienne que Tu tiens compte de chacune de mes œuvres.",
+  37:"Ô Al-H̱ayy, Toi le Vivant qui ne meurs jamais, redonne vie à mon cœur par Ton rappel.",
+};
+
+/* ── Questions de quiz rédigées nom par nom ──
+   Sources : signification (livre), phrase courte et « Pour t'en souvenir » (cartes),
+   explications de la sœur, invocations présentes dans les données.
+   ok = bonne réponse (nombre = nom n° X), no = mauvaises réponses plausibles, fb = explication courte. */
+const QUIZ = {
+1: [
+ {q:"Lequel de ces noms est le nom propre de notre Créateur, alors que les autres nous enseignent Ses attributs ?", ok:1, no:[2,3,7],
+  fb:"« Allah » est Son nom propre. Ses autres beaux noms, comme al-Ilâh ou al-Aẖad, nous font connaître Ses attributs."},
+ {q:"D'après l'explication, combien de fois ce nom est-il mentionné dans le Coran ?", ok:"Plus de 2000 fois", no:["Plus de 150 fois","Une seule fois","Exactement 99 fois"],
+  fb:"Plus de 2000 fois. À ne pas confondre : plus de 150 fois, c'est al-‘Alîm ; une seule fois, c'est al-Aẖad."},
+ {q:"Par quelle formule commence-t-on la prière ?", ok:"Allâhu akbar (le Takbir)", no:["Subhâna Rabbiyal-‘Aẕîm","Subhâna Rabbiyal-A‘lâ","Âmîn"],
+  fb:"La prière commence par le Takbir, « Allâhu akbar », qui commence par le nom Allah. On le répète ensuite à chaque inclinaison et prosternation."}
+],
+2: [
+ {q:"Dans la Shahada « Lâ … illâ Allah », quel mot manque ?", ok:"ilâha", no:["ahada","rabba","hayya"],
+  fb:"« Lâ ilâha illâ Allah » : il n'y a pas de divinité digne d'être adorée en dehors d'Allah. On y retrouve le mot « ilâh »."},
+ {q:"D'après la définition donnée au premier live, qu'est-ce qu'un « ilâh » ?", ok:"Ce que l'on adore et à quoi le cœur s'attache par un amour intense, au point de souffrir quand on s'en éloigne",
+  no:["Celui qui juge et tranche entre deux parties","Celui qui guide vers le droit chemin","Celui qui demeure quand tout disparaît"],
+  fb:"Un « ilâh », c'est ce que l'on adore : sa présence apaise, son absence déchire. D'où l'exercice : quel est notre « ilâh » du moment ?"},
+ {q:"Quelle est la « première chose à travailler » avec ce nom, selon l'explication ?", ok:"Aimer tout ce qui est en dehors d'Allah avec détachement",
+  no:["Multiplier les invocations dans la prosternation","Ne pas répondre à l'injustice par une injustice","Regarder les signes d'Allah dans la création"],
+  fb:"Tout en dehors d'Allah doit être aimé avec détachement : nos enfants, nos proches, notre argent ne doivent pas devenir notre « ilâh »."}
+],
+3: [
+ {q:"Sous la torture, un Compagnon refusait de renoncer à sa foi et répétait un seul nom d'Allah. Lequel ?", ok:3, no:[1,7,37],
+  fb:"Bilal رضي الله عنه répétait « Ahad… Ahad… » : un seul, l'Unique. Une conviction qu'il refusait d'abandonner."},
+ {q:"Combien de fois ce nom est-il mentionné dans le Coran ?", ok:"Une seule fois", no:["Plus de 150 fois","Plus de 2000 fois","Trois fois"],
+  fb:"Une seule fois, dans la sourate Al-Ikhlâs : « Dis : Il est Allah, Ahad »."},
+ {q:"Quelle particularité de la langue arabe l'explication souligne-t-elle pour ce nom ?", ok:"Dans la langue courante, le mot a besoin d'un complément ; pour Allah, il se suffit à lui-même",
+  no:["Sa racine évoque l'idée de couvrir et de protéger","Sa forme exprime l'intensité et la répétition","Il vient d'un mot qui signifie « effacer »"],
+  fb:"Employé seul pour Allah, « Ahad » porte tout son sens : l'Unique, sans égal. (Les autres réponses concernent al-Ghaffâr et al-‘Afuw.)"},
+ {q:"Dans quelle sourate trouve-t-on ce nom ?", ok:"Al-Ikhlâs", no:["Al-Falaq","An-Nâs","Al-A‘lâ"],
+  fb:"Al-Ikhlâs, que l'on récite souvent avec Al-Falaq et An-Nâs, notamment matin et soir."}
+],
+4: [
+ {q:"Selon l'explication, la justice d'Allah signifie-t-elle que chacun reçoit exactement la même chose ?", ok:"Non : Allah donne selon ce qu'Il sait de chacun, de ses capacités et de ce qu'il peut porter",
+  no:["Oui : la justice, c'est l'égalité parfaite entre tous","Oui, mais seulement dans l'au-delà","Non : Sa justice ne concerne que les actes visibles"],
+  fb:"Justice n'est pas égalité. Allah connaît nos situations et n'impose à aucune âme une charge supérieure à sa capacité."},
+ {q:"Au Jour du Jugement, jusqu'où la justice sera-t-elle rendue, d'après le hadith cité ?", ok:"Même entre les animaux : la brebis sans cornes obtiendra réparation de celle qui l'a encornée",
+  no:["Uniquement entre les croyants","Seulement pour les grandes injustices","Uniquement pour ceux qui ont réclamé leur droit ici-bas"],
+  fb:"Les droits seront rendus à leurs ayants droit, jusqu'entre les animaux. Aucune injustice ne sera oubliée."},
+ {q:"Une sœur se compare aux autres et se sent moins favorisée. Quel nom lui rappelle qu'Allah ne fait de tort à personne et donne à chacun ce qui lui revient ?", ok:4, no:[31,23,36],
+  fb:"Al-‘Adl est parfaitement juste : Il connaît les épreuves, les efforts et le chemin de chacun, ce que nous ignorons."},
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Une balance parfaitement équilibrée", no:["Une porte qui s'ouvre","Une forteresse impossible à renverser","Une décision qui tranche entre deux côtés"],
+  fb:"La balance équilibrée : Allah est le Juste. (La décision qui tranche, c'est al-H̱akam.)"}
+],
+5: [
+ {q:"Des savants distinguent deux idées du pardon. Laquelle correspond à ce nom ?", ok:"L'effacement de la faute, sans laisser de trace",
+  no:["Le fait de couvrir la faute","Le pardon accordé encore et encore","Le fait de ne pas se hâter de punir"],
+  fb:"Le pardon (maghfirah) évoque le fait de couvrir la faute ; le ‘afw évoque son effacement."},
+ {q:"Quel nom d'Allah se trouve dans l'invocation enseignée à ‘Aïcha : « Ô Allah, Tu es …, Tu aimes pardonner, alors pardonne-moi » ?", ok:5, no:[26,27,33],
+  fb:"« Allâhumma innaka ‘afuwwun tuhibbul-‘afwa fa‘fu ‘annî. » À dire souvent, surtout dans la prosternation."},
+ {q:"Quel enseignement ce nom donne-t-il pour nos relations avec les autres ?", ok:"Pardonner, même si l'on n'arrive pas à effacer tout de suite la blessure",
+  no:["Attendre d'avoir oublié la blessure avant de pardonner","Pardonner, c'est nier qu'on a été blessée","Pardonner uniquement à ceux qui s'excusent"],
+  fb:"Pardonner ne signifie pas nier la blessure : on peut demander à Allah de nous aider à pardonner et à avancer."},
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Une vague qui efface des traces dans le sable",
+  no:["Des traces sombres qui s'effacent encore et encore","Une grande tache recouverte par une lumière plus vaste","Une porte qui s'ouvre"],
+  fb:"La vague efface : al-‘Afuw efface les fautes. (Encore et encore : al-Ghaffâr. Lumière plus vaste : al-Ghafûr.)"}
+],
+6: [
+ {q:"Dans la prière de consultation (istikhara), on dit : « Ô Allah, je Te consulte par Ton savoir… Tu sais et je ne sais pas. » Quel nom est au cœur de cette prière ?", ok:6, no:[32,16,18],
+  fb:"Al-‘Alîm connaît notre passé, notre présent et ce qui nous attend : on se tourne vers Celui qui sait ce que nous ignorons."},
+ {hide:1, q:"Quel mot arabe aide à retenir le nom qui signifie « l'Omniscient » ?", ok:"‘ilm : la connaissance, la science", no:["‘afw : l'effacement","fath : l'ouverture, la victoire","‘izzah : la puissance"],
+  fb:"Al-‘Alîm vient de « ‘ilm », la connaissance : Allah sait absolument tout."},
+ {q:"Quelle invocation du Coran l'explication propose-t-elle avec ce nom ?", ok:"Rabbi zidnî ‘ilmâ — Seigneur, augmente-moi en science",
+  no:["Subhâna Rabbiyal-A‘lâ","Allâhumma innaka ‘afuwwun tuhibbul-‘afwa fa‘fu ‘annî","Innâ liLlâhi wa innâ ilayhi râji‘ûn"],
+  fb:"« Wa qul Rabbi zidnî ‘ilmâ » (sourate Tâ-Hâ) : demandons un savoir utile qui nous rapproche d'Allah."},
+ {q:"Selon l'explication, que devrait produire en nous le fait d'apprendre davantage ?", ok:"Plus d'humilité, car on prend conscience de tout ce qu'on ignore",
+  no:["Le sentiment d'être au-dessus des autres","Le besoin d'être reconnue par les gens","Moins de besoin d'invoquer Allah"],
+  fb:"Notre savoir restera toujours limité : plus nous apprenons, plus nous devrions rester humbles."}
+],
+7: [
+ {q:"Dans le Coran, ce nom est souvent associé à al-H̱akîm : « Et c'est Lui le …, le Sage ». Quel nom complète ce verset ?", ok:7, no:[8,9,30],
+  fb:"« Wa huwa al-‘Azîzu al-H̱akîm » : Sa puissance n'est jamais séparée de Sa sagesse."},
+ {q:"Le mot « ‘izzah », d'où vient ce nom, réunit plusieurs idées. Lesquelles ?", ok:"La puissance, la domination, l'inaccessibilité et ce qui est précieux",
+  no:["L'ouverture, la victoire et la délivrance","Le fait de couvrir et de protéger","L'élévation et la hauteur"],
+  fb:"La ‘izzah : puissance, domination, inaccessibilité et préciosité. (L'ouverture, c'est « fath » ; couvrir, c'est la racine de al-Ghaffâr.)"},
+ {q:"Une sœur se sent faible et dépassée par une situation qu'elle ne peut pas résoudre seule. Quel nom lui rappelle de chercher sa force auprès d'Allah ?", ok:7, no:[30,21,33],
+  fb:"Ce que je ne peux pas porter seule, Al-‘Azîz peut m'aider à le porter. Toute la puissance appartient à Allah."},
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Une forteresse impossible à renverser", no:["Ce qui est fragile, gardé sous une protection","Ce qui est très haut, au-dessus de tout","Une balance parfaitement équilibrée"],
+  fb:"La forteresse imprenable : Allah est l'Invincible. (Ce qui est fragile et protégé, c'est al-H̱afîẕ.)"}
+],
+8: [
+ {q:"À la fin d'Ayat al-Koursiy, quel nom est associé à al-‘Aẕîm ?", ok:8, no:[10,7,37],
+  fb:"« Wa huwa al-‘Aliyyu al-‘Aẕîm » : Il est le Très-Haut, le Très-Grand."},
+ {q:"Selon l'explication, comment recherche-t-on l'élévation auprès d'Allah ?", ok:"Par l'humilité : c'est prosternée que l'on est au plus près de Lui",
+  no:["En cherchant à être au-dessus des autres","En cherchant la reconnaissance des gens","En s'isolant des autres"],
+  fb:"Plus je m'abaisse devant Allah, plus je peux espérer être élevée par Lui."},
+ {q:"« Cette demeure dernière, Nous la réservons à ceux qui ne recherchent ni … sur terre ni corruption. » Quel mot manque ?", ok:"domination", no:["richesse","louange","savoir"],
+  fb:"Sourate Al-Qasas : l'élévation auprès d'Allah ne passe pas par la domination, mais par l'humilité et le service des autres."}
+],
+9: [
+ {hide:1, q:"Quelle formule dit-on pendant l'inclinaison (rukû‘) ?", ok:"Subhâna Rabbiyal-‘Aẕîm", no:["Subhâna Rabbiyal-A‘lâ","Allâhu akbar","Rabbi zidnî ‘ilmâ"],
+  fb:"En rukû‘ : al-‘Aẕîm. En prosternation (sujûd) : al-A‘lâ."},
+ {q:"Selon l'explication, comment se voit la vraie glorification d'Allah, l'Immense ?", ok:"Dans nos choix, notre obéissance et le respect de Ses commandements, pas seulement avec la langue",
+  no:["Uniquement par la répétition des formules","Par une apparence pieuse devant les autres","En se tenant à l'écart des gens"],
+  fb:"Quand Allah devient réellement grand dans nos cœurs, cela se voit dans notre manière de L'adorer et de respecter ce qu'Il a rendu sacré."},
+ {q:"Une sœur prend un interdit d'Allah à la légère en se disant que « ce n'est pas grave ». Quel nom l'aide à mesurer l'importance de Ses commandements ?", ok:9, no:[8,10,33],
+  fb:"« Quiconque exalte les injonctions sacrées d'Allah, cela fait partie de la piété des cœurs. » Reconnaître la grandeur d'al-‘Aẕîm, c'est respecter ce qu'Il ordonne."}
+],
+10: [
+ {q:"Dans quelle position de la prière dit-on la formule de glorification avec ce nom ?", ok:"Dans la prosternation (sujûd)", no:["Dans l'inclinaison (rukû‘)","Debout, avant la Fâtiha","Assise, au tashahhud"],
+  fb:"« Subhâna Rabbiyal-A‘lâ » se dit en sujûd : on s'abaisse devant le Plus Haut, et c'est là qu'on est au plus près de Lui."},
+ {hide:1, q:"« Glorifie le nom de ton Seigneur, le Plus Haut. » De quelle sourate vient ce verset ?", ok:"Al-A‘lâ", no:["Al-Ikhlâs","Al-Layl","Ar-Rahmân"],
+  fb:"C'est le début de la sourate Al-A‘lâ. Glorifier Allah, c'est Le déclarer exempt de toute imperfection."},
+ {q:"D'après la sourate Al-Layl, celui qui agit en secret agit « recherchant le Visage de son Seigneur, … ». Quel nom complète ce verset ?", ok:10, no:[8,9,24],
+  fb:"Quand je fais le bien sans être vue, je le fais pour al-A‘lâ : c'est Son regard que je recherche avant celui des créatures."}
+],
+11: [
+ {q:"Le Prophète ﷺ invoquait : « Ô Allah ! Tu es …, rien ne Te précède. » Quel nom complète cette invocation ?", ok:11, no:[12,20,19],
+  fb:"Al-Awwal : Celui qui n'a été précédé par rien (rapporté par Muslim)."},
+ {q:"Que nous rappelle ce nom quand nous faisons les causes pour atteindre un objectif ?", ok:"Qu'avant nos efforts il y a Sa grâce, et que c'est Lui qui nous a donné la capacité d'agir",
+  no:["Que nos efforts suffisent à obtenir le résultat","Qu'il faut cesser de faire les causes","Que le résultat dépend surtout de notre intelligence"],
+  fb:"Faisons les causes, mais gardons notre cœur attaché à al-Awwal : avant nos causes, il y a Celui qui nous a donné les moyens."},
+ {q:"Lequel de ces noms nous rappelle qu'Allah doit passer avant tout, comme notre priorité ?", ok:11, no:[12,10,2],
+  fb:"Al-Awwal : Allah en premier, avant nos envies et le regard des créatures. (Al-Âkhir : Allah comme finalité.)"}
+],
+12: [
+ {q:"« … et Tu es …, rien ne vient après Toi. » Quel nom complète cette invocation du Prophète ﷺ ?", ok:12, no:[11,20,37],
+  fb:"Al-Âkhir : Celui qui n'est suivi par rien. Tout disparaît, Lui n'a pas de fin."},
+ {q:"Lequel de ces noms nous rappelle qu'Allah doit rester notre finalité ?", ok:12, no:[11,10,3],
+  fb:"Al-Awwal : Allah avant tout. Al-Âkhir : Allah comme finalité après toute chose."},
+ {hide:1, q:"Quel mot arabe proche aide à retenir le nom qui signifie « le Dernier » ?", ok:"Al-Âkhirah : l'au-delà, ce qui vient après cette vie", no:["‘ilm : la connaissance","fath : l'ouverture","‘afw : l'effacement"],
+  fb:"Al-Âkhir fait penser à Al-Âkhirah : Allah est Celui qui demeure après toute chose."}
+],
+13: [
+ {q:"Quel nom d'Allah rappelle qu'un jour nous quitterons nos tombes pour retourner vers Lui ?", ok:13, no:[37,20,12],
+  fb:"Al-Bâ‘ith ressuscitera ceux qui sont dans les tombes (sourate Al-Hajj). Al-H̱ayy, Lui, est le Vivant."},
+ {q:"Selon l'explication, comment vivre avec ce nom ?", ok:"Avec la conscience du retour vers Allah, sans vivre dans une peur permanente",
+  no:["Dans la peur permanente de la mort","En évitant de penser à la mort","En repoussant les bonnes œuvres à plus tard"],
+  fb:"Il ne s'agit pas de vivre dans la peur, mais avec la conscience du retour, sans attendre « plus tard » pour se rapprocher d'Allah."},
+ {q:"Quelle parole résume notre retour vers Allah ?", ok:"Innâ liLlâhi wa innâ ilayhi râji‘ûn", no:["Subhâna Rabbiyal-‘Aẕîm","Lâ ilâha illâ Allah","Rabbi zidnî ‘ilmâ"],
+  fb:"« Certes nous appartenons à Allah, et c'est vers Lui que nous retournerons. »"}
+],
+14: [
+ {q:"Quelle différence l'explication fait-elle entre ce que fait l'être humain et ce que fait Allah, Celui qui fait exister ?", ok:"L'humain transforme ce qui existe déjà ; Allah fait exister à partir de rien",
+  no:["L'humain crée à partir de rien, mais plus lentement","Allah transforme seulement ce qui existe déjà","Il n'y a aucune différence"],
+  fb:"Nous fabriquons avec ce qu'Allah a créé et les capacités qu'Il nous a données. Al-Bâri’ fait exister ce qui n'existait pas."},
+ {q:"Une sœur est fière d'un objet qu'elle a fabriqué. Quel nom, selon l'explication, lui apprend l'humilité en rappelant que ses talents viennent d'Allah ?", ok:14, no:[19,7,28],
+  fb:"Mon intelligence, mes talents, mes mains : tout vient d'Allah. Toutes les louanges Lui reviennent."},
+ {q:"Dans le verset de la sourate Al-Hashr, ce nom est cité avec deux autres. Lesquels ?", ok:"Le Créateur et le Formateur", no:["Le Puissant et le Sage","Le Très-Haut et le Très-Grand","Le Bienfaisant et le Miséricordieux"],
+  fb:"« C'est Lui Allah, le Créateur, Celui qui donne un commencement à toute chose, le Formateur. »"}
+],
+15: [
+ {q:"« En vérité, c'est Lui le …, le Miséricordieux » (sourate At-Tûr). Quel nom complète ce verset ?", ok:15, no:[17,27,33],
+  fb:"« Innahu huwa al-Barru ar-Rahîm » : Sa bonté envers nous est immense."},
+ {q:"Selon l'explication, comment montrer sa reconnaissance pour les bienfaits d'al-Barr ?", ok:"En les utilisant dans ce qui Lui plaît : le corps dans l'adoration, les biens dans l'aumône, le temps dans ce qui rapproche de Lui",
+  no:["Par des paroles de remerciement uniquement","En gardant ses bienfaits pour soi","En attendant d'en recevoir davantage"],
+  fb:"La reconnaissance ne se limite pas aux paroles : on utilise Ses bienfaits dans ce qui Lui plaît."},
+ {q:"Puisque Allah est al-Barr et aime le bien, à quoi l'explication nous invite-t-elle ?", ok:"À être nous-mêmes bienfaisantes : aider, donner, pardonner, faciliter",
+  no:["À être humbles dans la prosternation","À être patientes face à l'épreuve","À surveiller nos intentions cachées"],
+  fb:"Connaître al-Barr, c'est reconnaître Sa bonté envers moi, et chercher à mon tour à faire le bien."}
+],
+16: [
+ {q:"Une sœur a l'impression que personne ne remarque ses efforts et ses sacrifices. Quel nom lui rappelle qu'Allah voit tout, et que cela suffit ?", ok:16, no:[18,6,10],
+  fb:"Al-Bas̱îr voit nos œuvres, nos efforts et nos cœurs. S'Il le voit, cela suffit."},
+ {q:"Quel hadith sur l'excellence (ihsân) est lié à ce nom ?", ok:"« Adore Allah comme si tu Le voyais, car si tu ne Le vois pas, Lui te voit »",
+  no:["« Ô Allah ! Tu es le Premier, rien ne Te précède »","« Ô Allah, Tu es Celui qui efface les fautes, Tu aimes pardonner… »","« Tu es l'Apparent, rien n'est au-dessus de Toi »"],
+  fb:"L'ihsân : vivre avec la conscience qu'Allah nous voit, même quand personne ne regarde."},
+ {q:"Quelle question l'explication de ce nom nous invite-t-elle à nous poser ?", ok:"Quelle personne suis-je lorsque personne ne me voit ?",
+  no:["Qu'est-ce que je fais aujourd'hui qui restera auprès d'Allah ?","Est-ce que je fais confiance à la justice d'Allah ?","Combien de fois ai-je remis mon repentir à plus tard ?"],
+  fb:"Al-Bas̱îr voit aussi nos actes les plus discrets. (Les autres questions viennent d'Al-Bâqî, al-Dayyân et al-Ghaffâr.)"}
+],
+17: [
+ {q:"« Et Allah restreint ou … (Ses faveurs). » Quel verbe complète ce verset ?", ok:"étend", no:["efface","ouvre","guide"],
+  fb:"Al-Bâsiṯ est Celui qui étend et élargit Ses bienfaits (sourate Al-Baqarah)."},
+ {q:"Une sœur traverse une période où sa subsistance est restreinte. Quel nom lui rappelle que Celui qui restreint peut aussi étendre et élargir ?", ok:17, no:[25,15,28],
+  fb:"Lorsque les choses semblent étroites, tournons-nous vers Celui qui peut les élargir. (Al-Fattâẖ, lui, ouvre les portes.)"},
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Un passage étroit qui devient vaste", no:["Une porte qui s'ouvre","Un chemin clair au milieu de plusieurs voies","Une forteresse impossible à renverser"],
+  fb:"L'étroit qui devient vaste : al-Bâsiṯ étend. (La porte qui s'ouvre, c'est al-Fattâẖ.)"}
+],
+18: [
+ {q:"« C'est Lui le Premier et le Dernier, l'Apparent et le … » (sourate Al-Hadîd). Quel nom complète ce verset ?", ok:18, no:[16,6,20],
+  fb:"Al-Bâṯin : rien de ce qui est caché ne Lui échappe."},
+ {q:"Selon l'explication, connaître ce nom, c'est surtout apprendre à prendre soin de…", ok:"ce qui est caché en nous : nos intentions et nos pensées",
+  no:["notre apparence devant les autres","notre réputation","nos biens"],
+  fb:"Purifier nos intentions, surveiller nos pensées : même dans le secret, qu'Allah ne trouve de nous que ce qu'Il aime."},
+ {q:"« Fais que ce qui est caché dans nos cœurs soit meilleur que ce que nous montrons aux créatures. » Avec quel nom cette invocation est-elle faite ?", ok:18, no:[16,22,6],
+  fb:"Ya Allah, al-Bâṯin, Toi qui connais l'apparent et le caché, purifie nos cœurs."}
+],
+19: [
+ {q:"« Créateur des cieux et de la terre à partir du néant ! Lorsqu'Il décide une chose, Il dit seulement : “Sois !” » (Al-Baqarah 2:117). Quel nom ouvre ce verset en arabe ?", ok:19, no:[14,11,22],
+  fb:"« Badî‘u s-samâwâti wal-ard » : Al-Badî‘, Celui qui crée sans modèle ni précédent."},
+ {q:"Quand quelque chose nous émerveille dans la création, quelle formule l'explication nous invite-t-elle à dire ?", ok:"Soubhânallah", no:["Astaghfirullah","Innâ liLlâhi wa innâ ilayhi râji‘ûn","Âmîn"],
+  fb:"Soubhânallah : reconnaître la grandeur de Celui qui a créé ce qui nous émerveille."},
+ {q:"Que nous apprend ce nom sur notre manière de regarder le monde ?", ok:"Regarder, à travers la création, Celui qui l'a créée",
+  no:["Ne s'intéresser qu'aux grandes merveilles","Se méfier de la beauté du monde","Expliquer la création uniquement par la science"],
+  fb:"Derrière chaque merveille de la création, il y a Al-Badî‘."}
+],
+20: [
+ {q:"D'après le verset cité de la sourate Al-Qasas, qu'est-ce qui est « meilleur et plus durable » ?", ok:"Ce qui est auprès d'Allah", no:["Les œuvres des grandes civilisations","Ce que l'on possède ici-bas","La reconnaissance des gens"],
+  fb:"Tout ce qui nous est donné ici-bas est éphémère ; ce qui est auprès d'Allah est meilleur et plus durable."},
+ {q:"Quelle question ce nom nous invite-t-il à nous poser ?", ok:"Qu'est-ce que je fais aujourd'hui qui restera auprès d'Allah ?",
+  no:["Quelle personne suis-je lorsque personne ne me voit ?","Est-ce que je fais confiance à la justice d'Allah ?","Est-ce que je remarque les bienfaits qu'Allah a étendus dans ma vie ?"],
+  fb:"Al-Bâqî nous apprend à investir dans ce qui demeure."},
+ {q:"Selon l'explication, que faire des bienfaits de cette vie ?", ok:"En profiter, sans oublier l'éternité ni Celui qui nous les a donnés",
+  no:["S'en priver complètement","S'y attacher comme s'ils devaient durer","Les accumuler pour l'avenir"],
+  fb:"Profiter du présent sans oublier l'éternité : ce monde ne restera pas, mais Allah demeure."}
+],
+21: [
+ {q:"Selon l'explication, une épreuve signifie-t-elle qu'Allah nous délaisse ?", ok:"Non : pour le croyant, elle peut devenir une cause d'expiation et de rapprochement d'Allah",
+  no:["Oui, c'est toujours une punition","Oui, sauf pour les personnes très pieuses","Non, car les épreuves ne viennent pas d'Allah"],
+  fb:"Rien ne nous atteint sans la permission d'Allah, et l'épreuve peut devenir une porte vers Lui."},
+ {q:"« Si Allah fait qu'un mal te touche, nul ne peut l'écarter en dehors de Lui. » Que nous apprend ce verset ?", ok:"Rien ne nous atteint sans Sa permission, et Lui seul peut l'écarter",
+  no:["Le mal vient seulement des créatures","Avec assez d'efforts, on peut tout contrôler","Il ne faut pas chercher de solution aux difficultés"],
+  fb:"Nous faisons les causes et cherchons des solutions, mais notre cœur sait que le soulagement vient d'Allah."},
+ {q:"Quelle question l'explication propose-t-elle au milieu d'une épreuve ?", ok:"Est-ce que cette épreuve m'éloigne d'Allah, ou me ramène vers Lui ?",
+  no:["Pourquoi est-ce à moi que cela arrive ?","Qui est responsable de ce qui m'arrive ?","Combien de temps cela va-t-il durer ?"],
+  fb:"Ce que nous voyons comme une douleur peut devenir, par la sagesse d'Allah, une porte vers Lui."}
+],
+22: [
+ {q:"Le Prophète ﷺ a dit : « Tu es …, rien n'est au-dessus de Toi. » Quel nom complète cette parole ?", ok:22, no:[10,8,11],
+  fb:"Al-Ẕâhir : Il est au-dessus de toute chose (rapporté par Muslim)."},
+ {q:"Deux personnes regardent le même ciel : l'une voit des nuages, l'autre voit les signes de son Créateur. Quel nom illustre cet exemple ?", ok:22, no:[16,18,6],
+  fb:"Plus le cœur est éveillé, plus les signes d'Allah deviennent apparents."},
+ {q:"Al-Ẕâhir et al-Bâṯin sont cités ensemble. Quelle idée correspond davantage à al-Ẕâhir ?", ok:"Il est au-dessus de toute chose, et Ses signes sont apparents partout",
+  no:["Rien de ce qui est caché dans les cœurs ne Lui échappe","Il n'a été précédé par rien","Il demeure quand tout disparaît"],
+  fb:"Al-Ẕâhir : l'Apparent, au-dessus de tout. Al-Bâṯin : à Lui rien de caché n'échappe."}
+],
+23: [
+ {q:"Quel nom met surtout en avant qu'Allah rétribue chacun selon ses actes, et qu'aucun droit ne sera oublié ?", ok:23, no:[4,31,24],
+  fb:"Al-Dayyân juge et rétribue chacun selon ses actes. Si la justice tarde ici-bas, elle ne sera pas oubliée auprès d'Allah."},
+ {q:"Selon l'explication, ce nom nous rappelle deux choses. Lesquelles ?", ok:"La responsabilité, car aucun acte n'est sans conséquence, et la confiance en Sa justice",
+  no:["L'élévation et l'humilité","La puissance et la sagesse","L'espoir et la gratitude"],
+  fb:"Responsabilité : même ce que personne n'a vu est connu d'Allah. Confiance : on peut Lui remettre son affaire."},
+ {q:"Une sœur a subi une injustice et a envie de répondre par une autre injustice. Que lui rappelle ce nom ?", ok:"Qu'elle n'a pas besoin de rendre le mal par le mal : elle peut remettre son affaire à Allah",
+  no:["Qu'elle doit se faire justice elle-même","Que l'injustice sera forcément réparée ici-bas","Qu'il vaut mieux renoncer à ses droits"],
+  fb:"Chaque droit sera rendu, et Allah jugera avec une justice parfaite."}
+],
+24: [
+ {q:"Ce nom réunit deux qualités. À quoi correspond « al-Ikrâm » ?", ok:"Sa générosité, Ses bienfaits, Sa noblesse envers Ses serviteurs",
+  no:["Sa majesté, Sa grandeur, Sa puissance","Sa sagesse parfaite","Sa vie éternelle"],
+  fb:"Al-Jalâl : Sa majesté. Al-Ikrâm : Sa générosité. Celui dont la majesté impressionne et dont la générosité émerveille."},
+ {q:"« Béni soit le nom de ton Seigneur, Détenteur de la Majesté et de la Générosité. » De quelle sourate vient ce verset ?", ok:"Ar-Rahmân", no:["Al-Ikhlâs","Al-Hadîd","Az-Zoukhrouf"],
+  fb:"C'est le dernier verset de la sourate Ar-Rahmân."},
+ {q:"Selon l'explication, quels sont parmi les plus grands dons d'Allah ?", ok:"Le Paradis et la rencontre avec Lui", no:["La richesse et la santé","Une longue vie","La reconnaissance des gens"],
+  fb:"Ce que nous recevons ici-bas n'est qu'un aperçu de Sa générosité."}
+],
+25: [
+ {q:"Le mot « fath » ne désigne pas seulement l'ouverture d'une porte. Que peut-il aussi désigner ?", ok:"Une victoire éclatante, une réussite ou une délivrance après une difficulté",
+  no:["L'effacement d'une faute","La protection de ce qui est fragile","L'élévation au-dessus de toute chose"],
+  fb:"Comme si une porte s'ouvrait enfin vers ce que l'on espérait."},
+ {q:"Ton livre traduit ce nom par « le Grand Juge ». Quelle partie de l'explication rejoint ce sens ?", ok:"Il tranche avec vérité et justice", no:["Il pardonne encore et encore","Il voit toute chose","Il demeure éternellement"],
+  fb:"Al-Fattâẖ ouvre les voies du bien, accorde la victoire et tranche avec vérité et justice."},
+ {q:"Une sœur cherche du travail depuis longtemps et ne voit aucune issue. Quel nom lui rappelle qu'Allah peut ouvrir une porte là où elle ne voyait rien ?", ok:25, no:[17,29,28],
+  fb:"Ce qui te semble fermé aujourd'hui ne le restera pas nécessairement demain."},
+ {q:"Quand la réussite arrive, que conseille l'explication ?", ok:"Dire Alhamdoulillah et préserver son cœur de l'orgueil, sans regarder seulement ses efforts",
+  no:["Attribuer la réussite à sa stratégie","Arrêter de faire des efforts","Se comparer à ceux qui n'ont pas réussi"],
+  fb:"Tes efforts ont leur place, mais c'est Allah qui t'a permis de les accomplir et t'a accordé le résultat."}
+],
+26: [
+ {q:"Une sœur retombe plusieurs fois dans une faute, puis revient sincèrement vers Allah à chaque fois. Quel nom rappelle particulièrement le pardon répété ?", ok:26, no:[27,5,33],
+  fb:"La forme « ghaffâr » exprime l'intensité et l'abondance : Allah pardonne encore et encore."},
+ {q:"La racine غ ف ر (gh-f-r) de ce nom évoque notamment l'idée de…", ok:"couvrir et protéger", no:["effacer et faire disparaître","ouvrir","étendre et élargir"],
+  fb:"Gh-f-r : couvrir et protéger. (Effacer, c'est le sens de « ‘afw » : al-‘Afuw.)"},
+ {q:"D'après le verset de la sourate Tâ-Hâ, quel est le chemin du retour vers Allah ?", ok:"Le repentir, la foi, les bonnes œuvres et la persévérance dans la bonne voie",
+  no:["Le repentir seul, sans changer de comportement","Les bonnes œuvres, même sans se repentir","Attendre d'être parfaite avant de revenir"],
+  fb:"« Je suis Grand Pardonneur envers celui qui se repent, croit, accomplit de bonnes œuvres, puis se maintient dans la bonne voie. »"},
+ {q:"Lorsqu'on commet une faute, que nous apprend ce nom ?", ok:"Ne pas s'éloigner d'Allah par honte, mais revenir vers Lui sincèrement",
+  no:["Attendre que la honte passe avant de revenir","Se dire que la faute n'est pas grave","Remettre son repentir à plus tard"],
+  fb:"Connaître al-Ghaffâr, ce n'est pas banaliser nos péchés : lorsque nous tombons, nous nous relevons."}
+],
+27: [
+ {q:"Quelle idée correspond davantage à al-Ghafûr qu'à al-Ghaffâr ?", ok:"L'immensité du pardon, même face à une faute qui paraît énorme",
+  no:["Le pardon accordé encore et encore","Le fait de ne pas se hâter de punir","L'effacement de la faute sans laisser de trace"],
+  fb:"Al-Ghafûr : un pardon immense. Al-Ghaffâr : un pardon répété, encore et encore."},
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Une grande tache sombre recouverte par une lumière plus vaste",
+  no:["Des traces sombres qui s'effacent encore et encore","Une vague qui efface des traces dans le sable","Une porte qui s'ouvre"],
+  fb:"La lumière plus vaste que la tache : le pardon d'Allah est plus grand que la faute."},
+ {q:"Une sœur pense que sa faute est trop grande pour être pardonnée. Quel nom lui rappelle que le pardon d'Allah est immense, si elle revient sincèrement ?", ok:27, no:[26,5,33],
+  fb:"Allah peut pardonner même des fautes qui nous paraissent très grandes."}
+],
+28: [
+ {q:"Quel nom rappelle que toute la création dépend d'Allah, alors que Lui n'a besoin de personne ?", ok:28, no:[17,24,15],
+  fb:"Al-Ghaniyy se suffit parfaitement à Lui-même ; nous, nous avons besoin de Lui à chaque instant."},
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Les créatures qui ont besoin de manger et de boire", no:["Une forteresse impossible à renverser","Un passage étroit qui devient vaste","Une porte qui s'ouvre"],
+  fb:"Toutes les créatures ont des besoins ; Allah, Lui, n'a besoin de rien."},
+ {q:"Ton livre traduit ce nom par « le Suffisant par Soi ». Que veut dire cette expression ?", ok:"Il se suffit à Lui-même et n'a besoin de personne",
+  no:["Il suffit à Ses serviteurs et tient compte de leurs œuvres","Il donne largement à qui Il veut","Il se contente de peu"],
+  fb:"Al-Ghaniyy se suffit à Lui-même. Attention : « suffire à Ses serviteurs », c'est al-H̱asîb."}
+],
+29: [
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Un chemin clair au milieu de plusieurs voies", no:["Une porte qui s'ouvre","Une décision qui tranche entre deux côtés","Une balance parfaitement équilibrée"],
+  fb:"Le chemin clair : Allah guide vers la bonne direction."},
+ {q:"Une sœur hésite entre plusieurs chemins et demande à Allah de la diriger vers la vérité et le bien. Quel nom invoque-t-elle ?", ok:29, no:[25,6,32],
+  fb:"Al-Hâdî guide vers la vérité, le bien et le droit chemin."},
+ {q:"Quelle idée correspond davantage à al-Hâdî qu'à al-Fattâẖ ?", ok:"Montrer et diriger vers le droit chemin", no:["Ouvrir les portes du bien et de la subsistance","Accorder une victoire éclatante","Trancher avec vérité et justice"],
+  fb:"Al-Hâdî guide. Al-Fattâẖ ouvre les portes, accorde la victoire et tranche."}
+],
+30: [
+ {q:"Ton livre traduit ce nom par « le très Bienveillant ». Quelle idée la fiche met-elle en avant ?", ok:"Il protège, préserve et veille parfaitement sur toute chose",
+  no:["Il pardonne encore et encore","Il étend largement Ses bienfaits","Il juge et tranche avec vérité"],
+  fb:"Al-H̱afîẕ protège, préserve et veille sur toute chose."},
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Ce qui est fragile, gardé sous une protection", no:["Une forteresse impossible à renverser","Une porte qui s'ouvre","Une balance parfaitement équilibrée"],
+  fb:"Ce qui est fragile et protégé : al-H̱afîẕ. (La forteresse imprenable, c'est al-‘Azîz.)"},
+ {q:"Avant de partir en voyage, une sœur confie sa famille à Allah pour qu'Il la préserve. Quel nom correspond le mieux à sa demande ?", ok:30, no:[7,15,29],
+  fb:"Al-H̱afîẕ préserve et veille sur ce qu'on Lui confie."}
+],
+31: [
+ {q:"Deux personnes sont en désaccord et un jugement doit trancher entre elles. Quel nom met surtout en avant qu'Allah juge et tranche ?", ok:31, no:[4,23,32],
+  fb:"Al-H̱akam juge et tranche avec vérité. (Al-‘Adl : la justice parfaite. Al-Dayyân : la rétribution des actes.)"},
+ {q:"Quelle image t'aide à retenir ce nom ?", ok:"Une décision parfaite qui tranche entre deux côtés", no:["Une balance parfaitement équilibrée","Le Jour où chacun rend compte de ses actes","Un chemin clair au milieu de plusieurs voies"],
+  fb:"La décision qui tranche : al-H̱akam. (La balance, c'est al-‘Adl.)"},
+ {q:"Plusieurs noms se ressemblent et commencent par « al-H̱a… ». Lequel signifie « le Juge Équitable » ?", ok:31, no:[32,4,23],
+  fb:"Al-H̱akam : le Juge Équitable. Al-H̱akîm : l'Infiniment Sage."}
+],
+32: [
+ {q:"« Et c'est Lui le Puissant, le … » (sourate Al-Hashr). Quel nom complète ce verset ?", ok:32, no:[31,6,33],
+  fb:"« Wa huwa al-‘Azîzu al-H̱akîm » : le Puissant, le Sage."},
+ {q:"Plusieurs noms se ressemblent et commencent par « al-H̱a… ». Lequel désigne Celui dont la sagesse est parfaite ?", ok:32, no:[31,6,29],
+  fb:"Al-H̱akîm : l'Infiniment Sage. Al-H̱akam : le Juge Équitable."},
+ {q:"Selon l'explication d'al-‘Azîz, que montre l'association « le Puissant, le Sage » ?", ok:"Que Sa puissance n'est jamais séparée de Sa sagesse",
+  no:["Que Sa puissance passe avant Sa sagesse","Que Sa sagesse ne concerne que le savoir","Que ces deux noms ont le même sens"],
+  fb:"Quelle harmonie dans les noms d'Allah : Sa puissance va toujours avec Sa sagesse."}
+],
+33: [
+ {q:"Quelle idée correspond davantage à al-H̱alîm qu'à al-Ghafûr ?", ok:"Ne pas se hâter de punir, alors qu'Il en a la capacité",
+  no:["L'immensité du pardon","Le pardon répété encore et encore","L'effacement de la faute"],
+  fb:"Al-H̱alîm, l'Indulgent : Il ne se hâte pas de châtier malgré Sa capacité à le faire."},
+ {q:"Une personne commet une faute et n'est pas punie tout de suite : elle a encore le temps de se repentir. Quel nom cela rappelle-t-il ?", ok:33, no:[26,5,23],
+  fb:"Al-H̱alîm laisse le temps de revenir vers Lui."},
+ {q:"Plusieurs noms se ressemblent à l'oreille. Lequel signifie « le très Doux » ?", ok:33, no:[32,31,34],
+  fb:"Al-H̱alîm : le très Doux, l'Indulgent. Al-H̱akîm : l'Infiniment Sage."}
+],
+34: [
+ {q:"Quel nom désigne Celui à qui revient toute louange ?", ok:34, no:[15,24,2],
+  fb:"Al-H̱amîd : le Loué, le Digne de louange."},
+ {q:"Plusieurs noms se ressemblent et commencent par « al-H̱a… ». Lequel signifie « le Loué » ?", ok:34, no:[33,32,31],
+  fb:"Al-H̱amîd : le Loué. Al-H̱alîm : le très Doux. Al-H̱akîm : l'Infiniment Sage."},
+ {q:"Quelle formule exprime la louange (al-hamd) que nous adressons à Allah ?", ok:"Alhamdoulillah", no:["Soubhânallah","Astaghfirullah","Allâhu akbar"],
+  fb:"« Alhamdoulillah » : la louange est à Allah. Toute louange revient à al-H̱amîd."}
+],
+35: [
+ {q:"Quel nom désigne Celui dont l'existence et la vérité sont absolues ?", ok:35, no:[37,20,1],
+  fb:"Al-H̱aqq : le Vrai, la Vérité."},
+ {q:"Quelle idée correspond davantage à al-H̱aqq qu'à Al-Bâqî ?", ok:"Son existence et Sa vérité sont absolues", no:["Il demeure quand tout disparaît","Rien ne vient après Lui","Sa vie n'a ni commencement ni fin"],
+  fb:"Al-H̱aqq : la Vérité absolue. Al-Bâqî : Celui qui demeure."},
+ {q:"Plusieurs noms se ressemblent et commencent par « al-H̱a… ». Lequel signifie « la Vérité » ?", ok:35, no:[37,36,34],
+  fb:"Al-H̱aqq : la Vérité. Al-H̱ayy : le Vivant. Al-H̱asîb : Celui qui consigne toutes les œuvres."}
+],
+36: [
+ {q:"D'après la fiche, ce nom réunit deux idées. Lesquelles ?", ok:"Il suffit à Ses serviteurs et tient compte de toutes leurs œuvres",
+  no:["Il se suffit à Lui-même et n'a besoin de personne","Il juge et tranche entre deux parties","Il protège et préserve toute chose"],
+  fb:"Al-H̱asîb suffit à Ses serviteurs et tient compte de toutes leurs œuvres."},
+ {q:"Quelle est la différence entre al-H̱asîb et al-Ghaniyy ?", ok:"Al-H̱asîb suffit à Ses serviteurs ; al-Ghaniyy se suffit à Lui-même",
+  no:["Al-H̱asîb se suffit à Lui-même ; al-Ghaniyy suffit à Ses serviteurs","Les deux veulent dire exactement la même chose","Al-H̱asîb pardonne ; al-Ghaniyy donne"],
+  fb:"Al-Ghaniyy n'a besoin de personne. Al-H̱asîb nous suffit, à nous qui avons besoin de Lui."},
+ {q:"Plusieurs noms commencent par « al-H̱a… ». Lequel ton livre traduit-il par « Celui qui consigne toutes les œuvres » ?", ok:36, no:[32,34,35],
+  fb:"Al-H̱asîb : rien de nos œuvres n'est oublié."}
+],
+37: [
+ {q:"Dans Ayat al-Koursiy, quel nom d'Allah est associé à « Celui qui subsiste par Lui-même » (al-Qayyûm) ?", ok:37, no:[32,34,33],
+  fb:"« Allah ! Il n'y a de divinité que Lui, le Vivant, Celui qui subsiste par Lui-même… »"},
+ {q:"Quelle affirmation correspond le mieux à al-H̱ayy ?", ok:"Sa vie est parfaite, sans commencement ni fin", no:["Il fait revivre les morts","Il préserve toute chose","Il demeure lorsque les créatures disparaissent"],
+  fb:"Al-H̱ayy : le Vivant. (Faire revivre les morts : Al-Bâ‘ith. Préserver : al-H̱afîẕ. Demeurer : Al-Bâqî.)"},
+ {q:"Plusieurs noms se ressemblent et commencent par « al-H̱a… ». Lequel signifie « le Vivant » ?", ok:37, no:[35,36,33],
+  fb:"Al-H̱ayy : le Vivant, dont la vie est parfaite et éternelle."}
+]
+};
+
+/* ── Quiz ── */
+const label = v => typeof v==="number" ? (NAMES.find(x=>x.n===v)||{}).fr : v;
+const buildQ = (n, raw) => { const right = label(raw.ok);
+  return { n, text:raw.q, right, opts:shuffle([right, ...raw.no.map(label)]), fb:raw.fb, show: typeof raw.ok!=="number" && !raw.hide }; };
+const questionsFor = n => (QUIZ[n.n]||[]).map(r => buildQ(n, r));
+const CHEERS = ["Bravo 🌷 Bonne réponse !","Très bien 💚","Mā shā’ Allah 🤍 Bien retenu !"];
+let quiz = null;
+function startQuiz(list, title, mode, preset){
+  const pool = list.filter(n => QUIZ[n.n] && QUIZ[n.n].length);
+  const qs = preset || (mode==="one" ? questionsFor(pool[0])
+    : shuffle(pool.map(n => { const r = QUIZ[n.n]; return buildQ(n, r[Math.floor(Math.random()*r.length)]); })));
+  quiz = { qs, i:0, score:0, wrong:[], wrongQs:[], title, mode, names:list };
+  askQuestion(); openSheet();
+}
+function nameBlock(n){ return `<div class="q-name"><p class="q-ar" lang="ar" dir="rtl">${n.ar}</p><strong>${esc(n.fr)}</strong></div>`; }
+function askQuestion(){
+  const q = quiz.qs[quiz.i];
+  $("#panel").innerHTML = `<div class="quiz">
+    <div class="q-head"><span class="q-kicker">${esc(quiz.title)} · Question ${quiz.i+1} sur ${quiz.qs.length}</span>
+      <button class="close" type="button" aria-label="Fermer" data-close>✕</button></div>
+    <div class="progress" aria-hidden="true"><span style="width:${quiz.i/quiz.qs.length*100}%"></span></div>
+    ${q.show?nameBlock(q.n):""}
+    <p class="q-text q-small">${esc(q.text).replace(/ﷺ/g,'<span class="saw">ﷺ</span>')}</p>
+    <div class="opts">${q.opts.map((o,k)=>`<button class="opt" type="button" data-o="${k}">${esc(o)}</button>`).join("")}</div>
+    <div class="feedback" id="fb" aria-live="polite" hidden></div>
+    <div class="actions" id="next" hidden><button class="btn" type="button" data-next>${quiz.i===quiz.qs.length-1?"Voir mon score":"Question suivante"}</button></div>
+  </div>`;
+  $("#panel .opt").focus();
+}
+function answer(k){
+  const q = quiz.qs[quiz.i], ok = q.opts[k]===q.right;
+  document.querySelectorAll("#panel .opt").forEach((b,j) => { b.disabled = true;
+    if (q.opts[j]===q.right) b.classList.add("good"); else if (j===k) b.classList.add("bad"); });
+  const fb = $("#fb"); fb.hidden = false; fb.className = "feedback " + (ok?"good":"bad");
+  fb.innerHTML = ok
+    ? `<strong>${CHEERS[Math.floor(Math.random()*CHEERS.length)]}</strong><span>${esc(q.fb)}</span>`
+    : `<strong>Pas tout à fait 💛</strong><span>La bonne réponse est <b>${esc(q.right)}</b>.</span><span>${esc(q.fb)}</span>`;
+  if (ok) quiz.score++; else { quiz.wrongQs.push(q); if (!quiz.wrong.includes(q.n)) quiz.wrong.push(q.n); }
+  $("#next").hidden = false; $("#next button").focus();
+}
+function finish(){
+  const { score, qs, wrong, wrongQs, mode, names } = quiz, total = qs.length;
+  if (mode==="one" && score/total >= .8) { doneSet.add(names[0].id); saveDone(); }
+  const msg = score===total ? "Mā shā’ Allah 🌷 Très bien retenu !"
+    : score/total > .5 ? "Très bien 💛 Encore une petite révision et ce nom sera bien ancré."
+    : "Continue 🤍 Relis tranquillement la fiche puis réessaie.";
+  quiz.retry = wrongQs.map(q => ({...q, opts:shuffle(q.opts)}));
+  $("#panel").innerHTML = `<div class="quiz">
+    <div class="q-head"><span class="q-kicker">${esc(quiz.title)} · Résultat</span><button class="close" type="button" aria-label="Fermer" data-close>✕</button></div>
+    <div class="progress" aria-hidden="true"><span style="width:100%"></span></div>
+    <p class="score">${score} / ${total}</p><p class="score-sub">bonnes réponses</p><p class="q-text q-small">${msg}</p>
+    ${mode!=="one"&&wrong.length?`<div class="sec"><h3>Noms à revoir</h3><ul class="recap">${wrong.map(n=>`<li><span>${esc(n.fr)} · ${esc(n.sens)}</span><button type="button" data-goto="${n.id}">Voir la fiche</button></li>`).join("")}</ul></div>`:""}
+    <div class="actions"><button class="btn" type="button" data-again>Refaire le quiz</button>
+      ${mode==="one"?`<button class="btn ghost" type="button" data-goto="${names[0].id}">Revoir la fiche</button>`:""}
+      ${wrongQs.length&&score>0?`<button class="btn ghost" type="button" data-errors>Revoir seulement mes erreurs</button>`:""}</div>
+  </div>`;
+  $("#panel [data-again]").focus();
+}
+function reviseMenu(){
+  quiz = null;
+  $("#panel").innerHTML = `<div class="quiz">
+    <div class="q-head"><span class="q-kicker">Quiz de révision</span><button class="close" type="button" aria-label="Fermer" data-close>✕</button></div>
+    <p class="q-text">Que veux-tu réviser ?</p>
+    <div class="choice">
+      <div class="sec"><h3>Un seul nom</h3>
+        <select class="pick" id="pick" aria-label="Choisir un nom">${NAMES.map(n=>`<option value="${n.id}">${n.n}. ${esc(n.fr)} · ${esc(n.sens)}</option>`).join("")}</select>
+        <div class="actions"><button class="btn" type="button" data-rev="one">Réviser ce nom</button></div>
+      </div>
+      <div class="sec"><h3>Tous les noms</h3>
+        <button class="opt" type="button" data-rev="all"><strong>Tous les noms en même temps</strong><span>Une question sur chacun des ${NAMES.filter(n=>QUIZ[n.n]).length} noms, dans le désordre</span></button>
+      </div>
+    </div></div>`;
+  openSheet(); $("#pick").focus();
+}
+
+
+/* ── Carte mentale globale ── */
+const THEME_COL = {"Miséricorde/Amour":"#B5706D","Puissance/Majesté":"#6E5848","Science/Sagesse":"#52707C","Protection/Sécurité":"#6F7A5A","Justice/Droiture":"#8A4632","Création/Origine":"#A88342"};
+function mapView(){
+  quiz = null; current = -1;
+  const box = t => { const list = NAMES.filter(n=>n.theme===t); if(!list.length) return "";
+    return `<section class="mm-box" style="--tc:${THEME_COL[t]||"var(--accent)"}"><h4>${esc(t.replace("/"," · "))}<span>${list.length}</span></h4>
+      <ul>${list.map(n=>`<li><button type="button" data-mm="${n.id}"><span class="mm-n">${n.n}</span><span class="mm-fr">${esc(n.fr)}</span><span class="mm-ar" lang="ar" dir="rtl">${n.ar}</span><span class="mm-s">${esc(n.sens)}</span></button></li>`).join("")}</ul></section>`; };
+  const used = THEMES.filter(t=>NAMES.some(n=>n.theme===t));
+  const top = used.slice(0, Math.ceil(used.length/2)), bot = used.slice(Math.ceil(used.length/2));
+  $("#panel").classList.add("wide");
+  $("#panel").innerHTML = `<div class="mmap">
+    <div class="q-head"><span class="q-kicker">Carte mentale</span><button class="close" type="button" aria-label="Fermer" data-close>✕</button></div>
+    <p class="mm-hint">Appuie sur un nom pour voir sa courte explication.</p>
+    <div class="mm-row">${top.map(box).join("")}</div>
+    <div class="mm-center"><span lang="ar" dir="rtl">ٱللَّه</span><b>Les noms d'Allah</b><small>${NAMES.length} noms appris · classés par thème</small></div>
+    <div class="mm-row">${bot.map(box).join("")}</div>
+    <div class="mm-info" id="mminfo" hidden></div></div>`;
+  openSheet();
+}
+function mapInfo(id){
+  const n = NAMES.find(x=>x.id===id);
+  document.querySelectorAll("[data-mm]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mm===id));
+  const el = $("#mminfo"); el.hidden = false;
+  el.innerHTML = `<button class="close" type="button" aria-label="Fermer l'explication" data-mmclose>✕</button>
+    <p class="mm-i-ar" lang="ar" dir="rtl">${n.ar}</p><strong>${n.n}. ${esc(n.fr)}</strong><p class="mm-i-s">${esc(n.sens)}</p>
+    <p>${esc(n.detail)}</p>${n.memo?`<p class="mm-i-m">${esc(n.memo)}</p>`:""}
+    <button class="btn" type="button" data-goto="${n.id}">Voir la fiche complète</button>`;
+}
+$("#mapbtn").addEventListener("click", e => { lastFocus = e.currentTarget; mapView(); });
+
+/* ── Invoquer avec ce Nom ── */
+const mark = (txt, w) => w ? txt.split(w).join(`<mark class="hl">${w}</mark>`) : txt;
+function duaView(n, tab){
+  const auth = DUA_AUTH[n.n] || [], prop = DUA_PROP[n.n], soeur = DUAS[n.n] && DUAS[n.n].soeur;
+  const authHTML = auth.length ? auth.map(([k,ha,hf],i) => { const d = DUA_SRC[k];
+      return `<section class="dua-card">${auth.length>1?`<h4>Invocation authentique ${i+1}</h4>`:""}
+        <span class="dua-tag ${d.quran?"q":"s"}">${d.quran?"Texte du Coran":"Sunna authentique"}</span>
+        <p class="dua-ar" lang="ar" dir="rtl">${mark(d.ar, ha)}</p>
+        <p class="dua-fr">${mark(esc(d.fr).replace(/ﷺ/g,'<span class="saw">ﷺ</span>'), esc(hf))}</p>
+        ${d.ctx?`<p class="dua-ctx">${esc(d.ctx).replace(/ﷺ/g,'<span class="saw">ﷺ</span>')}</p>`:""}
+        <p class="dua-src"><b>Source :</b> ${esc(d.src)}${d.grade?` · ${esc(d.grade)}`:""}</p></section>`; }).join("")
+    : `<div class="dua-none"><p>Aucune invocation spécifique authentique contenant ce Nom n'a été retenue dans les sources vérifiées.</p>
+       <button class="btn ghost" type="button" data-dtab="prop">Voir l'invocation proposée</button></div>`;
+  const propHTML = `<section class="dua-card prop"><span class="dua-tag p">Invocation proposée</span>
+      <p class="dua-fr big">« ${esc(prop||"")} »</p>
+      <p class="dua-ctx">Proposition d'invocation inspirée du sens de ce Nom. Ce n'est ni un verset, ni un hadith.</p></section>
+    ${soeur?`<section class="dua-card prop"><span class="dua-tag p">Invocation de l'explication</span><div class="expli">${para(soeur)}</div>
+      <p class="dua-ctx">Invocation rédigée dans l'explication de ce Nom. Ce n'est ni un verset, ni un hadith.</p></section>`:""}`;
+  const t = tab || "auth";
+  $("#dpanel").innerHTML = `<div class="dua-in">
+    <div class="q-head"><span class="q-kicker">🤲 Invoquer avec ce Nom</span><button class="close" type="button" aria-label="Fermer" data-dclose>✕</button></div>
+    <div class="dua-head"><p class="q-ar" lang="ar" dir="rtl">${n.ar}</p><strong>${esc(n.fr)}</strong><span>${esc(n.sens)}</span></div>
+    <div class="dtabs" role="tablist">
+      <button type="button" role="tab" aria-selected="${t==="auth"}" data-dtab="auth">Invocation authentique</button>
+      <button type="button" role="tab" aria-selected="${t==="prop"}" data-dtab="prop">Invocation proposée</button></div>
+    <div class="dtab-body" role="tabpanel">${t==="auth"?authHTML:propHTML}</div></div>`;
+  $("#dsheet").hidden = false; duaCur = n;
+  $("#dpanel [aria-selected=true]").focus();
+}
+let duaCur = null;
+function closeDua(){ $("#dsheet").hidden = true; duaCur = null; const b = $("#panel [data-dua]"); b && b.focus(); }
+$("#dsheet").addEventListener("click", e => {
+  const t = e.target;
+  if (t.id==="dsheet" || t.closest("[data-dclose]")) return closeDua();
+  const tb = t.closest("[data-dtab]"); if (tb) return duaView(duaCur, tb.dataset.dtab);
+});
+/* ── Événements ── */
+$("#chips").addEventListener("click", e => { const b = e.target.closest(".chip"); if(!b) return; theme = b.dataset.t; chips(); render(); });
+$("#q").addEventListener("input", render);
+$("#grid").addEventListener("click", e => { const c = e.target.closest(".card"); if(!c) return; lastFocus = c; fiche(+c.dataset.i); });
+$("#revise").addEventListener("click", e => { lastFocus = e.currentTarget; reviseMenu(); });
+$("#sheet").addEventListener("click", e => {
+  const t = e.target;
+  if (t.id==="sheet" || t.closest("[data-close]")) return closeSheet();
+  const s = t.closest("[data-step]"); if (s && !s.disabled) return fiche(current + +s.dataset.step);
+  if (t.closest("[data-dua]")) { const n = visible[current]; return duaView(n, "auth"); }
+  if (t.closest("[data-quiz]")) { const n = visible[current]; return startQuiz([n], n.fr, "one"); }
+  const o = t.closest("[data-o]"); if (o && !o.disabled) return answer(+o.dataset.o);
+  if (t.closest("[data-next]")) { quiz.i++; return quiz.i<quiz.qs.length ? askQuestion() : finish(); }
+  if (t.closest("[data-again]")) return startQuiz(quiz.names, quiz.title, quiz.mode);
+  if (t.closest("[data-errors]")) return startQuiz(quiz.names, quiz.title + " · Mes erreurs", quiz.mode, quiz.retry);
+  const r = t.closest("[data-rev]"); if (r) {
+    if (r.dataset.rev==="one") { const n = NAMES.find(x=>x.id===$("#pick").value); return startQuiz([n], "Révision · "+n.fr, "one"); }
+    return startQuiz(NAMES, "Révision de tous les noms", "all"); }
+  const mm = t.closest("[data-mm]"); if (mm) return mapInfo(mm.dataset.mm);
+  if (t.closest("[data-mmclose]")) { $("#mminfo").hidden = true; return; }
+  const g = t.closest("[data-goto]"); if (g) { $("#panel").classList.remove("wide"); return ficheOf(NAMES.find(n=>n.id===g.dataset.goto)); }
+});
+document.addEventListener("keydown", e => {
+  if (!$("#dsheet").hidden) { if (e.key==="Escape") closeDua(); return; }
+  if ($("#sheet").hidden) return;
+  if (e.key==="Escape") return closeSheet();
+  if (quiz || current<0) return;
+  if (e.key==="ArrowRight" && current<visible.length-1) fiche(current+1);
+  if (e.key==="ArrowLeft" && current>0) fiche(current-1);
+});
+chips(); render();
+$("#general").innerHTML = GENERAL.map(v=>`<a class="vid" href="${esc(v.url)}" target="_blank" rel="noopener"><span class="play">${playIcon}</span><span><strong>${esc(v.titre)}</strong><small>${esc(v.chaine)} · YouTube</small></span></a>`).join("");
+const h = location.hash.slice(1); const hi = visible.findIndex(n=>n.id===h); if (hi>=0) fiche(hi);
+</script>
+
+</body>
+</html>
